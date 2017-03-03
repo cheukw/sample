@@ -30,4 +30,5 @@
 
 # VS files
 *.VC.db
+*.VC.opendb
 .suo
