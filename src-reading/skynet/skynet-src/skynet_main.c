@@ -108,10 +108,10 @@ main(int argc, char *argv[]) {
 	}
 
 	luaS_initshr();
-	skynet_globalinit();
+	skynet_globalinit(); // mainthread ≥ı ºªØ
 	skynet_env_init();
 
-	sigign();
+	sigign(); // ∆¡±ŒSIGPIPE–≈∫≈
 
 	struct skynet_config config;
 
