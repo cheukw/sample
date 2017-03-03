@@ -1,0 +1,315 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="源文件">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="头文件">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="资源文件">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\adlist.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ae.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ae_epoll.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ae_evport.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ae_kqueue.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ae_select.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\anet.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\aof.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\bio.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\bitops.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\blocked.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\cluster.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\config.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\crc16.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\crc64.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\db.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\debug.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\dict.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\endianconv.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\geo.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\hyperloglog.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\intset.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\latency.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lzf_c.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lzf_d.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\memtest.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\multi.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\networking.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\notify.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\object.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\pqsort.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\pubsub.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\quicklist.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\rand.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\rdb.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\redis-benchmark.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\redis-check-aof.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\redis-check-rdb.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\redis-cli.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\release.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\replication.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\rio.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\scripting.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\sds.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\sentinel.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\server.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\setproctitle.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\sha1.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\slowlog.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\sort.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\sparkline.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\syncio.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\t_hash.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\t_list.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\t_set.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\t_string.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\t_zset.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\util.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ziplist.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\zipmap.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\zmalloc.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\adlist.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ae.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\anet.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\asciilogo.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\bio.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\cluster.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\config.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\crc64.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\debugmacro.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\dict.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\endianconv.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\fmacros.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\geo.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\help.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\intset.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\latency.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\lzf.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\lzfP.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\pqsort.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\quicklist.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\rand.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\rdb.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\redisassert.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\rio.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\sds.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\sdsalloc.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\server.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\sha1.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\slowlog.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\solarisfixes.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\sparkline.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\testhelp.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\util.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\version.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ziplist.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\zipmap.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\zmalloc.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

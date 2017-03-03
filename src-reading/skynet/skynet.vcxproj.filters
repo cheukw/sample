@@ -1,0 +1,150 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="service-src">
+      <UniqueIdentifier>{58dcbf0a-4317-462e-9076-a0ee4db1f2cc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="skynet-src">
+      <UniqueIdentifier>{2f0effde-7fe1-4f92-9000-78a34702be54}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="service-src\databuffer.h">
+      <Filter>service-src</Filter>
+    </ClInclude>
+    <ClInclude Include="service-src\hashid.h">
+      <Filter>service-src</Filter>
+    </ClInclude>
+    <ClInclude Include="skynet-src\atomic.h">
+      <Filter>skynet-src</Filter>
+    </ClInclude>
+    <ClInclude Include="skynet-src\luashrtbl.h">
+      <Filter>skynet-src</Filter>
+    </ClInclude>
+    <ClInclude Include="skynet-src\malloc_hook.h">
+      <Filter>skynet-src</Filter>
+    </ClInclude>
+    <ClInclude Include="skynet-src\rwlock.h">
+      <Filter>skynet-src</Filter>
+    </ClInclude>
+    <ClInclude Include="skynet-src\skynet.h">
+      <Filter>skynet-src</Filter>
+    </ClInclude>
+    <ClInclude Include="skynet-src\skynet_daemon.h">
+      <Filter>skynet-src</Filter>
+    </ClInclude>
+    <ClInclude Include="skynet-src\skynet_env.h">
+      <Filter>skynet-src</Filter>
+    </ClInclude>
+    <ClInclude Include="skynet-src\skynet_handle.h">
+      <Filter>skynet-src</Filter>
+    </ClInclude>
+    <ClInclude Include="skynet-src\skynet_harbor.h">
+      <Filter>skynet-src</Filter>
+    </ClInclude>
+    <ClInclude Include="skynet-src\skynet_imp.h">
+      <Filter>skynet-src</Filter>
+    </ClInclude>
+    <ClInclude Include="skynet-src\skynet_log.h">
+      <Filter>skynet-src</Filter>
+    </ClInclude>
+    <ClInclude Include="skynet-src\skynet_malloc.h">
+      <Filter>skynet-src</Filter>
+    </ClInclude>
+    <ClInclude Include="skynet-src\skynet_module.h">
+      <Filter>skynet-src</Filter>
+    </ClInclude>
+    <ClInclude Include="skynet-src\skynet_monitor.h">
+      <Filter>skynet-src</Filter>
+    </ClInclude>
+    <ClInclude Include="skynet-src\skynet_mq.h">
+      <Filter>skynet-src</Filter>
+    </ClInclude>
+    <ClInclude Include="skynet-src\skynet_server.h">
+      <Filter>skynet-src</Filter>
+    </ClInclude>
+    <ClInclude Include="skynet-src\skynet_socket.h">
+      <Filter>skynet-src</Filter>
+    </ClInclude>
+    <ClInclude Include="skynet-src\skynet_timer.h">
+      <Filter>skynet-src</Filter>
+    </ClInclude>
+    <ClInclude Include="skynet-src\socket_epoll.h">
+      <Filter>skynet-src</Filter>
+    </ClInclude>
+    <ClInclude Include="skynet-src\socket_kqueue.h">
+      <Filter>skynet-src</Filter>
+    </ClInclude>
+    <ClInclude Include="skynet-src\socket_poll.h">
+      <Filter>skynet-src</Filter>
+    </ClInclude>
+    <ClInclude Include="skynet-src\socket_server.h">
+      <Filter>skynet-src</Filter>
+    </ClInclude>
+    <ClInclude Include="skynet-src\spinlock.h">
+      <Filter>skynet-src</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="service-src\service_gate.c">
+      <Filter>service-src</Filter>
+    </ClCompile>
+    <ClCompile Include="service-src\service_harbor.c">
+      <Filter>service-src</Filter>
+    </ClCompile>
+    <ClCompile Include="service-src\service_logger.c">
+      <Filter>service-src</Filter>
+    </ClCompile>
+    <ClCompile Include="service-src\service_snlua.c">
+      <Filter>service-src</Filter>
+    </ClCompile>
+    <ClCompile Include="skynet-src\malloc_hook.c">
+      <Filter>skynet-src</Filter>
+    </ClCompile>
+    <ClCompile Include="skynet-src\skynet_daemon.c">
+      <Filter>skynet-src</Filter>
+    </ClCompile>
+    <ClCompile Include="skynet-src\skynet_env.c">
+      <Filter>skynet-src</Filter>
+    </ClCompile>
+    <ClCompile Include="skynet-src\skynet_error.c">
+      <Filter>skynet-src</Filter>
+    </ClCompile>
+    <ClCompile Include="skynet-src\skynet_handle.c">
+      <Filter>skynet-src</Filter>
+    </ClCompile>
+    <ClCompile Include="skynet-src\skynet_harbor.c">
+      <Filter>skynet-src</Filter>
+    </ClCompile>
+    <ClCompile Include="skynet-src\skynet_log.c">
+      <Filter>skynet-src</Filter>
+    </ClCompile>
+    <ClCompile Include="skynet-src\skynet_main.c">
+      <Filter>skynet-src</Filter>
+    </ClCompile>
+    <ClCompile Include="skynet-src\skynet_module.c">
+      <Filter>skynet-src</Filter>
+    </ClCompile>
+    <ClCompile Include="skynet-src\skynet_monitor.c">
+      <Filter>skynet-src</Filter>
+    </ClCompile>
+    <ClCompile Include="skynet-src\skynet_mq.c">
+      <Filter>skynet-src</Filter>
+    </ClCompile>
+    <ClCompile Include="skynet-src\skynet_server.c">
+      <Filter>skynet-src</Filter>
+    </ClCompile>
+    <ClCompile Include="skynet-src\skynet_socket.c">
+      <Filter>skynet-src</Filter>
+    </ClCompile>
+    <ClCompile Include="skynet-src\skynet_start.c">
+      <Filter>skynet-src</Filter>
+    </ClCompile>
+    <ClCompile Include="skynet-src\skynet_timer.c">
+      <Filter>skynet-src</Filter>
+    </ClCompile>
+    <ClCompile Include="skynet-src\socket_server.c">
+      <Filter>skynet-src</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
