@@ -8,6 +8,10 @@
 #include <stdlib.h>
 #include <assert.h>
 
+/*
+ * 环境变量
+ * 
+ */
 struct skynet_env {
 	struct spinlock lock;
 	lua_State *L;

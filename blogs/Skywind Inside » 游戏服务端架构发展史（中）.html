@@ -1,0 +1,991 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<!-- saved from url=(0040)http://www.skywind.me/blog/archives/1301 -->
+<html xmlns="http://www.w3.org/1999/xhtml"><head profile="http://gmpg.org/xfn/11"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	
+	<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7">
+
+	<title>Skywind Inside » 游戏服务端架构发展史（中）</title>
+	<link rel="alternate" type="application/rss+xml" title="RSS 2.0 - all posts" href="http://www.skywind.me/blog/feed">
+	<link rel="alternate" type="application/rss+xml" title="RSS 2.0 - all comments" href="http://www.skywind.me/blog/comments/feed">
+	<link rel="pingback" href="http://www.skywind.me/blog/xmlrpc.php">
+
+	<!-- style START -->
+	<!-- default style -->
+	<style type="text/css" media="screen">@import url( http://www.skywind.me/blog/wp-content/themes/inove/style.css );</style>
+	<!-- for translations -->
+		<!--[if IE]>
+		<link rel="stylesheet" href="http://www.skywind.me/blog/wp-content/themes/inove/ie.css" type="text/css" media="screen" />
+	<![endif]-->
+	<!-- style END -->
+
+	<!-- script START -->
+	<script type="text/javascript" src="./Skywind Inside » 游戏服务端架构发展史（中）_files/base.js.下载"></script>
+	<script type="text/javascript" src="./Skywind Inside » 游戏服务端架构发展史（中）_files/menu.js.下载"></script>
+	<!-- script END -->
+
+	<link rel="alternate" type="application/rss+xml" title="Skywind Inside » 游戏服务端架构发展史（中） Comments Feed" href="http://www.skywind.me/blog/archives/1301/feed">
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/72x72\/","ext":".png","source":{"concatemoji":"http:\/\/www.skywind.me\/blog\/wp-includes\/js\/wp-emoji-release.min.js?ver=4.5.3"}};
+			!function(a,b,c){function d(a){var c,d,e,f=b.createElement("canvas"),g=f.getContext&&f.getContext("2d"),h=String.fromCharCode;if(!g||!g.fillText)return!1;switch(g.textBaseline="top",g.font="600 32px Arial",a){case"flag":return g.fillText(h(55356,56806,55356,56826),0,0),f.toDataURL().length>3e3;case"diversity":return g.fillText(h(55356,57221),0,0),c=g.getImageData(16,16,1,1).data,d=c[0]+","+c[1]+","+c[2]+","+c[3],g.fillText(h(55356,57221,55356,57343),0,0),c=g.getImageData(16,16,1,1).data,e=c[0]+","+c[1]+","+c[2]+","+c[3],d!==e;case"simple":return g.fillText(h(55357,56835),0,0),0!==g.getImageData(16,16,1,1).data[0];case"unicode8":return g.fillText(h(55356,57135),0,0),0!==g.getImageData(16,16,1,1).data[0]}return!1}function e(a){var c=b.createElement("script");c.src=a,c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var f,g,h,i;for(i=Array("simple","flag","unicode8","diversity"),c.supports={everything:!0,everythingExceptFlag:!0},h=0;h<i.length;h++)c.supports[i[h]]=d(i[h]),c.supports.everything=c.supports.everything&&c.supports[i[h]],"flag"!==i[h]&&(c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&c.supports[i[h]]);c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&!c.supports.flag,c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.everything||(g=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",g,!1),a.addEventListener("load",g,!1)):(a.attachEvent("onload",g),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),f=c.source||{},f.concatemoji?e(f.concatemoji):f.wpemoji&&f.twemoji&&(e(f.twemoji),e(f.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script><script src="./Skywind Inside » 游戏服务端架构发展史（中）_files/wp-emoji-release.min.js.下载" type="text/javascript"></script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+<script type="text/javascript" src="./Skywind Inside » 游戏服务端架构发展史（中）_files/jquery.js.下载"></script><script>jQueryWP = jQuery;</script>
+<script type="text/javascript" src="./Skywind Inside » 游戏服务端架构发展史（中）_files/jquery-migrate.min.js.下载"></script>
+<link rel="https://api.w.org/" href="http://www.skywind.me/blog/wp-json/">
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://www.skywind.me/blog/xmlrpc.php?rsd">
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://www.skywind.me/blog/wp-includes/wlwmanifest.xml"> 
+<link rel="prev" title="游戏服务端架构发展史（上）" href="http://www.skywind.me/blog/archives/1265">
+<link rel="next" title="计算机图形算法中的光滑边缘算法经历了那些变迁？" href="http://www.skywind.me/blog/archives/1541">
+<meta name="generator" content="WordPress 4.5.3">
+<link rel="canonical" href="http://www.skywind.me/blog/archives/1301">
+<link rel="shortlink" href="http://www.skywind.me/blog/?p=1301">
+<link rel="alternate" type="application/json+oembed" href="http://www.skywind.me/blog/wp-json/oembed/1.0/embed?url=http%3A%2F%2Fwww.skywind.me%2Fblog%2Farchives%2F1301">
+<link rel="alternate" type="text/xml+oembed" href="http://www.skywind.me/blog/wp-json/oembed/1.0/embed?url=http%3A%2F%2Fwww.skywind.me%2Fblog%2Farchives%2F1301&amp;format=xml">
+		<style type="text/css">.recentcomments a{display:inline !important;padding:0 !important;margin:0 !important;}</style>
+		<link rel="stylesheet" type="text/css" href="./Skywind Inside » 游戏服务端架构发展史（中）_files/shCore.css"><link rel="stylesheet" type="text/css" href="./Skywind Inside » 游戏服务端架构发展史（中）_files/shThemeDefault.css"><style type="text/css" id="syntaxhighlighteranchor"></style>
+</head>
+
+
+<body>
+<!-- wrap START -->
+<div id="wrap">
+
+<!-- container START -->
+<div id="container">
+
+<!-- header START -->
+<div id="header">
+
+	<!-- banner START -->
+		<!-- banner END -->
+
+	<div id="caption">
+		<h1 id="title"><a href="http://www.skywind.me/blog/">Skywind Inside</a></h1>
+		<div id="tagline">写自己的代码，让别人猜去吧</div>
+	</div>
+
+	<div class="fixed"></div>
+</div>
+<!-- header END -->
+
+<!-- navigation START -->
+<div id="navigation">
+	<!-- menus START -->
+	<ul id="menus">
+		<li class="page_item"><a class="home" title="Home" href="http://www.skywind.me/blog/">Home</a></li>
+		<li class="page_item page-item-11"><a href="http://www.skywind.me/blog/topics/life">大浪淘沙</a></li>
+<li class="page_item page-item-16"><a href="http://www.skywind.me/blog/topics/program">编程技术</a></li>
+<li class="page_item page-item-18"><a href="http://www.skywind.me/blog/topics/gamedev">游戏开发</a></li>
+<li class="page_item page-item-21"><a href="http://www.skywind.me/blog/topics/network">网络编程</a></li>
+<li class="page_item page-item-23"><a href="http://www.skywind.me/blog/topics/graphics">图形编程</a></li>
+<li class="page_item page-item-25"><a href="http://www.skywind.me/blog/topics/ai">AI</a></li>
+<li class="page_item page-item-30"><a href="http://www.skywind.me/blog/topics/compile">编译</a></li>
+<li class="page_item page-item-32"><a href="http://www.skywind.me/blog/topics/casual">随笔</a></li>
+<li class="page_item page-item-146"><a href="http://www.skywind.me/blog/guest">关于</a></li>
+		<li><a class="lastmenu" href="javascript:void(0);"></a></li>
+	</ul>
+	<!-- menus END -->
+
+	<!-- searchbox START -->
+	<div id="searchbox">
+					<form action="http://www.skywind.me/blog" method="get">
+				<div class="content">
+					<input type="text" class="textfield searchtip" name="s" size="24" value="">
+					<input type="submit" class="button" value="">
+				</div>
+			</form>
+			</div>
+<script type="text/javascript">
+//<![CDATA[
+	var searchbox = MGJS.$("searchbox");
+	var searchtxt = MGJS.getElementsByClassName("textfield", "input", searchbox)[0];
+	var searchbtn = MGJS.getElementsByClassName("button", "input", searchbox)[0];
+	var tiptext = "Type text to search here...";
+	if(searchtxt.value == "" || searchtxt.value == tiptext) {
+		searchtxt.className += " searchtip";
+		searchtxt.value = tiptext;
+	}
+	searchtxt.onfocus = function(e) {
+		if(searchtxt.value == tiptext) {
+			searchtxt.value = "";
+			searchtxt.className = searchtxt.className.replace(" searchtip", "");
+		}
+	}
+	searchtxt.onblur = function(e) {
+		if(searchtxt.value == "") {
+			searchtxt.className += " searchtip";
+			searchtxt.value = tiptext;
+		}
+	}
+	searchbtn.onclick = function(e) {
+		if(searchtxt.value == "" || searchtxt.value == tiptext) {
+			return false;
+		}
+	}
+//]]>
+</script>
+	<!-- searchbox END -->
+
+	<div class="fixed"></div>
+</div>
+<!-- navigation END -->
+
+<!-- content START -->
+<div id="content">
+
+	<!-- main START -->
+	<div id="main">
+
+
+	<div id="postpath">
+		<a title="Go to homepage" href="http://www.skywind.me/blog/">Home</a>
+		 &gt; <a href="http://www.skywind.me/blog/topics/gamedev" rel="category tag">游戏开发</a>, <a href="http://www.skywind.me/blog/topics/network" rel="category tag">网络编程</a>		 &gt; 游戏服务端架构发展史（中）	</div>
+
+	<div class="post" id="post-1301">
+		<h2>游戏服务端架构发展史（中）</h2>
+		<div class="info">
+			<span class="date">April 26th, 2015</span>
+			<span class="author"><a href="http://www.skywind.me/blog/archives/author/skywind" title="Posts by skywind" rel="author">skywind</a></span>										<span class="addcomment"><a href="http://www.skywind.me/blog/archives/1301#respond">Leave a comment</a></span>
+				<span class="comments"><a href="http://www.skywind.me/blog/archives/1301#comments">Go to comments</a></span>
+						<div class="fixed"></div>
+		</div>
+		<div class="content">
+			<p>《游戏服务端发展史》转载请著名出处：<a title="http://www.skywind.me/blog/archives/1301" href="http://www.skywind.me/blog/archives/1301">http://www.skywind.me/blog/archives/1301</a></p>
+<p><strong>类型4：第三代游戏服务器 2007</strong></p>
+<p>从魔兽世界开始无缝世界地图已经深入人心，比较以往游戏玩家走个几步还需要切换场景，每次切换就要等待 LOADING个几十秒是一件十分破坏游戏体验的事情。于是对于 2005年以后的大型 MMORPG来说，无缝地图已成为一个标准配置。比较以往按照地图来切割游戏而言，无缝世界并不存在一块地图上面的人有且只由一台服务器处理了：</p>
+<p><a href="http://www.skywind.me/blog/wp-content/uploads/2015/04/image28.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border-width: 0px;" title="image" src="./Skywind Inside » 游戏服务端架构发展史（中）_files/image_thumb29.png" alt="image" width="463" height="204" border="0"></a></p>
+<p><span id="more-1301"></span></p>
+<p>每台 Node服务器用来管理一块地图区域，由 NodeMaster（NM）来为他们提供总体管理。更高层次的 World则提供大陆级别的管理服务。这里省略若干细节服务器，比如传统数据库前端，登录服务器，日志和监控等，统统用 ADMIN概括。在这样的结构下，玩家从一块区域走向另外一块区域需要简单处理一下：</p>
+<p><a href="http://www.skywind.me/blog/wp-content/uploads/2015/04/image29.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border-width: 0px;" title="image" src="./Skywind Inside » 游戏服务端架构发展史（中）_files/image_thumb30.png" alt="image" width="424" height="316" border="0"></a></p>
+<p>玩家1完全由节点A控制，玩家3完全由节点B控制。而处在两个节点边缘的2号玩家，则同时由A和B提供服务。玩家2从A移动到B的过程中，会同时向A请求左边的情况，并向B请求右边的情况。但是此时玩家2还是属于A管理。直到玩家2彻底离开AB边界很远，才彻底交由B管理。按照这样的逻辑将世界地图分割为一块一块的区域，交由不同的 Node去管理。</p>
+<p>对于一个 Node所负责的区域，地理上没必要连接在一起，比如大陆的四周边缘部分和高山部分的区块人比较少，可以统一交给一个Node去管理，而这些区块在地理上并没有联系在一起的必要性。一个 Node到底管理哪些区块，可以根据游戏实时运行的负载情况，定时维护的时候进行更改 NodeMaster 上面的配置。</p>
+<p>于是碰到第一个问题是很多 Node服务器需要和玩家进行通信，需要问管理服务器特定UID为多少的玩家到底在哪台 Gate上，以前按场景切割的服务器这个问题不大，问了一次以后就可以缓存起来了，但是现在服务器种类增加不少，玩家又会飘来飘去，按UID查找玩家比较麻烦；另外一方面 GATE需要动态根据坐标计算和哪些 Node通信，导致逻辑越来越厚，于是把：“用户对象”从负责连接管理的 GATE中切割出来势在必行于是有了下面的模型：</p>
+<p><a href="http://www.skywind.me/blog/wp-content/uploads/2015/04/image31.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border-width: 0px;" title="image" src="./Skywind Inside » 游戏服务端架构发展史（中）_files/image_thumb32.png" alt="image" width="464" height="304" border="0"></a></p>
+<p>网关服务器再次退回到精简的网络转发功能，而用户逻辑则由按照 UID划分的 OBJ服务器来承担，GATE是按照网络接入时的负载来分布，而 OBJ则是按照资源的编号（UID）来分布，这样和一个用户通信直接根据 UID计算出 OBJ服务器编号发送数据即可。而新独立出来的 OBJ则提供了更多高层次的服务：</p>
+<ul>
+<li>对象移动：管理具体玩家在不同的 Node所管辖的区域之间的移动，并同需要的 Node进行沟通。</li>
+<li>数据广播：Node可以给每个用户设置若干 TAG，然后通知 Object Master 按照TAG广播。</li>
+<li>对象消息：通用消息推送，给某个用户发送数据，直接告诉 OBJ，不需要直接和 GATE打交道。</li>
+<li>好友聊天：角色之间聊天直接走 OBJ/OBJ MASTER。</li>
+</ul>
+<p>整个服务器主体分为三层以后，NODE专注场景，OBJ专注玩家对象，GATE专注网络。这样的模型在无缝场景服务器中得到广泛的应用。但是随着时间的推移，负载问题也越来越明显，做个活动，远来不活跃的区域变得十分活跃，靠每周维护来调整还是比较笨重的，于是有了动态负载均衡。</p>
+<p>动态负载均衡有两种方法，第一种是按照负载，由 Node Master 定时动态移动修改一下各个 Node的边界，而不同的玩家对象按照先前的方法从一台 Node上迁移到另外一台 Node上：</p>
+<p><a href="http://www.skywind.me/blog/wp-content/uploads/2015/04/image33.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border-width: 0px;" title="image" src="./Skywind Inside » 游戏服务端架构发展史（中）_files/image_thumb34.png" alt="image" width="162" height="181" border="0"></a></p>
+<p>图11 动态负载均衡</p>
+<p>这样 Node Master定时查找地图上的热点区域，计算新的场景切割方式，然后告诉其他服务器开始调整，具体处理方式还是和上面对象跨越边界移动的方法一样。</p>
+<p>但是上面这种方式实现相对复杂一些，于是人们设计出了更为简单直接的一种新方法：</p>
+<p><a href="http://www.skywind.me/blog/wp-content/uploads/2015/04/image30.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border-width: 0px;" title="image" src="./Skywind Inside » 游戏服务端架构发展史（中）_files/image_thumb31.png" alt="image" width="240" height="239" border="0"></a></p>
+<p>图12 基于网格的动态负载均衡</p>
+<p>还是将地图按照标准尺寸均匀切割成静态的网格，每个格子由一个具体的Node负责，但是根据负载情况，能够实时的迁移到其他 Node上。在迁移分为三个阶段：准备，切换，完成。三个状态由Node Master负责维护。准备阶段新的 Node开始同步老 Node上面该网格的数据，完成后告诉NM；NM确认OK后同时通知新旧 Node完成切换。完成切换后，如果 Obj服务器还在和老的 Node进行通信，老的 Node将会对它进行纠正，得到纠正的 OBJ将修正自己的状态，和新的 Node进行通信。</p>
+<p>很多无缝动态负载均衡的服务端宣称自己支持无限的人数，但不意味着 MMORPG游戏的人数上限真的可以无限扩充，因为这样的体系会受制于网络带宽和客户端性能。带宽决定了同一个区域最大广播上限，而客户端性能决定了同一个屏幕到底可以绘制多少个角色。</p>
+<p>从无缝地图引入了分布式对象模型开始，已经完全脱离 MUDOS体系，成为一种新的服务端模型。又由于动态负载均衡的引入，让无缝服务器如虎添翼，容纳着超过上一代游戏服务器数倍的人数上限，并提供了更好的游戏体验，我们称其为第三代游戏服务端架构。网游以大型多人角色扮演为开端，RPG网游在相当长的时间里一度占据90%以上，使得基于 MMORPG的服务端架构得到了蓬勃的发展，然而随着玩家对RPG的疲惫，各种非MMORPG 游戏如雨后春笋般的出现在人们眼前，受到市场的欢迎。</p>
+<p>&nbsp;</p>
+<p><strong>类型5：战网游戏服务器</strong></p>
+<p>经典战网服务端和 RPG游戏有两个区别：RPG是分区分服的，北京区的用户和广州区的用户老死不相往来。而战网，虽然每局游戏一般都是 8人以内，但全国只有一套服务器，所有的玩家都可以在一起游戏，而玩家和玩家之使用 P2P的方式连接在一起，组成一局游戏：</p>
+<p><a href="http://www.skywind.me/blog/wp-content/uploads/2015/04/image35.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border-width: 0px;" title="image" src="./Skywind Inside » 游戏服务端架构发展史（中）_files/image_thumb36.png" alt="image" width="469" height="334" border="0"></a></p>
+<p>玩家通过 Match Making 服务器使用：创建、加入、自动匹配、邀请 等方式组成一局游戏。服务器会选择一个人做 Host，其他人 P2P连接到做主的玩家上来。STUN是帮助玩家之间建立 P2P的牵引服务器，而由于 P2P联通情况大概只有 75%，实在联不通的玩家会通过 Forward进行转发。</p>
+<p>大量的连接对战，体育竞技游戏采用类似的结构。P2P有网状模型（所有玩家互相连接），和星状模型（所有玩家连接一个主玩家）。复杂的游戏状态在网状模型下难以形成一致，因此星状P2P模型经受住了历史的考验。除去游戏数据，支持语音的战网系统也会将所有人的语音数据发送到做主的那个玩家机器上，通过混音去重再编码的方式返回给所有用户。</p>
+<p>战网类游戏，以竞技、体育、动作等类型的游戏为主，较慢节奏的 RPG（包括ARPG）有本质上的区别，而激烈的游戏过程必然带来到较 RPG复杂的多的同步策略，这样的同步机制往往带来的是很多游戏结果由客户端直接计算得出，那在到处都是破解的今天，如何保证游戏结果的公正呢？</p>
+<p>主要方法就是投票法，所有客户端都会独立计算，然后传递给服务器。如果结果相同就更新记录，如果结果不一致，会采取类似投票的方式确定最终结果。同时记录本剧游戏的所有输入，在可能的情况下，找另外闲散的游戏客户端验算整局游戏是否为该结果。并且记录经常有作弊嫌疑的用户，供运营人员封号时参考。</p>
+<p><strong>类型6：休闲游戏服务器</strong></p>
+<p>休闲游戏同战网服务器类似，都是全区架构，不同的是有房间服务器，还有具体的游戏服务器，游戏主体不再以玩家 P2P进行，而是连接到专门的游戏服务器处理：</p>
+<p><a href="http://www.skywind.me/blog/wp-content/uploads/2015/04/image36.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border-width: 0px;" title="image" src="./Skywind Inside » 游戏服务端架构发展史（中）_files/image_thumb37.png" alt="image" width="474" height="428" border="0"></a></p>
+<p>和战网一样的全区架构，用户数据不能象分区的 RPG那样一次性load到内存，然后在内存里面直接修改。全区架构下，为了应对一个用户同时玩几个游戏，用户数据需要区分基本数据和不同的游戏数据，而游戏数据又需要区分积分数据、和文档数据。胜平负之类的积分可以直接提交增量修改，而更为普遍的文档类数据则需要提供读写令牌，写令牌只有一块，读令牌有很多块。同帐号同一个游戏同时在两台电脑上玩时，最先开始的那个游戏获得写令牌，可以操作任意的用户数据。而后开始的那个游戏除了可以提交胜平负积分的增量改变外，对用户数据采用只读的方式，保证游戏能运行下去，但是会提示用户，游戏数据锁定。</p>
+<p>&nbsp;</p>
+<p><strong>类型7：现代动作网游</strong></p>
+<p>从早期的韩国动作游戏开始，传统的战网动作类游戏和 RPG游戏开始尝试融合。单纯的动作游戏玩家容易疲倦，留存也没有 RPG那么高；而单纯 RPG战斗却又慢节奏的乏味，无法满足很多玩家激烈对抗的期望，于是二者开始融合成为新一代的：动作 + 城镇 模式。玩家在城镇中聚集，然后以开副本的方式几个人出去以动作游戏的玩法来完成各种 RPG任务。本质就是一套 RPG服务端+副本服务端。由于每次副本时人物可以控制在8人以内，因此可以获得更为实时的游戏体验，让玩家玩的更加爽快。</p>
+<p>说了那么多的游戏服务器类型，其实也差不多了，剩下的类型大家拼凑一下其实也就是这个样子而已。游戏服务端经历了那么多结构上的变迁，内部开发模式是否依然不变？究竟是继续延续传统的开发方式？还是有了更多突破性的方法？经历那么多次架构变迁，后面是否有共通的逻辑？未来的发展还会存在哪些困难？游戏服务端开发如何达到最终的彼岸？请看下节：技术的演进。</p>
+<p>&nbsp;</p>
+<p>《游戏服务端架构发展史》转载请著名出处：<a href="http://www.skywind.me/">http://www.skywind.me</a></p>
+<p>&nbsp;</p>
+<p><a href="http://www.skywind.me/blog/archives/1265" target="_blank">游戏服务端架构发展史（上）</a></p>
+<p><a href="http://www.skywind.me/blog/archives/1301" target="_blank">游戏服务端架构发展史（中）</a></p>
+<p><a href="http://www.skywind.me/blog/archives/1327" target="_blank">游戏服务端架构发展史（下）</a></p>
+<p>&nbsp;</p>
+<p>（待续）</p>
+			<div class="fixed"></div>
+		</div>
+		<div class="under">
+			<span class="categories">Categories: </span><span><a href="http://www.skywind.me/blog/topics/gamedev" rel="category tag">游戏开发</a>, <a href="http://www.skywind.me/blog/topics/network" rel="category tag">网络编程</a></span>			<span class="tags">Tags: </span><span></span>		</div>
+	</div>
+
+	<!-- related posts START -->
+		<!-- related posts END -->
+
+	<script type="text/javascript" src="./Skywind Inside » 游戏服务端架构发展史（中）_files/comment.js.下载"></script>
+
+
+
+<div id="comments">
+
+<div id="cmtswitcher">
+			<a id="commenttab" class="curtab" href="javascript:void(0);" onclick="MGJS.switchTab(&#39;thecomments,commentnavi&#39;, &#39;thetrackbacks&#39;, &#39;commenttab&#39;, &#39;curtab&#39;, &#39;trackbacktab&#39;, &#39;tab&#39;);">Comments (11)</a>
+		<a id="trackbacktab" class="tab" href="javascript:void(0);" onclick="MGJS.switchTab(&#39;thetrackbacks&#39;, &#39;thecomments,commentnavi&#39;, &#39;trackbacktab&#39;, &#39;curtab&#39;, &#39;commenttab&#39;, &#39;tab&#39;);">Trackbacks (2)</a>
+				<span class="addcomment"><a href="http://www.skywind.me/blog/archives/1301#respond">Leave a comment</a></span>
+				<span class="addtrackback"><a href="http://www.skywind.me/blog/archives/1301/trackback">Trackback</a></span>
+		<div class="fixed"></div>
+</div>
+
+<div id="commentlist">
+	<!-- comments START -->
+	<ol id="thecomments">
+		<li class="comment regularcomment" id="comment-2670">
+		<div class="author">
+			<div class="pic">
+				<img alt="" src="./Skywind Inside » 游戏服务端架构发展史（中）_files/bbab26759ee5cff8e7cc5bc57e1ac851" srcset="http://2.gravatar.com/avatar/bbab26759ee5cff8e7cc5bc57e1ac851?s=64&amp;d=mm&amp;r=g 2x" class="avatar avatar-32 photo" height="32" width="32">			</div>
+			<div class="name">
+									<span id="commentauthor-2670">
+				
+				yvesma
+									</span>
+							</div>
+		</div>
+
+		<div class="info">
+			<div class="date">
+				April 26th, 2015 at 23:10					 | <a href="http://www.skywind.me/blog/archives/1301#comment-2670">#1</a>
+			</div>
+			<div class="act">
+				<a href="javascript:void(0);" onclick="MGJS_CMT.reply(&#39;commentauthor-2670&#39;, &#39;comment-2670&#39;, &#39;comment&#39;);">Reply</a> | 
+				<a href="javascript:void(0);" onclick="MGJS_CMT.quote(&#39;commentauthor-2670&#39;, &#39;comment-2670&#39;, &#39;commentbody-2670&#39;, &#39;comment&#39;);">Quote</a>
+							</div>
+			<div class="fixed"></div>
+			<div class="content">
+				
+				<div id="commentbody-2670">
+					<p>很喜欢这个系列的文章</p>
+				</div>
+			</div>
+		</div>
+		<div class="fixed"></div>
+
+</li><!-- #comment-## -->
+	<li class="comment admincomment" id="comment-2673">
+		<div class="author">
+			<div class="pic">
+				<img alt="" src="./Skywind Inside » 游戏服务端架构发展史（中）_files/317acfa0b5f7dd5cb8163103e2bfb3f6" srcset="http://0.gravatar.com/avatar/317acfa0b5f7dd5cb8163103e2bfb3f6?s=64&amp;d=mm&amp;r=g 2x" class="avatar avatar-32 photo" height="32" width="32">			</div>
+			<div class="name">
+									<a id="commentauthor-2673" class="url" href="http://www.skywind.me/blog" rel="external nofollow">
+				
+				skywind
+									</a>
+							</div>
+		</div>
+
+		<div class="info">
+			<div class="date">
+				April 29th, 2015 at 19:44					 | <a href="http://www.skywind.me/blog/archives/1301#comment-2673">#2</a>
+			</div>
+			<div class="act">
+				<a href="javascript:void(0);" onclick="MGJS_CMT.reply(&#39;commentauthor-2673&#39;, &#39;comment-2673&#39;, &#39;comment&#39;);">Reply</a> | 
+				<a href="javascript:void(0);" onclick="MGJS_CMT.quote(&#39;commentauthor-2673&#39;, &#39;comment-2673&#39;, &#39;commentbody-2673&#39;, &#39;comment&#39;);">Quote</a>
+							</div>
+			<div class="fixed"></div>
+			<div class="content">
+				
+				<div id="commentbody-2673">
+					<p><a href="http://www.skywind.me/blog/archives/1301#comment-2670" rel="nofollow">@yvesma </a><br>
+哈，有空继续更新。</p>
+				</div>
+			</div>
+		</div>
+		<div class="fixed"></div>
+
+</li><!-- #comment-## -->
+	<li class="comment regularcomment" id="comment-2674">
+		<div class="author">
+			<div class="pic">
+				<img alt="" src="./Skywind Inside » 游戏服务端架构发展史（中）_files/17982d4512a088bf4d3df2071f877a55" srcset="http://1.gravatar.com/avatar/17982d4512a088bf4d3df2071f877a55?s=64&amp;d=mm&amp;r=g 2x" class="avatar avatar-32 photo" height="32" width="32">			</div>
+			<div class="name">
+									<span id="commentauthor-2674">
+				
+				rip
+									</span>
+							</div>
+		</div>
+
+		<div class="info">
+			<div class="date">
+				April 29th, 2015 at 21:02					 | <a href="http://www.skywind.me/blog/archives/1301#comment-2674">#3</a>
+			</div>
+			<div class="act">
+				<a href="javascript:void(0);" onclick="MGJS_CMT.reply(&#39;commentauthor-2674&#39;, &#39;comment-2674&#39;, &#39;comment&#39;);">Reply</a> | 
+				<a href="javascript:void(0);" onclick="MGJS_CMT.quote(&#39;commentauthor-2674&#39;, &#39;comment-2674&#39;, &#39;commentbody-2674&#39;, &#39;comment&#39;);">Quote</a>
+							</div>
+			<div class="fixed"></div>
+			<div class="content">
+				
+				<div id="commentbody-2674">
+					<p>很喜欢这个系列的文章哦。<br>
+我刚接触游戏开发一段时间，目前工作是上篇文章介绍的第2代游戏服务器。对第三代挺感兴趣的，不知道有没有什么这代的游戏代码可以参考的，求博主推荐</p>
+				</div>
+			</div>
+		</div>
+		<div class="fixed"></div>
+
+</li><!-- #comment-## -->
+	<li class="comment regularcomment" id="comment-2675">
+		<div class="author">
+			<div class="pic">
+				<img alt="" src="./Skywind Inside » 游戏服务端架构发展史（中）_files/4db9f0f9d54f80168435b200cadb88f4" srcset="http://1.gravatar.com/avatar/4db9f0f9d54f80168435b200cadb88f4?s=64&amp;d=mm&amp;r=g 2x" class="avatar avatar-32 photo" height="32" width="32">			</div>
+			<div class="name">
+									<span id="commentauthor-2675">
+				
+				kanaz
+									</span>
+							</div>
+		</div>
+
+		<div class="info">
+			<div class="date">
+				April 30th, 2015 at 07:14					 | <a href="http://www.skywind.me/blog/archives/1301#comment-2675">#4</a>
+			</div>
+			<div class="act">
+				<a href="javascript:void(0);" onclick="MGJS_CMT.reply(&#39;commentauthor-2675&#39;, &#39;comment-2675&#39;, &#39;comment&#39;);">Reply</a> | 
+				<a href="javascript:void(0);" onclick="MGJS_CMT.quote(&#39;commentauthor-2675&#39;, &#39;comment-2675&#39;, &#39;commentbody-2675&#39;, &#39;comment&#39;);">Quote</a>
+							</div>
+			<div class="fixed"></div>
+			<div class="content">
+				
+				<div id="commentbody-2675">
+					<p>cool!</p>
+				</div>
+			</div>
+		</div>
+		<div class="fixed"></div>
+
+</li><!-- #comment-## -->
+	<li class="comment admincomment" id="comment-2677">
+		<div class="author">
+			<div class="pic">
+				<img alt="" src="./Skywind Inside » 游戏服务端架构发展史（中）_files/317acfa0b5f7dd5cb8163103e2bfb3f6" srcset="http://0.gravatar.com/avatar/317acfa0b5f7dd5cb8163103e2bfb3f6?s=64&amp;d=mm&amp;r=g 2x" class="avatar avatar-32 photo" height="32" width="32">			</div>
+			<div class="name">
+									<a id="commentauthor-2677" class="url" href="http://www.skywind.me/blog" rel="external nofollow">
+				
+				skywind
+									</a>
+							</div>
+		</div>
+
+		<div class="info">
+			<div class="date">
+				April 30th, 2015 at 17:28					 | <a href="http://www.skywind.me/blog/archives/1301#comment-2677">#5</a>
+			</div>
+			<div class="act">
+				<a href="javascript:void(0);" onclick="MGJS_CMT.reply(&#39;commentauthor-2677&#39;, &#39;comment-2677&#39;, &#39;comment&#39;);">Reply</a> | 
+				<a href="javascript:void(0);" onclick="MGJS_CMT.quote(&#39;commentauthor-2677&#39;, &#39;comment-2677&#39;, &#39;commentbody-2677&#39;, &#39;comment&#39;);">Quote</a>
+							</div>
+			<div class="fixed"></div>
+			<div class="content">
+				
+				<div id="commentbody-2677">
+					<p><a href="http://www.skywind.me/blog/archives/1301#comment-2674" rel="nofollow">@rip </a><br>
+这个真么什么开源的代码呀，都是各个公司自己做的。</p>
+				</div>
+			</div>
+		</div>
+		<div class="fixed"></div>
+
+</li><!-- #comment-## -->
+	<li class="comment regularcomment" id="comment-2717">
+		<div class="author">
+			<div class="pic">
+				<img alt="" src="./Skywind Inside » 游戏服务端架构发展史（中）_files/1bf8d94feabe5ba4b9a8fcbfebae8e6b" srcset="http://1.gravatar.com/avatar/1bf8d94feabe5ba4b9a8fcbfebae8e6b?s=64&amp;d=mm&amp;r=g 2x" class="avatar avatar-32 photo" height="32" width="32">			</div>
+			<div class="name">
+									<span id="commentauthor-2717">
+				
+				dictator
+									</span>
+							</div>
+		</div>
+
+		<div class="info">
+			<div class="date">
+				May 15th, 2015 at 14:35					 | <a href="http://www.skywind.me/blog/archives/1301#comment-2717">#6</a>
+			</div>
+			<div class="act">
+				<a href="javascript:void(0);" onclick="MGJS_CMT.reply(&#39;commentauthor-2717&#39;, &#39;comment-2717&#39;, &#39;comment&#39;);">Reply</a> | 
+				<a href="javascript:void(0);" onclick="MGJS_CMT.quote(&#39;commentauthor-2717&#39;, &#39;comment-2717&#39;, &#39;commentbody-2717&#39;, &#39;comment&#39;);">Quote</a>
+							</div>
+			<div class="fixed"></div>
+			<div class="content">
+				
+				<div id="commentbody-2717">
+					<p>这个系列的（下）是不写了么</p>
+				</div>
+			</div>
+		</div>
+		<div class="fixed"></div>
+
+</li><!-- #comment-## -->
+	<li class="comment admincomment" id="comment-2718">
+		<div class="author">
+			<div class="pic">
+				<img alt="" src="./Skywind Inside » 游戏服务端架构发展史（中）_files/317acfa0b5f7dd5cb8163103e2bfb3f6" srcset="http://0.gravatar.com/avatar/317acfa0b5f7dd5cb8163103e2bfb3f6?s=64&amp;d=mm&amp;r=g 2x" class="avatar avatar-32 photo" height="32" width="32">			</div>
+			<div class="name">
+									<a id="commentauthor-2718" class="url" href="http://www.skywind.me/blog" rel="external nofollow">
+				
+				skywind
+									</a>
+							</div>
+		</div>
+
+		<div class="info">
+			<div class="date">
+				May 15th, 2015 at 22:32					 | <a href="http://www.skywind.me/blog/archives/1301#comment-2718">#7</a>
+			</div>
+			<div class="act">
+				<a href="javascript:void(0);" onclick="MGJS_CMT.reply(&#39;commentauthor-2718&#39;, &#39;comment-2718&#39;, &#39;comment&#39;);">Reply</a> | 
+				<a href="javascript:void(0);" onclick="MGJS_CMT.quote(&#39;commentauthor-2718&#39;, &#39;comment-2718&#39;, &#39;commentbody-2718&#39;, &#39;comment&#39;);">Quote</a>
+							</div>
+			<div class="fixed"></div>
+			<div class="content">
+				
+				<div id="commentbody-2718">
+					<p><a href="http://www.skywind.me/blog/archives/1301#comment-2717" rel="nofollow">@dictator </a><br>
+先占个位吧，画图和码字太累，最近两周忙，等有整块时间就写出来。</p>
+				</div>
+			</div>
+		</div>
+		<div class="fixed"></div>
+
+</li><!-- #comment-## -->
+	<li class="comment regularcomment" id="comment-2751">
+		<div class="author">
+			<div class="pic">
+				<img alt="" src="./Skywind Inside » 游戏服务端架构发展史（中）_files/cdd3ce2ef1eda5e3a79354ddd75eb6c1" srcset="http://0.gravatar.com/avatar/cdd3ce2ef1eda5e3a79354ddd75eb6c1?s=64&amp;d=mm&amp;r=g 2x" class="avatar avatar-32 photo" height="32" width="32">			</div>
+			<div class="name">
+									<span id="commentauthor-2751">
+				
+				jjqquu
+									</span>
+							</div>
+		</div>
+
+		<div class="info">
+			<div class="date">
+				May 25th, 2015 at 19:22					 | <a href="http://www.skywind.me/blog/archives/1301#comment-2751">#8</a>
+			</div>
+			<div class="act">
+				<a href="javascript:void(0);" onclick="MGJS_CMT.reply(&#39;commentauthor-2751&#39;, &#39;comment-2751&#39;, &#39;comment&#39;);">Reply</a> | 
+				<a href="javascript:void(0);" onclick="MGJS_CMT.quote(&#39;commentauthor-2751&#39;, &#39;comment-2751&#39;, &#39;commentbody-2751&#39;, &#39;comment&#39;);">Quote</a>
+							</div>
+			<div class="fixed"></div>
+			<div class="content">
+				
+				<div id="commentbody-2751">
+					<p><a href="http://www.skywind.me/blog/archives/1301#comment-2718" rel="nofollow">@skywind </a> </p>
+<p>期待大牛你的系列的（下）篇：）</p>
+<p>自从你码完前两篇，我就落下了病根，隔三差五就得来看看，呵呵。</p>
+				</div>
+			</div>
+		</div>
+		<div class="fixed"></div>
+
+</li><!-- #comment-## -->
+	<li class="comment admincomment" id="comment-2764">
+		<div class="author">
+			<div class="pic">
+				<img alt="" src="./Skywind Inside » 游戏服务端架构发展史（中）_files/317acfa0b5f7dd5cb8163103e2bfb3f6" srcset="http://0.gravatar.com/avatar/317acfa0b5f7dd5cb8163103e2bfb3f6?s=64&amp;d=mm&amp;r=g 2x" class="avatar avatar-32 photo" height="32" width="32">			</div>
+			<div class="name">
+									<a id="commentauthor-2764" class="url" href="http://www.skywind.me/blog" rel="external nofollow">
+				
+				skywind
+									</a>
+							</div>
+		</div>
+
+		<div class="info">
+			<div class="date">
+				May 29th, 2015 at 12:13					 | <a href="http://www.skywind.me/blog/archives/1301#comment-2764">#9</a>
+			</div>
+			<div class="act">
+				<a href="javascript:void(0);" onclick="MGJS_CMT.reply(&#39;commentauthor-2764&#39;, &#39;comment-2764&#39;, &#39;comment&#39;);">Reply</a> | 
+				<a href="javascript:void(0);" onclick="MGJS_CMT.quote(&#39;commentauthor-2764&#39;, &#39;comment-2764&#39;, &#39;commentbody-2764&#39;, &#39;comment&#39;);">Quote</a>
+							</div>
+			<div class="fixed"></div>
+			<div class="content">
+				
+				<div id="commentbody-2764">
+					<p><a href="http://www.skywind.me/blog/archives/1301#comment-2751" rel="nofollow">@jjqquu </a><br>
+先占个位，画图很累，有空再写，不会太监的。</p>
+				</div>
+			</div>
+		</div>
+		<div class="fixed"></div>
+
+</li><!-- #comment-## -->
+	<li class="comment regularcomment" id="comment-3069">
+		<div class="author">
+			<div class="pic">
+				<img alt="" src="./Skywind Inside » 游戏服务端架构发展史（中）_files/be6220ef3d370e7f41d11175245735ae" srcset="http://2.gravatar.com/avatar/be6220ef3d370e7f41d11175245735ae?s=64&amp;d=mm&amp;r=g 2x" class="avatar avatar-32 photo" height="32" width="32">			</div>
+			<div class="name">
+									<span id="commentauthor-3069">
+				
+				wbpmrck
+									</span>
+							</div>
+		</div>
+
+		<div class="info">
+			<div class="date">
+				July 30th, 2015 at 13:01					 | <a href="http://www.skywind.me/blog/archives/1301#comment-3069">#10</a>
+			</div>
+			<div class="act">
+				<a href="javascript:void(0);" onclick="MGJS_CMT.reply(&#39;commentauthor-3069&#39;, &#39;comment-3069&#39;, &#39;comment&#39;);">Reply</a> | 
+				<a href="javascript:void(0);" onclick="MGJS_CMT.quote(&#39;commentauthor-3069&#39;, &#39;comment-3069&#39;, &#39;commentbody-3069&#39;, &#39;comment&#39;);">Quote</a>
+							</div>
+			<div class="fixed"></div>
+			<div class="content">
+				
+				<div id="commentbody-3069">
+					<p>真心好文，期待下篇。楼主加油</p>
+				</div>
+			</div>
+		</div>
+		<div class="fixed"></div>
+
+</li><!-- #comment-## -->
+	<li class="comment regularcomment" id="comment-9422">
+		<div class="author">
+			<div class="pic">
+				<img alt="" src="./Skywind Inside » 游戏服务端架构发展史（中）_files/f86f02c3227f01349da6276b3c41ba6e" srcset="http://0.gravatar.com/avatar/f86f02c3227f01349da6276b3c41ba6e?s=64&amp;d=mm&amp;r=g 2x" class="avatar avatar-32 photo" height="32" width="32">			</div>
+			<div class="name">
+									<span id="commentauthor-9422">
+				
+				AK-47
+									</span>
+							</div>
+		</div>
+
+		<div class="info">
+			<div class="date">
+				December 10th, 2015 at 11:33					 | <a href="http://www.skywind.me/blog/archives/1301#comment-9422">#11</a>
+			</div>
+			<div class="act">
+				<a href="javascript:void(0);" onclick="MGJS_CMT.reply(&#39;commentauthor-9422&#39;, &#39;comment-9422&#39;, &#39;comment&#39;);">Reply</a> | 
+				<a href="javascript:void(0);" onclick="MGJS_CMT.quote(&#39;commentauthor-9422&#39;, &#39;comment-9422&#39;, &#39;commentbody-9422&#39;, &#39;comment&#39;);">Quote</a>
+							</div>
+			<div class="fixed"></div>
+			<div class="content">
+				
+				<div id="commentbody-9422">
+					<p>你好，我想请教下，在A、B，node边界处，一个正处于node A管理中的玩家，去攻击一个正被node B管理的玩家或者怪物，这时候该怎么处理呢？</p>
+				</div>
+			</div>
+		</div>
+		<div class="fixed"></div>
+
+</li><!-- #comment-## -->
+	</ol>
+	<!-- comments END -->
+
+
+	<!-- trackbacks START -->
+			<ol id="thetrackbacks">
+												<li class="trackback">
+						<div class="date">
+							May 4th, 2015 at 16:25							 | <a href="http://www.skywind.me/blog/archives/1301#comment-2682">#1</a>
+						</div>
+						<div class="act">
+													</div>
+						<div class="fixed"></div>
+						<div class="title">
+							<a href="http://www.skywind.me/blog/archives/1327">
+								Skywind Inside » 游戏服务端架构发展史（下）							</a>
+						</div>
+					</li>
+									<li class="trackback">
+						<div class="date">
+							May 4th, 2015 at 16:28							 | <a href="http://www.skywind.me/blog/archives/1301#comment-2683">#2</a>
+						</div>
+						<div class="act">
+													</div>
+						<div class="fixed"></div>
+						<div class="title">
+							<a href="http://www.skywind.me/blog/archives/1265">
+								Skywind Inside » 游戏服务端架构发展史（上）							</a>
+						</div>
+					</li>
+				
+					</ol>
+		<div class="fixed"></div>
+	<!-- trackbacks END -->
+</div>
+
+</div>
+
+	<form action="http://www.skywind.me/blog/wp-comments-post.php" method="post" id="commentform">
+	<div id="respond">
+
+					
+			<div id="author_info">
+				<div class="row">
+					<input type="text" name="author" id="author" class="textfield" value="" size="24" tabindex="1">
+					<label for="author" class="small">Name (required)</label>
+				</div>
+				<div class="row">
+					<input type="text" name="email" id="email" class="textfield" value="" size="24" tabindex="2">
+					<label for="email" class="small">E-Mail (will not be published) (required)</label>
+				</div>
+				<div class="row">
+					<input type="text" name="url" id="url" class="textfield" value="" size="24" tabindex="3">
+					<label for="url" class="small">Website</label>
+				</div>
+			</div>
+
+			
+		
+		<!-- comment input -->
+		<div class="row">
+			<textarea name="comment" id="comment" tabindex="4" rows="8" cols="50"></textarea>
+		</div>
+
+		<!-- comment submit and rss -->
+		<div id="submitbox">
+			<a class="feed" href="http://www.skywind.me/blog/comments/feed">Subscribe to comments feed</a>
+			<div class="submitbutton">
+				<input name="submit" type="submit" id="submit" class="button" tabindex="5" value="Submit Comment">
+			</div>
+						<input type="hidden" name="comment_post_ID" value="1301">
+			<div class="fixed"></div>
+		</div>
+
+	</div>
+	<p style="display: none;"><input type="hidden" id="akismet_comment_nonce" name="akismet_comment_nonce" value="67f92340f2"></p><p style="display: none;"></p>	<input type="hidden" id="ak_js" name="ak_js" value="1488609849624"></form>
+
+	
+
+	<div id="postnavi">
+		<span class="prev"><a href="http://www.skywind.me/blog/archives/1541" rel="next">计算机图形算法中的光滑边缘算法经历了那些变迁？</a></span>
+		<span class="next"><a href="http://www.skywind.me/blog/archives/1265" rel="prev">游戏服务端架构发展史（上）</a></span>
+		<div class="fixed"></div>
+	</div>
+
+
+                                	</div>
+	<!-- main END -->
+
+	
+<!-- sidebar START -->
+<div id="sidebar">
+
+<!-- sidebar north START -->
+<div id="northsidebar" class="sidebar">
+
+	<!-- feeds -->
+	<div class="widget widget_feeds">
+		<div class="content">
+			<div id="subscribe"><a rel="external nofollow" id="feedrss" title="Subscribe to this blog..." href="http://www.skywind.me/blog/feed"><abbr title="Really Simple Syndication">RSS</abbr></a><ul id="feed_readers" style="visibility: hidden; display: block;"><li id="google_reader"><a rel="external nofollow" class="reader" title="Subscribe with Google" href="http://fusion.google.com/add?feedurl=http://www.skywind.me/blog/feed"><span>Google</span></a></li><li id="youdao_reader"><a rel="external nofollow" class="reader" title="Subscribe with Youdao" href="http://reader.youdao.com/#url=http://www.skywind.me/blog/feed"><span>Youdao</span></a></li><li id="xianguo_reader"><a rel="external nofollow" class="reader" title="Subscribe with Xian Guo" href="http://www.xianguo.com/subscribe.php?url=http://www.skywind.me/blog/feed"><span>Xian Guo</span></a></li><li id="zhuaxia_reader"><a rel="external nofollow" class="reader" title="Subscribe with Zhua Xia" href="http://www.zhuaxia.com/add_channel.php?url=http://www.skywind.me/blog/feed"><span>Zhua Xia</span></a></li><li id="yahoo_reader"><a rel="external nofollow" class="reader" title="Subscribe with My Yahoo!" href="http://add.my.yahoo.com/rss?url=http://www.skywind.me/blog/feed"><span>My Yahoo!</span></a></li><li id="newsgator_reader"><a rel="external nofollow" class="reader" title="Subscribe with newsgator" href="http://www.newsgator.com/ngs/subscriber/subfext.aspx?url=http://www.skywind.me/blog/feed"><span>newsgator</span></a></li><li id="bloglines_reader"><a rel="external nofollow" class="reader" title="Subscribe with Bloglines" href="http://www.bloglines.com/sub/http://www.skywind.me/blog/feed"><span>Bloglines</span></a></li><li id="inezha_reader"><a rel="external nofollow" class="reader last" title="Subscribe with iNezha" href="http://inezha.com/add?url=http://www.skywind.me/blog/feed"><span>iNezha</span></a></li></ul></div>
+						<div class="fixed"></div>
+		</div>
+	</div>
+
+	<!-- showcase -->
+	
+
+	<!-- posts -->
+	
+	<div class="widget">
+		<h3>Recent Posts</h3>
+		<ul>
+			<li><a href="http://www.skywind.me/blog/archives/1951">Emacs/Vim 深度比较</a></li><li><a href="http://www.skywind.me/blog/archives/1924">Aix 折腾手记</a></li><li><a href="http://www.skywind.me/blog/archives/1909">Linux 网桥设置</a></li><li><a href="http://www.skywind.me/blog/archives/1904">Linux 硬件时区折腾备忘</a></li><li><a href="http://www.skywind.me/blog/archives/1893">Linux 线上系统调优备忘</a></li><li><a href="http://www.skywind.me/blog/archives/1880">Linux 下配置 Iptables 端口转发</a></li><li><a href="http://www.skywind.me/blog/archives/1857">Vim 里如何映射 CTRL-h 为 left ?</a></li><li><a href="http://www.skywind.me/blog/archives/1846">Vim 中正确使用 Alt映射</a></li><li><a href="http://www.skywind.me/blog/archives/1835">Vim 异步运行 Shell 指令的插件 – AsyncRun</a></li><li><a href="http://www.skywind.me/blog/archives/1828">3D 图形光栅化的透视校正问题</a></li>		</ul>
+	</div>
+
+	<!-- recent comments -->
+	
+	<!-- tag cloud -->
+	<div id="tag_cloud" class="widget">
+		<h3>Tag Cloud</h3>
+		<a href="http://www.skywind.me/blog/tags/ai-2" class="tag-link-45 tag-link-position-1" title="6 topics" style="font-size: 13.641025641026pt;">AI</a>
+<a href="http://www.skywind.me/blog/tags/android" class="tag-link-52 tag-link-position-2" title="2 topics" style="font-size: 9.8461538461538pt;">Android</a>
+<a href="http://www.skywind.me/blog/tags/as3" class="tag-link-37 tag-link-position-3" title="2 topics" style="font-size: 9.8461538461538pt;">AS3</a>
+<a href="http://www.skywind.me/blog/tags/c" class="tag-link-49 tag-link-position-4" title="2 topics" style="font-size: 9.8461538461538pt;">C++</a>
+<a href="http://www.skywind.me/blog/tags/cygwin" class="tag-link-47 tag-link-position-5" title="1 topic" style="font-size: 8pt;">cygwin</a>
+<a href="http://www.skywind.me/blog/tags/dos" class="tag-link-20 tag-link-position-6" title="3 topics" style="font-size: 11.076923076923pt;">Dos</a>
+<a href="http://www.skywind.me/blog/tags/kcp" class="tag-link-54 tag-link-position-7" title="1 topic" style="font-size: 8pt;">KCP</a>
+<a href="http://www.skywind.me/blog/tags/linux" class="tag-link-60 tag-link-position-8" title="5 topics" style="font-size: 12.923076923077pt;">Linux</a>
+<a href="http://www.skywind.me/blog/tags/p2p" class="tag-link-42 tag-link-position-9" title="1 topic" style="font-size: 8pt;">P2P</a>
+<a href="http://www.skywind.me/blog/tags/python" class="tag-link-32 tag-link-position-10" title="2 topics" style="font-size: 9.8461538461538pt;">Python</a>
+<a href="http://www.skywind.me/blog/tags/vim" class="tag-link-57 tag-link-position-11" title="9 topics" style="font-size: 15.179487179487pt;">Vim</a>
+<a href="http://www.skywind.me/blog/tags/win32" class="tag-link-24 tag-link-position-12" title="1 topic" style="font-size: 8pt;">Win32</a>
+<a href="http://www.skywind.me/blog/tags/%e4%bc%98%e5%8c%96" class="tag-link-43 tag-link-position-13" title="5 topics" style="font-size: 12.923076923077pt;">优化</a>
+<a href="http://www.skywind.me/blog/tags/%e5%90%8c%e6%ad%a5" class="tag-link-28 tag-link-position-14" title="4 topics" style="font-size: 12.102564102564pt;">同步</a>
+<a href="http://www.skywind.me/blog/tags/%e5%9b%be%e5%bd%a2" class="tag-link-41 tag-link-position-15" title="11 topics" style="font-size: 16pt;">图形</a>
+<a href="http://www.skywind.me/blog/tags/%e5%b0%8f%e6%b8%b8%e6%88%8f" class="tag-link-23 tag-link-position-16" title="2 topics" style="font-size: 9.8461538461538pt;">小游戏</a>
+<a href="http://www.skywind.me/blog/tags/%e6%8a%97%e9%94%af%e9%bd%bf" class="tag-link-39 tag-link-position-17" title="2 topics" style="font-size: 9.8461538461538pt;">抗锯齿</a>
+<a href="http://www.skywind.me/blog/tags/%e6%b1%87%e7%bc%96" class="tag-link-31 tag-link-position-18" title="9 topics" style="font-size: 15.179487179487pt;">汇编</a>
+<a href="http://www.skywind.me/blog/tags/%e6%bc%94%e7%a4%ba" class="tag-link-25 tag-link-position-19" title="6 topics" style="font-size: 13.641025641026pt;">演示</a>
+<a href="http://www.skywind.me/blog/tags/%e7%9f%a2%e9%87%8f%e4%bd%9c%e5%9b%be" class="tag-link-40 tag-link-position-20" title="1 topic" style="font-size: 8pt;">矢量作图</a>
+<a href="http://www.skywind.me/blog/tags/%e7%9f%a5%e4%b9%8e" class="tag-link-48 tag-link-position-21" title="2 topics" style="font-size: 9.8461538461538pt;">知乎</a>
+<a href="http://www.skywind.me/blog/tags/%e7%ad%96%e5%88%92" class="tag-link-35 tag-link-position-22" title="2 topics" style="font-size: 9.8461538461538pt;">策划</a>
+<a href="http://www.skywind.me/blog/tags/%e7%ae%97%e6%b3%95" class="tag-link-33 tag-link-position-23" title="6 topics" style="font-size: 13.641025641026pt;">算法</a>
+<a href="http://www.skywind.me/blog/tags/%e7%b3%bb%e7%bb%9f%e5%bc%80%e5%8f%91" class="tag-link-51 tag-link-position-24" title="1 topic" style="font-size: 8pt;">系统开发</a>
+<a href="http://www.skywind.me/blog/tags/%e7%bd%91%e7%bb%9c" class="tag-link-27 tag-link-position-25" title="10 topics" style="font-size: 15.589743589744pt;">网络</a>
+<a href="http://www.skywind.me/blog/tags/%e7%bf%bb%e8%af%91" class="tag-link-36 tag-link-position-26" title="3 topics" style="font-size: 11.076923076923pt;">翻译</a>
+<a href="http://www.skywind.me/blog/tags/%e8%99%9a%e6%8b%9f%e6%9c%ba" class="tag-link-17 tag-link-position-27" title="2 topics" style="font-size: 9.8461538461538pt;">虚拟机</a>
+<a href="http://www.skywind.me/blog/tags/%e8%a7%86%e9%a2%91" class="tag-link-53 tag-link-position-28" title="2 topics" style="font-size: 9.8461538461538pt;">视频</a>
+<a href="http://www.skywind.me/blog/tags/%e8%ae%b2%e4%b9%89" class="tag-link-44 tag-link-position-29" title="5 topics" style="font-size: 12.923076923077pt;">讲义</a>
+<a href="http://www.skywind.me/blog/tags/%e8%af%8d%e6%b3%95%e5%88%86%e6%9e%90" class="tag-link-15 tag-link-position-30" title="5 topics" style="font-size: 12.923076923077pt;">词法分析</a>
+<a href="http://www.skywind.me/blog/tags/%e8%af%ad%e6%b3%95%e5%88%86%e6%9e%90" class="tag-link-18 tag-link-position-31" title="3 topics" style="font-size: 11.076923076923pt;">语法分析</a>
+<a href="http://www.skywind.me/blog/tags/%e8%b6%b3%e8%bf%b9" class="tag-link-46 tag-link-position-32" title="6 topics" style="font-size: 13.641025641026pt;">足迹</a>
+<a href="http://www.skywind.me/blog/tags/%e9%97%b2%e8%81%8a" class="tag-link-29 tag-link-position-33" title="11 topics" style="font-size: 16pt;">闲聊</a>
+<a href="http://www.skywind.me/blog/tags/%e9%9a%8f%e7%ac%94" class="tag-link-58 tag-link-position-34" title="1 topic" style="font-size: 8pt;">随笔</a>	</div>
+
+</div>
+<!-- sidebar north END -->
+
+<div id="centersidebar">
+
+	<!-- sidebar east START -->
+	<div id="eastsidebar" class="sidebar">
+	<div id="linkcat-2" class="widget widget_links"><h3>Blogroll</h3>
+	<ul class="xoxo blogroll">
+<li><a href="http://jgshining.me/blog/" title="杭州同事" target="_blank">极光炫影</a></li>
+<li><a href="http://eishn.blog.163.com/" rel="friend met colleague" title="沈神仙的日志" target="_blank">沈崴大仙的日志</a></li>
+<li><a href="http://www.turbozv.com/" rel="friend co-worker colleague co-resident sweetheart" title="TurboZV 师兄的BLOG" target="_blank">缥缈峰</a></li>
+
+	</ul>
+</div>
+	</div>
+	<!-- sidebar east END -->
+
+	<!-- sidebar west START -->
+	<div id="westsidebar" class="sidebar">
+	<div id="categories-4" class="widget widget_categories"><h3>Categories</h3>		<ul>
+	<li class="cat-item cat-item-5"><a href="http://www.skywind.me/blog/topics/ai">人工智能</a> (7)
+</li>
+	<li class="cat-item cat-item-4"><a href="http://www.skywind.me/blog/topics/graphics">图形编程</a> (20)
+</li>
+	<li class="cat-item cat-item-7"><a href="http://www.skywind.me/blog/topics/life">大浪淘沙</a> (12)
+</li>
+	<li class="cat-item cat-item-13"><a href="http://www.skywind.me/blog/topics/opensrc">开源项目</a> (8)
+</li>
+	<li class="cat-item cat-item-1"><a href="http://www.skywind.me/blog/topics/uncategorized">未分类</a> (6)
+</li>
+	<li class="cat-item cat-item-6"><a href="http://www.skywind.me/blog/topics/gamedev">游戏开发</a> (27)
+</li>
+	<li class="cat-item cat-item-11"><a href="http://www.skywind.me/blog/topics/program">编程技术</a> (43)
+</li>
+	<li class="cat-item cat-item-10"><a href="http://www.skywind.me/blog/topics/compile">编译技术</a> (6)
+</li>
+	<li class="cat-item cat-item-3"><a href="http://www.skywind.me/blog/topics/network">网络编程</a> (14)
+</li>
+	<li class="cat-item cat-item-8"><a href="http://www.skywind.me/blog/topics/casual">随笔</a> (45)
+</li>
+		</ul>
+</div>	</div>
+	<!-- sidebar west END -->
+	<div class="fixed"></div>
+</div>
+
+<!-- sidebar south START -->
+<div id="southsidebar" class="sidebar">
+<div id="archives-5" class="widget widget_archive"><h3>Archives</h3>		<ul>
+			<li><a href="http://www.skywind.me/blog/archives/date/2016/12">December 2016</a>&nbsp;(6)</li>
+	<li><a href="http://www.skywind.me/blog/archives/date/2016/11">November 2016</a>&nbsp;(2)</li>
+	<li><a href="http://www.skywind.me/blog/archives/date/2016/08">August 2016</a>&nbsp;(2)</li>
+	<li><a href="http://www.skywind.me/blog/archives/date/2016/07">July 2016</a>&nbsp;(2)</li>
+	<li><a href="http://www.skywind.me/blog/archives/date/2016/06">June 2016</a>&nbsp;(1)</li>
+	<li><a href="http://www.skywind.me/blog/archives/date/2016/05">May 2016</a>&nbsp;(5)</li>
+	<li><a href="http://www.skywind.me/blog/archives/date/2016/04">April 2016</a>&nbsp;(3)</li>
+	<li><a href="http://www.skywind.me/blog/archives/date/2016/03">March 2016</a>&nbsp;(2)</li>
+	<li><a href="http://www.skywind.me/blog/archives/date/2016/02">February 2016</a>&nbsp;(1)</li>
+	<li><a href="http://www.skywind.me/blog/archives/date/2015/12">December 2015</a>&nbsp;(3)</li>
+	<li><a href="http://www.skywind.me/blog/archives/date/2015/11">November 2015</a>&nbsp;(2)</li>
+	<li><a href="http://www.skywind.me/blog/archives/date/2015/08">August 2015</a>&nbsp;(3)</li>
+	<li><a href="http://www.skywind.me/blog/archives/date/2015/07">July 2015</a>&nbsp;(4)</li>
+	<li><a href="http://www.skywind.me/blog/archives/date/2015/06">June 2015</a>&nbsp;(3)</li>
+	<li><a href="http://www.skywind.me/blog/archives/date/2015/05">May 2015</a>&nbsp;(3)</li>
+	<li><a href="http://www.skywind.me/blog/archives/date/2015/04">April 2015</a>&nbsp;(9)</li>
+	<li><a href="http://www.skywind.me/blog/archives/date/2013/04">April 2013</a>&nbsp;(2)</li>
+	<li><a href="http://www.skywind.me/blog/archives/date/2012/12">December 2012</a>&nbsp;(1)</li>
+	<li><a href="http://www.skywind.me/blog/archives/date/2012/11">November 2012</a>&nbsp;(1)</li>
+	<li><a href="http://www.skywind.me/blog/archives/date/2011/09">September 2011</a>&nbsp;(2)</li>
+	<li><a href="http://www.skywind.me/blog/archives/date/2011/08">August 2011</a>&nbsp;(6)</li>
+	<li><a href="http://www.skywind.me/blog/archives/date/2011/07">July 2011</a>&nbsp;(1)</li>
+	<li><a href="http://www.skywind.me/blog/archives/date/2011/06">June 2011</a>&nbsp;(2)</li>
+	<li><a href="http://www.skywind.me/blog/archives/date/2011/04">April 2011</a>&nbsp;(10)</li>
+	<li><a href="http://www.skywind.me/blog/archives/date/2011/03">March 2011</a>&nbsp;(1)</li>
+	<li><a href="http://www.skywind.me/blog/archives/date/2010/12">December 2010</a>&nbsp;(2)</li>
+	<li><a href="http://www.skywind.me/blog/archives/date/2010/07">July 2010</a>&nbsp;(1)</li>
+	<li><a href="http://www.skywind.me/blog/archives/date/2010/06">June 2010</a>&nbsp;(1)</li>
+	<li><a href="http://www.skywind.me/blog/archives/date/2010/01">January 2010</a>&nbsp;(1)</li>
+	<li><a href="http://www.skywind.me/blog/archives/date/2009/09">September 2009</a>&nbsp;(2)</li>
+	<li><a href="http://www.skywind.me/blog/archives/date/2009/07">July 2009</a>&nbsp;(1)</li>
+	<li><a href="http://www.skywind.me/blog/archives/date/2009/01">January 2009</a>&nbsp;(1)</li>
+	<li><a href="http://www.skywind.me/blog/archives/date/2008/04">April 2008</a>&nbsp;(1)</li>
+	<li><a href="http://www.skywind.me/blog/archives/date/2008/03">March 2008</a>&nbsp;(1)</li>
+	<li><a href="http://www.skywind.me/blog/archives/date/2008/02">February 2008</a>&nbsp;(1)</li>
+	<li><a href="http://www.skywind.me/blog/archives/date/2008/01">January 2008</a>&nbsp;(1)</li>
+	<li><a href="http://www.skywind.me/blog/archives/date/2007/12">December 2007</a>&nbsp;(2)</li>
+	<li><a href="http://www.skywind.me/blog/archives/date/2007/11">November 2007</a>&nbsp;(1)</li>
+	<li><a href="http://www.skywind.me/blog/archives/date/2007/09">September 2007</a>&nbsp;(2)</li>
+	<li><a href="http://www.skywind.me/blog/archives/date/2007/05">May 2007</a>&nbsp;(1)</li>
+	<li><a href="http://www.skywind.me/blog/archives/date/2007/04">April 2007</a>&nbsp;(1)</li>
+	<li><a href="http://www.skywind.me/blog/archives/date/2007/03">March 2007</a>&nbsp;(1)</li>
+	<li><a href="http://www.skywind.me/blog/archives/date/2007/02">February 2007</a>&nbsp;(1)</li>
+	<li><a href="http://www.skywind.me/blog/archives/date/2006/10">October 2006</a>&nbsp;(1)</li>
+	<li><a href="http://www.skywind.me/blog/archives/date/2006/08">August 2006</a>&nbsp;(1)</li>
+	<li><a href="http://www.skywind.me/blog/archives/date/2006/06">June 2006</a>&nbsp;(2)</li>
+	<li><a href="http://www.skywind.me/blog/archives/date/2006/03">March 2006</a>&nbsp;(3)</li>
+	<li><a href="http://www.skywind.me/blog/archives/date/2006/01">January 2006</a>&nbsp;(3)</li>
+	<li><a href="http://www.skywind.me/blog/archives/date/2005/12">December 2005</a>&nbsp;(1)</li>
+	<li><a href="http://www.skywind.me/blog/archives/date/2005/11">November 2005</a>&nbsp;(2)</li>
+	<li><a href="http://www.skywind.me/blog/archives/date/2005/10">October 2005</a>&nbsp;(1)</li>
+	<li><a href="http://www.skywind.me/blog/archives/date/2005/06">June 2005</a>&nbsp;(2)</li>
+	<li><a href="http://www.skywind.me/blog/archives/date/2005/04">April 2005</a>&nbsp;(3)</li>
+	<li><a href="http://www.skywind.me/blog/archives/date/2004/09">September 2004</a>&nbsp;(1)</li>
+	<li><a href="http://www.skywind.me/blog/archives/date/2002/09">September 2002</a>&nbsp;(1)</li>
+	<li><a href="http://www.skywind.me/blog/archives/date/2002/04">April 2002</a>&nbsp;(1)</li>
+	<li><a href="http://www.skywind.me/blog/archives/date/2001/04">April 2001</a>&nbsp;(1)</li>
+		</ul>
+		</div><div id="recent-comments-3" class="widget widget_recent_comments"><h3>Recent Comments</h3><ul id="recentcomments"><li class="recentcomments"><span class="comment-author-link"><a href="http://.../" rel="external nofollow" class="url">...</a></span> on <a href="http://www.skywind.me/blog/archives/1681#comment-14734">后端工程师招聘启示</a></li><li class="recentcomments"><span class="comment-author-link"><a href="http://www.runingman.net/index.php/2016/06/24/zhen_suo_ding_tong_bu_suan_fa/" rel="external nofollow" class="url">帧锁定同步算法 | Pythoner's house</a></span> on <a href="http://www.skywind.me/blog/archives/131#comment-14624">帧锁定同步算法</a></li><li class="recentcomments"><span class="comment-author-link">Smile</span> on <a href="http://www.skywind.me/blog/archives/131#comment-14603">帧锁定同步算法</a></li><li class="recentcomments"><span class="comment-author-link">ttt</span> on <a href="http://www.skywind.me/blog/archives/1681#comment-14598">后端工程师招聘启示</a></li><li class="recentcomments"><span class="comment-author-link"><a href="http://www.skywind.me/blog" rel="external nofollow" class="url">skywind</a></span> on <a href="http://www.skywind.me/blog/archives/131#comment-14596">帧锁定同步算法</a></li></ul></div><div id="meta-3" class="widget widget_meta"><h3>Meta</h3>			<ul>
+						<li><a href="http://www.skywind.me/blog/wp-login.php">Log in</a></li>
+			<li><a href="http://www.skywind.me/blog/feed">Entries <abbr title="Really Simple Syndication">RSS</abbr></a></li>
+			<li><a href="http://www.skywind.me/blog/comments/feed">Comments <abbr title="Really Simple Syndication">RSS</abbr></a></li>
+			<li><a href="https://wordpress.org/" title="Powered by WordPress, state-of-the-art semantic personal publishing platform.">WordPress.org</a></li>			</ul>
+			</div></div>
+<!-- sidebar south END -->
+
+</div>
+<!-- sidebar END -->
+	<div class="fixed"></div>
+</div>
+<!-- content END -->
+
+<!-- footer START -->
+<div id="footer">
+	<a id="gotop" href="http://www.skywind.me/blog/archives/1301#" onclick="MGJS.goTop();return false;">Top</a>
+	<a id="powered" href="http://wordpress.org/">WordPress</a>
+	<div id="copyright">
+		Copyright © 2001-2016 Skywind Inside	</div>
+	<div id="themeinfo">
+		Theme by <a href="http://www.neoease.com/">NeoEase</a>. Valid <a href="http://validator.w3.org/check?uri=referer">XHTML 1.1</a> and <a href="http://jigsaw.w3.org/css-validator/check/referer?profile=css3">CSS 3</a>.	</div>
+</div>
+<!-- footer END -->
+
+</div>
+<!-- container END -->
+</div>
+<!-- wrap END -->
+
+		<script type="text/javascript">
+		// Added by Ajax_the_views 
+		jQuery(document).ready(function($) {
+			var postIDs = new Array();
+			var i = 0;
+			// get a list of post id numbers that need the number of views
+			$('.ajax-the-views').each(function(){
+				postIDs[i] = $(this).attr('id').replace('ajax-the-views-','');
+				i++;
+			});
+			// create the JSON string to go to the server (only if there's a views field on the page)
+			if (postIDs.length > 0) {
+				var sjcJSON = '{';
+				for (i=0; i<=postIDs.length-1; i++) {
+					sjcJSON += '"'+i+'":"'+ postIDs[i] + '"';
+					if (i<postIDs.length-1) {
+						sjcJSON += ',';
+					}
+				}
+				sjcJSON += '}';
+				// Send the Ajax request to the server and update the number of views appropriately
+				var thisURL = 'http://www.skywind.me/blog/wp-content/plugins/ajax-the-views/ajax-the-views-server.php?_wpnonce=5d0d9eaf31&ajax_the_views='+sjcJSON;
+				$.getJSON(thisURL , function(data) {
+					for (i=0; i<=postIDs.length-1; i++) {
+						$('#ajax-the-views-'+postIDs[i]).text(data[i]);
+					}
+				});
+			}
+		});
+		</script>
+		<script type="text/javascript" src="./Skywind Inside » 游戏服务端架构发展史（中）_files/form.js.下载"></script>
+<script type="text/javascript" src="./Skywind Inside » 游戏服务端架构发展史（中）_files/shCore.js.下载"></script>
+<script type="text/javascript" src="./Skywind Inside » 游戏服务端架构发展史（中）_files/shBrushAS3.js.下载"></script>
+<script type="text/javascript" src="./Skywind Inside » 游戏服务端架构发展史（中）_files/shBrushBash.js.下载"></script>
+<script type="text/javascript" src="./Skywind Inside » 游戏服务端架构发展史（中）_files/shBrushColdFusion.js.下载"></script>
+<script type="text/javascript" src="./Skywind Inside » 游戏服务端架构发展史（中）_files/shBrushClojure.js.下载"></script>
+<script type="text/javascript" src="./Skywind Inside » 游戏服务端架构发展史（中）_files/shBrushCpp.js.下载"></script>
+<script type="text/javascript" src="./Skywind Inside » 游戏服务端架构发展史（中）_files/shBrushCSharp.js.下载"></script>
+<script type="text/javascript" src="./Skywind Inside » 游戏服务端架构发展史（中）_files/shBrushCss.js.下载"></script>
+<script type="text/javascript" src="./Skywind Inside » 游戏服务端架构发展史（中）_files/shBrushDelphi.js.下载"></script>
+<script type="text/javascript" src="./Skywind Inside » 游戏服务端架构发展史（中）_files/shBrushDiff.js.下载"></script>
+<script type="text/javascript" src="./Skywind Inside » 游戏服务端架构发展史（中）_files/shBrushErlang.js.下载"></script>
+<script type="text/javascript" src="./Skywind Inside » 游戏服务端架构发展史（中）_files/shBrushFSharp.js.下载"></script>
+<script type="text/javascript" src="./Skywind Inside » 游戏服务端架构发展史（中）_files/shBrushGroovy.js.下载"></script>
+<script type="text/javascript" src="./Skywind Inside » 游戏服务端架构发展史（中）_files/shBrushJava.js.下载"></script>
+<script type="text/javascript" src="./Skywind Inside » 游戏服务端架构发展史（中）_files/shBrushJavaFX.js.下载"></script>
+<script type="text/javascript" src="./Skywind Inside » 游戏服务端架构发展史（中）_files/shBrushJScript.js.下载"></script>
+<script type="text/javascript" src="./Skywind Inside » 游戏服务端架构发展史（中）_files/shBrushLatex.js.下载"></script>
+<script type="text/javascript" src="./Skywind Inside » 游戏服务端架构发展史（中）_files/shBrushMatlabKey.js.下载"></script>
+<script type="text/javascript" src="./Skywind Inside » 游戏服务端架构发展史（中）_files/shBrushObjC.js.下载"></script>
+<script type="text/javascript" src="./Skywind Inside » 游戏服务端架构发展史（中）_files/shBrushPerl.js.下载"></script>
+<script type="text/javascript" src="./Skywind Inside » 游戏服务端架构发展史（中）_files/shBrushPhp.js.下载"></script>
+<script type="text/javascript" src="./Skywind Inside » 游戏服务端架构发展史（中）_files/shBrushPlain.js.下载"></script>
+<script type="text/javascript" src="./Skywind Inside » 游戏服务端架构发展史（中）_files/shBrushPowerShell.js.下载"></script>
+<script type="text/javascript" src="./Skywind Inside » 游戏服务端架构发展史（中）_files/shBrushPython.js.下载"></script>
+<script type="text/javascript" src="./Skywind Inside » 游戏服务端架构发展史（中）_files/shBrushR.js.下载"></script>
+<script type="text/javascript" src="./Skywind Inside » 游戏服务端架构发展史（中）_files/shBrushRuby.js.下载"></script>
+<script type="text/javascript" src="./Skywind Inside » 游戏服务端架构发展史（中）_files/shBrushScala.js.下载"></script>
+<script type="text/javascript" src="./Skywind Inside » 游戏服务端架构发展史（中）_files/shBrushSql.js.下载"></script>
+<script type="text/javascript" src="./Skywind Inside » 游戏服务端架构发展史（中）_files/shBrushVb.js.下载"></script>
+<script type="text/javascript" src="./Skywind Inside » 游戏服务端架构发展史（中）_files/shBrushXml.js.下载"></script>
+<script type="text/javascript">
+	(function(){
+		var corecss = document.createElement('link');
+		var themecss = document.createElement('link');
+		var corecssurl = "http://www.skywind.me/blog/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/styles/shCore.css?ver=3.0.9b";
+		if ( corecss.setAttribute ) {
+				corecss.setAttribute( "rel", "stylesheet" );
+				corecss.setAttribute( "type", "text/css" );
+				corecss.setAttribute( "href", corecssurl );
+		} else {
+				corecss.rel = "stylesheet";
+				corecss.href = corecssurl;
+		}
+		document.getElementsByTagName("head")[0].insertBefore( corecss, document.getElementById("syntaxhighlighteranchor") );
+		var themecssurl = "http://www.skywind.me/blog/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/styles/shThemeDefault.css?ver=3.0.9b";
+		if ( themecss.setAttribute ) {
+				themecss.setAttribute( "rel", "stylesheet" );
+				themecss.setAttribute( "type", "text/css" );
+				themecss.setAttribute( "href", themecssurl );
+		} else {
+				themecss.rel = "stylesheet";
+				themecss.href = themecssurl;
+		}
+		//document.getElementById("syntaxhighlighteranchor").appendChild(themecss);
+		document.getElementsByTagName("head")[0].insertBefore( themecss, document.getElementById("syntaxhighlighteranchor") );
+	})();
+	SyntaxHighlighter.config.strings.expandSource = '+ expand source';
+	SyntaxHighlighter.config.strings.help = '?';
+	SyntaxHighlighter.config.strings.alert = 'SyntaxHighlighter\n\n';
+	SyntaxHighlighter.config.strings.noBrush = 'Can\'t find brush for: ';
+	SyntaxHighlighter.config.strings.brushNotHtmlScript = 'Brush wasn\'t configured for html-script option: ';
+	SyntaxHighlighter.defaults['pad-line-numbers'] = false;
+	SyntaxHighlighter.defaults['toolbar'] = false;
+	SyntaxHighlighter.all();
+</script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var viewsCacheL10n = {"admin_ajax_url":"http:\/\/www.skywind.me\/blog\/wp-admin\/admin-ajax.php","post_id":"1301"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="./Skywind Inside » 游戏服务端架构发展史（中）_files/postviews-cache.js.下载"></script>
+<script type="text/javascript" src="./Skywind Inside » 游戏服务端架构发展史（中）_files/wp-embed.min.js.下载"></script>
+
+
+</body></html>

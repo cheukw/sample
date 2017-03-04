@@ -1,4 +1,4 @@
-#include "skynet.h"
+﻿#include "skynet.h"
 
 #include "skynet_imp.h"
 #include "skynet_env.h"
@@ -13,6 +13,12 @@
 #include <lauxlib.h>
 #include <signal.h>
 #include <assert.h>
+
+
+/// 将env中的key-value由string转成int
+/// key 
+/// opt 默认值，如果env中不存在key则将默认值设置到env中
+/// return
 
 static int
 optint(const char *key, int opt) {
@@ -108,10 +114,10 @@ main(int argc, char *argv[]) {
 	}
 
 	luaS_initshr();
-	skynet_globalinit(); // mainthread ��ʼ��
+	skynet_globalinit(); // mainthread 初始化
 	skynet_env_init();
 
-	sigign(); // ����SIGPIPE�ź�
+	sigign(); // 屏蔽SIGPIPE信号
 
 	struct skynet_config config;
 
