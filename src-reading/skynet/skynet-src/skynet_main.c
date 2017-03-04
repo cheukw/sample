@@ -144,9 +144,12 @@ main(int argc, char *argv[]) {
 	config.logger = optstring("logger", NULL);
 	config.logservice = optstring("logservice", "logger");
 
-	lua_close(L);
+	// close the config lua state
+	lua_close(L);  // 关闭读取环境变量的Lua State
 
+	// skynet real start
 	skynet_start(&config);
+
 	skynet_globalexit();
 	luaS_exitshr();
 

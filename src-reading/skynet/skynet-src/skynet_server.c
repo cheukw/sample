@@ -1,4 +1,4 @@
-#include "skynet.h"
+﻿#include "skynet.h"
 
 #include "skynet_server.h"
 #include "skynet_module.h"
@@ -755,6 +755,7 @@ skynet_context_send(struct skynet_context * ctx, void * msg, size_t sz, uint32_t
 	skynet_mq_push(ctx->queue, &smsg);
 }
 
+// 以下三个函数设置 pthread key, 先做个标记。
 void 
 skynet_globalinit(void) {
 	G_NODE.total = 0;

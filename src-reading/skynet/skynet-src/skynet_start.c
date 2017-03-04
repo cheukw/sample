@@ -1,4 +1,4 @@
-#include "skynet.h"
+﻿#include "skynet.h"
 #include "skynet_server.h"
 #include "skynet_imp.h"
 #include "skynet_mq.h"
@@ -234,6 +234,7 @@ bootstrap(struct skynet_context * logger, const char * cmdline) {
 	int sz = strlen(cmdline);
 	char name[sz+1];
 	char args[sz+1];
+	// "snlua bootstrap" name snlua, args bootstrap
 	sscanf(cmdline, "%s %s", name, args);
 	struct skynet_context *ctx = skynet_context_new(name, args);
 	if (ctx == NULL) {
@@ -257,11 +258,16 @@ skynet_start(struct skynet_config * config) {
 			exit(1);
 		}
 	}
+	// harbor?
 	skynet_harbor_init(config->harbor);
 	skynet_handle_init(config->harbor);
+	// global mq 
 	skynet_mq_init();
+	// c module
 	skynet_module_init(config->module_path);
+	// timer
 	skynet_timer_init();
+	// create a epoll ss 
 	skynet_socket_init();
 
 	struct skynet_context *ctx = skynet_context_new(config->logservice, config->logger);
