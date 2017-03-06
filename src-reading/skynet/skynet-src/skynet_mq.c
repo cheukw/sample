@@ -14,10 +14,10 @@
 
 // 0 means mq is not in global mq.
 // 1 means mq is in global mq , or the message is dispatching.
-
 #define MQ_IN_GLOBAL 1
 #define MQ_OVERLOAD 1024
 
+// 二级消息队列，每个服务都有一个
 struct message_queue {
 	struct spinlock lock;
 	uint32_t handle;
@@ -28,10 +28,11 @@ struct message_queue {
 	int in_global;
 	int overload;
 	int overload_threshold;
-	struct skynet_message *queue;
+	struct skynet_message *queue; // 这里保存了msg，数组来滴，并非链表
 	struct message_queue *next;
 };
 
+// 全局消息队列
 struct global_queue {
 	struct message_queue *head;
 	struct message_queue *tail;

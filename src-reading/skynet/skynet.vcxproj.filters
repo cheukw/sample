@@ -7,6 +7,12 @@
     <Filter Include="skynet-src">
       <UniqueIdentifier>{2f0effde-7fe1-4f92-9000-78a34702be54}</UniqueIdentifier>
     </Filter>
+    <Filter Include="lualib-src">
+      <UniqueIdentifier>{f115274a-2a5a-4622-a877-05296bb554c3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="lualib-src\sproto">
+      <UniqueIdentifier>{3ce42121-5789-4331-a602-ec584a040091}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="service-src\databuffer.h">
@@ -84,6 +90,15 @@
     <ClInclude Include="skynet-src\spinlock.h">
       <Filter>skynet-src</Filter>
     </ClInclude>
+    <ClInclude Include="lualib-src\lua-seri.h">
+      <Filter>lualib-src</Filter>
+    </ClInclude>
+    <ClInclude Include="lualib-src\sproto\msvcint.h">
+      <Filter>lualib-src\sproto</Filter>
+    </ClInclude>
+    <ClInclude Include="lualib-src\sproto\sproto.h">
+      <Filter>lualib-src\sproto</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="service-src\service_gate.c">
@@ -145,6 +160,63 @@
     </ClCompile>
     <ClCompile Include="skynet-src\socket_server.c">
       <Filter>skynet-src</Filter>
+    </ClCompile>
+    <ClCompile Include="lualib-src\lsha1.c">
+      <Filter>lualib-src</Filter>
+    </ClCompile>
+    <ClCompile Include="lualib-src\lua-bson.c">
+      <Filter>lualib-src</Filter>
+    </ClCompile>
+    <ClCompile Include="lualib-src\lua-clientsocket.c">
+      <Filter>lualib-src</Filter>
+    </ClCompile>
+    <ClCompile Include="lualib-src\lua-cluster.c">
+      <Filter>lualib-src</Filter>
+    </ClCompile>
+    <ClCompile Include="lualib-src\lua-crypt.c">
+      <Filter>lualib-src</Filter>
+    </ClCompile>
+    <ClCompile Include="lualib-src\lua-debugchannel.c">
+      <Filter>lualib-src</Filter>
+    </ClCompile>
+    <ClCompile Include="lualib-src\lua-memory.c">
+      <Filter>lualib-src</Filter>
+    </ClCompile>
+    <ClCompile Include="lualib-src\lua-mongo.c">
+      <Filter>lualib-src</Filter>
+    </ClCompile>
+    <ClCompile Include="lualib-src\lua-multicast.c">
+      <Filter>lualib-src</Filter>
+    </ClCompile>
+    <ClCompile Include="lualib-src\lua-mysqlaux.c">
+      <Filter>lualib-src</Filter>
+    </ClCompile>
+    <ClCompile Include="lualib-src\lua-netpack.c">
+      <Filter>lualib-src</Filter>
+    </ClCompile>
+    <ClCompile Include="lualib-src\lua-profile.c">
+      <Filter>lualib-src</Filter>
+    </ClCompile>
+    <ClCompile Include="lualib-src\lua-seri.c">
+      <Filter>lualib-src</Filter>
+    </ClCompile>
+    <ClCompile Include="lualib-src\lua-sharedata.c">
+      <Filter>lualib-src</Filter>
+    </ClCompile>
+    <ClCompile Include="lualib-src\lua-skynet.c">
+      <Filter>lualib-src</Filter>
+    </ClCompile>
+    <ClCompile Include="lualib-src\lua-socket.c">
+      <Filter>lualib-src</Filter>
+    </ClCompile>
+    <ClCompile Include="lualib-src\lua-stm.c">
+      <Filter>lualib-src</Filter>
+    </ClCompile>
+    <ClCompile Include="lualib-src\sproto\lsproto.c">
+      <Filter>lualib-src\sproto</Filter>
+    </ClCompile>
+    <ClCompile Include="lualib-src\sproto\sproto.c">
+      <Filter>lualib-src\sproto</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

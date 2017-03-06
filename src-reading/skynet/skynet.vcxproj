@@ -104,7 +104,7 @@
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>3rd/lua;../include;../include/x86_64-linux-gnu</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>3rd/lua;../include;../include/x86_64-linux-gnu;skynet-src</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -148,6 +148,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="lualib-src\lua-seri.h" />
+    <ClInclude Include="lualib-src\sproto\msvcint.h" />
+    <ClInclude Include="lualib-src\sproto\sproto.h" />
     <ClInclude Include="service-src\databuffer.h" />
     <ClInclude Include="service-src\hashid.h" />
     <ClInclude Include="skynet-src\atomic.h" />
@@ -175,6 +178,25 @@
     <ClInclude Include="skynet-src\spinlock.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="lualib-src\lsha1.c" />
+    <ClCompile Include="lualib-src\lua-bson.c" />
+    <ClCompile Include="lualib-src\lua-clientsocket.c" />
+    <ClCompile Include="lualib-src\lua-cluster.c" />
+    <ClCompile Include="lualib-src\lua-crypt.c" />
+    <ClCompile Include="lualib-src\lua-debugchannel.c" />
+    <ClCompile Include="lualib-src\lua-memory.c" />
+    <ClCompile Include="lualib-src\lua-mongo.c" />
+    <ClCompile Include="lualib-src\lua-multicast.c" />
+    <ClCompile Include="lualib-src\lua-mysqlaux.c" />
+    <ClCompile Include="lualib-src\lua-netpack.c" />
+    <ClCompile Include="lualib-src\lua-profile.c" />
+    <ClCompile Include="lualib-src\lua-seri.c" />
+    <ClCompile Include="lualib-src\lua-sharedata.c" />
+    <ClCompile Include="lualib-src\lua-skynet.c" />
+    <ClCompile Include="lualib-src\lua-socket.c" />
+    <ClCompile Include="lualib-src\lua-stm.c" />
+    <ClCompile Include="lualib-src\sproto\lsproto.c" />
+    <ClCompile Include="lualib-src\sproto\sproto.c" />
     <ClCompile Include="service-src\service_gate.c" />
     <ClCompile Include="service-src\service_harbor.c" />
     <ClCompile Include="service-src\service_logger.c" />
