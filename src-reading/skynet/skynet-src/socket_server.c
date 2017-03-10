@@ -1350,7 +1350,7 @@ socket_server_send(struct socket_server *ss, int id, const void * buffer, int sz
 	request.u.send.buffer = (char *)buffer;
 
 	send_request(ss, &request, 'D', sizeof(request.u.send));
-	return s->wb_size;
+	return s->wb_size;  
 }
 
 void 

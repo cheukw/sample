@@ -1,0 +1,81 @@
+﻿  socket_server.c
+g:\git-repos\sample\src-reading\include\x86_64-linux-gnu\gnu\stubs.h(7): fatal error C1083: 无法打开包括文件: “gnu/stubs-32.h”: No such file or directory
+  skynet_timer.c
+g:\git-repos\sample\src-reading\include\x86_64-linux-gnu\gnu\stubs.h(7): fatal error C1083: 无法打开包括文件: “gnu/stubs-32.h”: No such file or directory
+  skynet_start.c
+g:\git-repos\sample\src-reading\include\x86_64-linux-gnu\gnu\stubs.h(7): fatal error C1083: 无法打开包括文件: “gnu/stubs-32.h”: No such file or directory
+  skynet_socket.c
+g:\git-repos\sample\src-reading\include\x86_64-linux-gnu\gnu\stubs.h(7): fatal error C1083: 无法打开包括文件: “gnu/stubs-32.h”: No such file or directory
+  skynet_server.c
+g:\git-repos\sample\src-reading\include\x86_64-linux-gnu\gnu\stubs.h(7): fatal error C1083: 无法打开包括文件: “gnu/stubs-32.h”: No such file or directory
+  skynet_mq.c
+g:\git-repos\sample\src-reading\include\x86_64-linux-gnu\gnu\stubs.h(7): fatal error C1083: 无法打开包括文件: “gnu/stubs-32.h”: No such file or directory
+  skynet_monitor.c
+g:\git-repos\sample\src-reading\include\x86_64-linux-gnu\gnu\stubs.h(7): fatal error C1083: 无法打开包括文件: “gnu/stubs-32.h”: No such file or directory
+  skynet_module.c
+g:\git-repos\sample\src-reading\include\x86_64-linux-gnu\gnu\stubs.h(7): fatal error C1083: 无法打开包括文件: “gnu/stubs-32.h”: No such file or directory
+  skynet_main.c
+g:\git-repos\sample\src-reading\include\x86_64-linux-gnu\gnu\stubs.h(7): fatal error C1083: 无法打开包括文件: “gnu/stubs-32.h”: No such file or directory
+  skynet_log.c
+g:\git-repos\sample\src-reading\include\x86_64-linux-gnu\gnu\stubs.h(7): fatal error C1083: 无法打开包括文件: “gnu/stubs-32.h”: No such file or directory
+  skynet_harbor.c
+g:\git-repos\sample\src-reading\include\x86_64-linux-gnu\gnu\stubs.h(7): fatal error C1083: 无法打开包括文件: “gnu/stubs-32.h”: No such file or directory
+  skynet_handle.c
+g:\git-repos\sample\src-reading\include\x86_64-linux-gnu\gnu\stubs.h(7): fatal error C1083: 无法打开包括文件: “gnu/stubs-32.h”: No such file or directory
+  skynet_error.c
+g:\git-repos\sample\src-reading\include\x86_64-linux-gnu\gnu\stubs.h(7): fatal error C1083: 无法打开包括文件: “gnu/stubs-32.h”: No such file or directory
+  skynet_env.c
+g:\git-repos\sample\src-reading\include\x86_64-linux-gnu\gnu\stubs.h(7): fatal error C1083: 无法打开包括文件: “gnu/stubs-32.h”: No such file or directory
+  skynet_daemon.c
+g:\git-repos\sample\src-reading\include\x86_64-linux-gnu\gnu\stubs.h(7): fatal error C1083: 无法打开包括文件: “gnu/stubs-32.h”: No such file or directory
+  malloc_hook.c
+g:\git-repos\sample\src-reading\include\x86_64-linux-gnu\gnu\stubs.h(7): fatal error C1083: 无法打开包括文件: “gnu/stubs-32.h”: No such file or directory
+  service_snlua.c
+g:\git-repos\sample\src-reading\include\x86_64-linux-gnu\gnu\stubs.h(7): fatal error C1083: 无法打开包括文件: “gnu/stubs-32.h”: No such file or directory
+  service_logger.c
+g:\git-repos\sample\src-reading\include\x86_64-linux-gnu\gnu\stubs.h(7): fatal error C1083: 无法打开包括文件: “gnu/stubs-32.h”: No such file or directory
+  service_harbor.c
+g:\git-repos\sample\src-reading\include\x86_64-linux-gnu\gnu\stubs.h(7): fatal error C1083: 无法打开包括文件: “gnu/stubs-32.h”: No such file or directory
+  service_gate.c
+g:\git-repos\sample\src-reading\include\x86_64-linux-gnu\gnu\stubs.h(7): fatal error C1083: 无法打开包括文件: “gnu/stubs-32.h”: No such file or directory
+  正在生成代码...
+  正在编译...
+  sproto.c
+g:\git-repos\sample\src-reading\include\x86_64-linux-gnu\gnu\stubs.h(7): fatal error C1083: 无法打开包括文件: “gnu/stubs-32.h”: No such file or directory
+  lsproto.c
+g:\git-repos\sample\src-reading\include\x86_64-linux-gnu\gnu\stubs.h(7): fatal error C1083: 无法打开包括文件: “gnu/stubs-32.h”: No such file or directory
+  lua-stm.c
+g:\git-repos\sample\src-reading\include\x86_64-linux-gnu\gnu\stubs.h(7): fatal error C1083: 无法打开包括文件: “gnu/stubs-32.h”: No such file or directory
+  lua-socket.c
+g:\git-repos\sample\src-reading\include\x86_64-linux-gnu\gnu\stubs.h(7): fatal error C1083: 无法打开包括文件: “gnu/stubs-32.h”: No such file or directory
+  lua-skynet.c
+g:\git-repos\sample\src-reading\include\x86_64-linux-gnu\gnu\stubs.h(7): fatal error C1083: 无法打开包括文件: “gnu/stubs-32.h”: No such file or directory
+  lua-sharedata.c
+g:\git-repos\sample\src-reading\include\x86_64-linux-gnu\gnu\stubs.h(7): fatal error C1083: 无法打开包括文件: “gnu/stubs-32.h”: No such file or directory
+  lua-seri.c
+g:\git-repos\sample\src-reading\include\x86_64-linux-gnu\gnu\stubs.h(7): fatal error C1083: 无法打开包括文件: “gnu/stubs-32.h”: No such file or directory
+  lua-profile.c
+g:\git-repos\sample\src-reading\include\x86_64-linux-gnu\gnu\stubs.h(7): fatal error C1083: 无法打开包括文件: “gnu/stubs-32.h”: No such file or directory
+  lua-netpack.c
+g:\git-repos\sample\src-reading\include\x86_64-linux-gnu\gnu\stubs.h(7): fatal error C1083: 无法打开包括文件: “gnu/stubs-32.h”: No such file or directory
+  lua-mysqlaux.c
+g:\git-repos\sample\src-reading\include\x86_64-linux-gnu\gnu\stubs.h(7): fatal error C1083: 无法打开包括文件: “gnu/stubs-32.h”: No such file or directory
+  lua-multicast.c
+g:\git-repos\sample\src-reading\include\x86_64-linux-gnu\gnu\stubs.h(7): fatal error C1083: 无法打开包括文件: “gnu/stubs-32.h”: No such file or directory
+  lua-mongo.c
+g:\git-repos\sample\src-reading\include\x86_64-linux-gnu\gnu\stubs.h(7): fatal error C1083: 无法打开包括文件: “gnu/stubs-32.h”: No such file or directory
+  lua-memory.c
+g:\git-repos\sample\src-reading\include\x86_64-linux-gnu\gnu\stubs.h(7): fatal error C1083: 无法打开包括文件: “gnu/stubs-32.h”: No such file or directory
+  lua-debugchannel.c
+g:\git-repos\sample\src-reading\include\x86_64-linux-gnu\gnu\stubs.h(7): fatal error C1083: 无法打开包括文件: “gnu/stubs-32.h”: No such file or directory
+  lua-crypt.c
+g:\git-repos\sample\src-reading\include\x86_64-linux-gnu\gnu\stubs.h(7): fatal error C1083: 无法打开包括文件: “gnu/stubs-32.h”: No such file or directory
+  lua-cluster.c
+g:\git-repos\sample\src-reading\include\x86_64-linux-gnu\gnu\stubs.h(7): fatal error C1083: 无法打开包括文件: “gnu/stubs-32.h”: No such file or directory
+  lua-clientsocket.c
+g:\git-repos\sample\src-reading\include\x86_64-linux-gnu\gnu\stubs.h(7): fatal error C1083: 无法打开包括文件: “gnu/stubs-32.h”: No such file or directory
+  lua-bson.c
+g:\git-repos\sample\src-reading\include\x86_64-linux-gnu\gnu\stubs.h(7): fatal error C1083: 无法打开包括文件: “gnu/stubs-32.h”: No such file or directory
+  lsha1.c
+g:\git-repos\sample\src-reading\include\x86_64-linux-gnu\gnu\stubs.h(7): fatal error C1083: 无法打开包括文件: “gnu/stubs-32.h”: No such file or directory
+  正在生成代码...

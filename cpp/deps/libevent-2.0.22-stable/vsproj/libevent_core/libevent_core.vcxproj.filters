@@ -72,5 +72,8 @@
     <ClCompile Include="..\..\strlcpy.c">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\event.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

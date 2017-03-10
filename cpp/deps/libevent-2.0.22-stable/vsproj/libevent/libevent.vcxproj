@@ -156,6 +156,7 @@
     <ClCompile Include="..\..\bufferevent_sock.c" />
     <ClCompile Include="..\..\buffer_iocp.c" />
     <ClCompile Include="..\..\evdns.c" />
+    <ClCompile Include="..\..\event.c" />
     <ClCompile Include="..\..\event_iocp.c" />
     <ClCompile Include="..\..\event_tagging.c" />
     <ClCompile Include="..\..\evmap.c" />

@@ -155,6 +155,7 @@
     <ClCompile Include="..\..\bufferevent_ratelim.c" />
     <ClCompile Include="..\..\bufferevent_sock.c" />
     <ClCompile Include="..\..\buffer_iocp.c" />
+    <ClCompile Include="..\..\event.c" />
     <ClCompile Include="..\..\event_iocp.c" />
     <ClCompile Include="..\..\evmap.c" />
     <ClCompile Include="..\..\evthread.c" />
