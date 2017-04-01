@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="net">
+      <UniqueIdentifier>{864173e7-1e39-4017-acb9-79b199b9748b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="netbase">
+      <UniqueIdentifier>{7e631acc-5037-473a-b2fd-ea0c89a79b15}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\net\common.h">
+      <Filter>net</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\net\callbacks.h">
+      <Filter>net</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\net\connector.h">
+      <Filter>net</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\net\acceptor.h">
+      <Filter>net</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\net\utils.h">
+      <Filter>net</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\net\connection.h">
+      <Filter>net</Filter>
+    </ClInclude>
+    <ClInclude Include="netbase\socket.h">
+      <Filter>netbase</Filter>
+    </ClInclude>
+    <ClInclude Include="netbase\common.h">
+      <Filter>netbase</Filter>
+    </ClInclude>
+    <ClInclude Include="netbase\socket_opts.h">
+      <Filter>netbase</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\net\connector.cc">
+      <Filter>net</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\net\acceptor.cc">
+      <Filter>net</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\net\utils.cc">
+      <Filter>net</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\net\main.cc">
+      <Filter>net</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\net\connection.cc">
+      <Filter>net</Filter>
+    </ClCompile>
+    <ClCompile Include="netbase\socket.cc">
+      <Filter>netbase</Filter>
+    </ClCompile>
+    <ClCompile Include="netbase\socket_opts.cc">
+      <Filter>netbase</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
