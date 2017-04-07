@@ -1,0 +1,139 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="log">
+      <UniqueIdentifier>{2ca6d98d-05ec-4ec5-854d-f1b4dbaf8fd9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="utils">
+      <UniqueIdentifier>{e35a5144-0992-48a5-a40f-d15ed8d50bc5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="net">
+      <UniqueIdentifier>{9a37748b-9211-4259-bcba-55bbee396945}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="utils\slice.h">
+      <Filter>utils</Filter>
+    </ClInclude>
+    <ClInclude Include="utils\buffer.h">
+      <Filter>utils</Filter>
+    </ClInclude>
+    <ClInclude Include="common..h" />
+    <ClInclude Include="utils\duration.h">
+      <Filter>utils</Filter>
+    </ClInclude>
+    <ClInclude Include="utils\timestamp.h">
+      <Filter>utils</Filter>
+    </ClInclude>
+    <ClInclude Include="utils\gettimeofday.h">
+      <Filter>utils</Filter>
+    </ClInclude>
+    <ClInclude Include="utils\utility.h">
+      <Filter>utils</Filter>
+    </ClInclude>
+    <ClInclude Include="net\connector.h">
+      <Filter>net</Filter>
+    </ClInclude>
+    <ClInclude Include="net\dns_resolver.h">
+      <Filter>net</Filter>
+    </ClInclude>
+    <ClInclude Include="net\event_loop.h">
+      <Filter>net</Filter>
+    </ClInclude>
+    <ClInclude Include="net\event_loop_thread.h">
+      <Filter>net</Filter>
+    </ClInclude>
+    <ClInclude Include="net\event_loop_thread_pool.h">
+      <Filter>net</Filter>
+    </ClInclude>
+    <ClInclude Include="net\libevent_headers.h">
+      <Filter>net</Filter>
+    </ClInclude>
+    <ClInclude Include="net\libevent_watcher.h">
+      <Filter>net</Filter>
+    </ClInclude>
+    <ClInclude Include="net\listener.h">
+      <Filter>net</Filter>
+    </ClInclude>
+    <ClInclude Include="net\tcp_client.h">
+      <Filter>net</Filter>
+    </ClInclude>
+    <ClInclude Include="net\tcp_conn.h">
+      <Filter>net</Filter>
+    </ClInclude>
+    <ClInclude Include="net\tcp_server.h">
+      <Filter>net</Filter>
+    </ClInclude>
+    <ClInclude Include="net\thread_dispatch_policy.h">
+      <Filter>net</Filter>
+    </ClInclude>
+    <ClInclude Include="net\tcp_callbacks.h">
+      <Filter>net</Filter>
+    </ClInclude>
+    <ClInclude Include="net\fd_channel.h">
+      <Filter>net</Filter>
+    </ClInclude>
+    <ClInclude Include="net\inner_pre.h">
+      <Filter>net</Filter>
+    </ClInclude>
+    <ClInclude Include="net\sockets.h">
+      <Filter>net</Filter>
+    </ClInclude>
+    <ClInclude Include="utils\any.h">
+      <Filter>utils</Filter>
+    </ClInclude>
+    <ClInclude Include="net\invoke_timer.h">
+      <Filter>net</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="utils\buffer.cc">
+      <Filter>utils</Filter>
+    </ClCompile>
+    <ClCompile Include="utils\duration.cc">
+      <Filter>utils</Filter>
+    </ClCompile>
+    <ClCompile Include="net\connector.cc">
+      <Filter>net</Filter>
+    </ClCompile>
+    <ClCompile Include="net\dns_resolver.cc">
+      <Filter>net</Filter>
+    </ClCompile>
+    <ClCompile Include="net\event_loop.cc">
+      <Filter>net</Filter>
+    </ClCompile>
+    <ClCompile Include="net\event_loop_thread.cc">
+      <Filter>net</Filter>
+    </ClCompile>
+    <ClCompile Include="net\event_loop_thread_pool.cc">
+      <Filter>net</Filter>
+    </ClCompile>
+    <ClCompile Include="net\libevent_watcher.cc">
+      <Filter>net</Filter>
+    </ClCompile>
+    <ClCompile Include="net\listener.cc">
+      <Filter>net</Filter>
+    </ClCompile>
+    <ClCompile Include="net\tcp_client.cc">
+      <Filter>net</Filter>
+    </ClCompile>
+    <ClCompile Include="net\tcp_conn.cc">
+      <Filter>net</Filter>
+    </ClCompile>
+    <ClCompile Include="net\tcp_server.cc">
+      <Filter>net</Filter>
+    </ClCompile>
+    <ClCompile Include="net\fd_channel.cc">
+      <Filter>net</Filter>
+    </ClCompile>
+    <ClCompile Include="net\sockets.cc">
+      <Filter>net</Filter>
+    </ClCompile>
+    <ClCompile Include="net\inner_pre.cc">
+      <Filter>net</Filter>
+    </ClCompile>
+    <ClCompile Include="net\invoke_timer.cc">
+      <Filter>net</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,186 @@
+
+#include "net/dns_resolver.h"
+#include "net/event_loop.h"
+#include "net/libevent_watcher.h"
+#include "net/libevent_headers.h"
+
+
+DNSResolver::DNSResolver(EventLoop* evloop, const std::string& h, Duration timeout, const Functor& f)
+    : loop_(evloop)
+	, dnsbase_(nullptr)
+	, dns_req_(nullptr)
+	, host_(h)
+	, timeout_(timeout)
+	, functor_(f) 
+{}
+
+DNSResolver::~DNSResolver() 
+{
+    assert(dnsbase_ == nullptr);
+    assert(!timer_);
+
+}
+
+void DNSResolver::Start() 
+{
+    auto f = [this]() {
+        assert(loop_->IsInLoopThread());
+#if LIBEVENT_VERSION_NUMBER >= 0x02001500
+        AsyncDNSResolve();
+#else
+        SyncDNSResolve();
+#endif
+    };
+    loop_->RunInLoop(f);
+}
+
+void DNSResolver::SyncDNSResolve()
+{
+    /* Build the hints to tell getaddrinfo how to act. */
+    struct addrinfo hints;
+    memset(&hints, 0, sizeof(hints));
+    hints.ai_family = AF_UNSPEC; /* v4 or v6 is fine. */
+    hints.ai_socktype = SOCK_STREAM;
+    hints.ai_protocol = IPPROTO_TCP; /* We want a TCP socket */
+    hints.ai_flags = AI_PASSIVE;    /* For wildcard IP address */
+
+    /* Look up the hostname. */
+    struct addrinfo* answer = nullptr;
+    int err = getaddrinfo(host_.c_str(), nullptr, &hints, &answer);
+    if (err != 0) {
+		// TODO
+    } else {
+        for (struct addrinfo* rp = answer; rp != nullptr; rp = rp->ai_next) {
+            struct sockaddr_in* a = reinterpret_cast<struct sockaddr_in*>(rp->ai_addr);
+            if (a->sin_addr.s_addr == 0) {
+                continue;
+            }
+            addrs_.push_back(a->sin_addr);
+           
+        }
+    }
+    evutil_freeaddrinfo(answer);
+
+    if (functor_) {
+        functor_(this->addrs_);
+    }
+}
+
+void DNSResolver::Cancel() 
+{
+    assert(loop_->IsInLoopThread());
+    if (timer_) {
+        timer_->Cancel();
+        timer_.reset();
+    }
+    functor_ = Functor(); // Release the callback
+}
+
+void DNSResolver::AsyncWait() 
+{
+    timer_.reset(new TimerEventWatcher(loop_, std::bind(&DNSResolver::OnTimeout, this), timeout_));
+    timer_->SetCancelCallback(std::bind(&DNSResolver::OnCanceled, this));
+    timer_->Init();
+    timer_->AsyncWait();
+}
+
+void DNSResolver::OnTimeout() 
+{
+    evdns_getaddrinfo_cancel(dns_req_);
+    dns_req_ = nullptr;
+    ClearTimer();
+    if (functor_) {
+        functor_(this->addrs_);
+    }
+}
+
+void DNSResolver::OnCanceled() 
+{
+    evdns_getaddrinfo_cancel(dns_req_);
+    dns_req_ = nullptr;
+}
+
+void DNSResolver::AsyncDNSResolve() 
+{
+    // Set a timer to watch the DNS resolving
+    AsyncWait();
+
+    /* Build the hints to tell getaddrinfo how to act. */
+    struct addrinfo hints;
+    memset(&hints, 0, sizeof(hints));
+    hints.ai_family = AF_UNSPEC; /* v4 or v6 is fine. */
+    hints.ai_socktype = SOCK_STREAM;
+    hints.ai_protocol = IPPROTO_TCP; /* We want a TCP socket */
+    hints.ai_flags = AI_PASSIVE;    /* For wildcard IP address */
+
+    std::shared_ptr<DNSResolver> p = shared_from_this();
+    std::shared_ptr<DNSResolver> *pp = new std::shared_ptr<DNSResolver>(p);
+    dnsbase_ = evdns_base_new(loop_->event_base(), 1);
+    assert(dnsbase_);
+    dns_req_ = evdns_getaddrinfo(dnsbase_, host_.c_str(), nullptr, &hints, &DNSResolver::OnResolved, pp);
+}
+
+void DNSResolver::OnResolved(int errcode, struct addrinfo* addr) {
+    if (errcode != 0) {
+        if (errcode != EVUTIL_EAI_CANCEL) {
+            ClearTimer();
+        } else {
+           
+        }
+
+        evdns_base_free(dnsbase_, 0);
+        dnsbase_ = nullptr;
+
+        if (functor_) {
+            functor_(this->addrs_);
+        }
+        return;
+    }
+
+
+    if (addr == nullptr) {
+        evdns_base_free(dnsbase_, 0);
+        dnsbase_ = nullptr;
+        ClearTimer();
+        if (functor_) {
+            functor_(this->addrs_);
+        }
+        return;
+    }
+    if (addr->ai_canonname) {
+        
+    }
+
+    for (struct addrinfo* rp = addr; rp != nullptr; rp = rp->ai_next) {
+        struct sockaddr_in* a = sockets::sockaddr_in_cast(rp->ai_addr);
+
+        if (a->sin_addr.s_addr == 0) {
+            continue;
+        }
+
+        addrs_.push_back(a->sin_addr);
+    }
+    evutil_freeaddrinfo(addr);
+    ClearTimer();
+
+    evdns_base_free(dnsbase_, 0); //TODO Do we need to free dns_req_
+    dnsbase_ = nullptr;
+    if (functor_) {
+        functor_(this->addrs_);
+    }
+}
+
+void DNSResolver::OnResolved(int errcode, struct addrinfo* addr, void* arg) {
+    std::shared_ptr<DNSResolver>* pp = reinterpret_cast<std::shared_ptr<DNSResolver>*>(arg);
+    (*pp)->OnResolved(errcode, addr);
+    delete pp;
+}
+
+void DNSResolver::ClearTimer() {
+    timer_->SetCancelCallback(TimerEventWatcher::Handler());
+    timer_->Cancel();
+    timer_.reset();
+}
+
+
+

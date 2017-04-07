@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="modules">
+      <UniqueIdentifier>{c19bfeff-9752-4eb7-8bf9-9145b9dfd3a1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="modules\network">
+      <UniqueIdentifier>{b3b0f383-f5e0-4b37-a51e-aeaf4f788727}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="modules\game">
+      <UniqueIdentifier>{12f7a539-baed-4ebe-a6a1-a9348f6a7efc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="modules\log">
+      <UniqueIdentifier>{20d20045-e170-4931-aea8-0696c878b9d9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="modules\timer">
+      <UniqueIdentifier>{aa5834fd-fa4a-4a12-ac05-b223201aaf68}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="modules\command">
+      <UniqueIdentifier>{cde41100-cb08-40aa-af34-65c353f966dd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="modules\rmi">
+      <UniqueIdentifier>{ae4ba908-0a60-404c-80ca-7921e5759ecb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="modules\config">
+      <UniqueIdentifier>{7640b9af-f55f-4ce5-9dd5-e2515983133f}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="modules\game\gamemodule.h">
+      <Filter>modules\game</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
