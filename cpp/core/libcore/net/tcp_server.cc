@@ -18,7 +18,6 @@ TCPServer::TCPServer(EventLoop* loop, const std::string& laddr, const std::strin
 
 TCPServer::~TCPServer() 
 {
-    
     assert(tpool_->IsStopped());
     assert(connections_.empty());
     assert(!listener_);

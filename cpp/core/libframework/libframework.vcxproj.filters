@@ -16,19 +16,46 @@
     <Filter Include="modules\timer">
       <UniqueIdentifier>{aa5834fd-fa4a-4a12-ac05-b223201aaf68}</UniqueIdentifier>
     </Filter>
-    <Filter Include="modules\command">
-      <UniqueIdentifier>{cde41100-cb08-40aa-af34-65c353f966dd}</UniqueIdentifier>
-    </Filter>
     <Filter Include="modules\rmi">
       <UniqueIdentifier>{ae4ba908-0a60-404c-80ca-7921e5759ecb}</UniqueIdentifier>
     </Filter>
     <Filter Include="modules\config">
       <UniqueIdentifier>{7640b9af-f55f-4ce5-9dd5-e2515983133f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="modules\cmd">
+      <UniqueIdentifier>{cde41100-cb08-40aa-af34-65c353f966dd}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="modules\game\gamemodule.h">
       <Filter>modules\game</Filter>
+    </ClInclude>
+    <ClInclude Include="modules\log\logmodule.h">
+      <Filter>modules\log</Filter>
+    </ClInclude>
+    <ClInclude Include="modules\network\networkmodule.h">
+      <Filter>modules\network</Filter>
+    </ClInclude>
+    <ClInclude Include="modules\command\configmodule.h">
+      <Filter>modules\config</Filter>
+    </ClInclude>
+    <ClInclude Include="modules\command\rmimodule.h">
+      <Filter>modules\rmi</Filter>
+    </ClInclude>
+    <ClInclude Include="modules\timer\timermodule.h">
+      <Filter>modules\timer</Filter>
+    </ClInclude>
+    <ClInclude Include="modules\iinterfacemgr.h">
+      <Filter>modules</Filter>
+    </ClInclude>
+    <ClInclude Include="modules\imodule.h">
+      <Filter>modules</Filter>
+    </ClInclude>
+    <ClInclude Include="modules\inetworkmodule.h">
+      <Filter>modules</Filter>
+    </ClInclude>
+    <ClInclude Include="modules\cmd\cmdmodule.h">
+      <Filter>modules\cmd</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

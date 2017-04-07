@@ -12,8 +12,8 @@ TCPClient::TCPClient(EventLoop* l, const std::string& raddr, const std::string& 
     , auto_reconnect_(true)
     , reconnect_interval_(3.0)
     , connecting_timeout_(3.0)
-    , conn_fn_(&internal::DefaultConnectionCallback)
-    , msg_fn_(&internal::DefaultMessageCallback) 
+    , conn_fn_(&DefaultConnectionCallback)
+    , msg_fn_(&DefaultMessageCallback) 
 {
 }
 
@@ -102,7 +102,6 @@ void TCPClient::OnConnection(net_socket_t sockfd, const std::string& laddr) {
         return;
     }
 
-    
     assert(loop_->IsInLoopThread());
     TCPConnPtr c = TCPConnPtr(new TCPConn(loop_, name_, sockfd, laddr, remote_addr_));
     c->set_type(TCPConn::kOutgoing);

@@ -26,7 +26,6 @@ public:
     //      1. Received a new connection : TCPConn::IsConnected() == true
     //      2. An exist connection broken down : TCPConn::IsDisconnecting() == true
     void SetConnectionCallback(const ConnectionCallback& cb) {conn_fn_ = cb; }
-
     void SetMessageCallback(MessageCallback cb) { msg_fn_ = cb; }
 
     bool IsRunning() const;

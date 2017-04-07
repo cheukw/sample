@@ -85,6 +85,9 @@
     <ClInclude Include="net\invoke_timer.h">
       <Filter>net</Filter>
     </ClInclude>
+    <ClInclude Include="utils\raobjlist.h">
+      <Filter>utils</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="utils\buffer.cc">

@@ -24,7 +24,6 @@ EventLoopThreadPool::~EventLoopThreadPool()
 bool EventLoopThreadPool::Start(bool wait_until_thread_started) 
 {
     assert(!started_);
-
     if (started_) {
         return true;
     }

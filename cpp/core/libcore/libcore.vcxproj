@@ -174,6 +174,7 @@
     <ClInclude Include="utils\buffer.h" />
     <ClInclude Include="utils\duration.h" />
     <ClInclude Include="utils\gettimeofday.h" />
+    <ClInclude Include="utils\raobjlist.h" />
     <ClInclude Include="utils\slice.h" />
     <ClInclude Include="utils\timestamp.h" />
     <ClInclude Include="utils\utility.h" />
