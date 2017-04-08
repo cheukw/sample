@@ -1,3 +1,5 @@
+#include <thread>
+#include <chrono>
 #include "interfacemgr.h"
 
 InterfaceMgr::InterfaceMgr()
@@ -31,7 +33,14 @@ ModulePtr InterfaceMgr::QueryModule(const std::string& name)
 
 void InterfaceMgr::Run(unsigned long loop_interval)
 {
-	Update();
+	while (1) {
+		if (Update() == MS_STOP) {
+			break;
+		}
+		//std::this_thread::sleep_for(std::chrono::seconds * 1);
+		//std::this_thread::sleep_for(std::chrono::milliseconds);
+	}
+	
 }
 
 void InterfaceMgr::Stop()

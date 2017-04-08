@@ -144,9 +144,7 @@ void TCPConn::SendInLoop(const void* data, size_t len) {
 
     if(remaining > 0) {
         size_t old_len = output_buffer_.Length();
-        if (old_len + remaining >= high_water_mark_
-                && old_len < high_water_mark_
-                && high_water_mark_fn_) {
+        if (old_len + remaining >= high_water_mark_ && old_len < high_water_mark_ && high_water_mark_fn_) {
             loop_->QueueInLoop(std::bind(high_water_mark_fn_, shared_from_this(), old_len + remaining));
         }
 

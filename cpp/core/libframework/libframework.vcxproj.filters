@@ -9,5 +9,7 @@
   <ItemGroup>
     <ClCompile Include="main.cc" />
     <ClCompile Include="interfacemgr.cc" />
+    <ClCompile Include="serverapp.cc" />
+    <ClCompile Include="networkmodule.cc" />
   </ItemGroup>
 </Project>

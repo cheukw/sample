@@ -5,6 +5,8 @@
 class ServerApp
 {
 public:
+	ServerApp();
+	~ServerApp();
 
 	void Run(unsigned long loop_interval);
 

@@ -88,6 +88,9 @@
     <ClInclude Include="utils\raobjlist.h">
       <Filter>utils</Filter>
     </ClInclude>
+    <ClInclude Include="utils\heap.h">
+      <Filter>utils</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="utils\buffer.cc">

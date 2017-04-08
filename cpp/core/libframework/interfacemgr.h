@@ -4,8 +4,9 @@
 #include <memory>
 #include <string>
 #include <unordered_map>
-#include "module.h"
 
+class Module;
+typedef std::shared_ptr<Module> ModulePtr;
 class InterfaceMgr
 {
 public:

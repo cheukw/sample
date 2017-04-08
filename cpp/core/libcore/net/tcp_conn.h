@@ -60,6 +60,9 @@ public:
         assert(index < kContextCount && index >= 0);
         return context_[index];
     }
+	const std::string& local_addr() const {
+		return local_addr_;
+	}
     // Return the remote peer's address with form "ip:port"
     const std::string& remote_addr() const {
         return remote_addr_;

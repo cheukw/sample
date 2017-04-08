@@ -158,6 +158,8 @@
   <ItemGroup>
     <ClCompile Include="interfacemgr.cc" />
     <ClCompile Include="main.cc" />
+    <ClCompile Include="networkmodule.cc" />
+    <ClCompile Include="serverapp.cc" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

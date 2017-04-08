@@ -100,12 +100,13 @@ private:
     Any context_[kContextCount];
     bool running_;
 
-    std::mutex mutex_;
     // We use this to notify the thread when we put a task into the pending_functors_ queue
     std::shared_ptr<PipeEventWatcher> watcher_;
     // When we put a task into the pending_functors_ queue,
     // we need to notify the thread to execute it. But we don't want to notify repeatedly.
     std::atomic<bool> notified_;
+
+	std::mutex mutex_;
     std::vector<Functor>* pending_functors_; // @Guarded By mutex_
 
     std::atomic<int> pending_functor_count_;

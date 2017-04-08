@@ -18,15 +18,23 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cc" />
+    <ClCompile Include="networkmodule.cc" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="networkmodule.h" />
+    <ClInclude Include="packet.h" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{2FF19EBF-7E2F-4723-913C-C6060AFF5F9D}</ProjectGuid>
+    <ProjectGuid>{9C2CB7EF-C706-44F5-97B9-901095588AE0}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>libcore</RootNamespace>
+    <RootNamespace>network</RootNamespace>
     <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
-    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v140</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
@@ -39,7 +47,7 @@
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
-    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v140</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
@@ -71,12 +79,10 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <OutDir>$(SolutionDir)__out\lib\</OutDir>
-    <IntDir>$(SolutionDir)__out\obj\$(ProjectName)\$(Platform)\$(Configuration)\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
-    <OutDir>$(SolutionDir)__out\lib\</OutDir>
+    <OutDir>$(SolutionDir)__out\bin\</OutDir>
     <IntDir>$(SolutionDir)__out\obj\$(ProjectName)\$(Platform)\$(Configuration)\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -93,7 +99,6 @@
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>.;../deps/include/</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -108,7 +113,7 @@
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>.;../deps/include/</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>.;../deps/include/;../libcore/;</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -151,53 +156,6 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <ClInclude Include="common..h" />
-    <ClInclude Include="net\connector.h" />
-    <ClInclude Include="net\dns_resolver.h" />
-    <ClInclude Include="net\event_loop.h" />
-    <ClInclude Include="net\event_loop_thread.h" />
-    <ClInclude Include="net\event_loop_thread_pool.h" />
-    <ClInclude Include="net\fd_channel.h" />
-    <ClInclude Include="net\inner_pre.h" />
-    <ClInclude Include="net\invoke_timer.h" />
-    <ClInclude Include="net\libevent_headers.h" />
-    <ClInclude Include="net\libevent_watcher.h" />
-    <ClInclude Include="net\listener.h" />
-    <ClInclude Include="net\sockets.h" />
-    <ClInclude Include="net\tcp_callbacks.h" />
-    <ClInclude Include="net\tcp_client.h" />
-    <ClInclude Include="net\tcp_conn.h" />
-    <ClInclude Include="net\tcp_server.h" />
-    <ClInclude Include="net\thread_dispatch_policy.h" />
-    <ClInclude Include="utils\any.h" />
-    <ClInclude Include="utils\buffer.h" />
-    <ClInclude Include="utils\duration.h" />
-    <ClInclude Include="utils\gettimeofday.h" />
-    <ClInclude Include="utils\heap.h" />
-    <ClInclude Include="utils\raobjlist.h" />
-    <ClInclude Include="utils\slice.h" />
-    <ClInclude Include="utils\timestamp.h" />
-    <ClInclude Include="utils\utility.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="net\connector.cc" />
-    <ClCompile Include="net\dns_resolver.cc" />
-    <ClCompile Include="net\event_loop.cc" />
-    <ClCompile Include="net\event_loop_thread.cc" />
-    <ClCompile Include="net\event_loop_thread_pool.cc" />
-    <ClCompile Include="net\fd_channel.cc" />
-    <ClCompile Include="net\inner_pre.cc" />
-    <ClCompile Include="net\invoke_timer.cc" />
-    <ClCompile Include="net\libevent_watcher.cc" />
-    <ClCompile Include="net\listener.cc" />
-    <ClCompile Include="net\sockets.cc" />
-    <ClCompile Include="net\tcp_client.cc" />
-    <ClCompile Include="net\tcp_conn.cc" />
-    <ClCompile Include="net\tcp_server.cc" />
-    <ClCompile Include="utils\buffer.cc" />
-    <ClCompile Include="utils\duration.cc" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
