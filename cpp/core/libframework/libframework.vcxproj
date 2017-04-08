@@ -39,7 +39,7 @@
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
-    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v140</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
@@ -77,7 +77,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
     <IntDir>$(SolutionDir)__out\obj\$(ProjectName)\$(Platform)\$(Configuration)\</IntDir>
-    <OutDir>$(SolutionDir)__out\lib\</OutDir>
+    <OutDir>$(SolutionDir)__out\bin\</OutDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
@@ -150,16 +150,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="modules\cmd\cmdmodule.h" />
-    <ClInclude Include="modules\command\configmodule.h" />
-    <ClInclude Include="modules\command\rmimodule.h" />
-    <ClInclude Include="modules\game\gamemodule.h" />
-    <ClInclude Include="modules\iinterfacemgr.h" />
-    <ClInclude Include="modules\imodule.h" />
-    <ClInclude Include="modules\inetworkmodule.h" />
-    <ClInclude Include="modules\log\logmodule.h" />
-    <ClInclude Include="modules\network\networkmodule.h" />
-    <ClInclude Include="modules\timer\timermodule.h" />
+    <ClInclude Include="interfacemgr.h" />
+    <ClInclude Include="module.h" />
+    <ClInclude Include="networkmodule.h" />
+    <ClInclude Include="serverapp.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="interfacemgr.cc" />
+    <ClCompile Include="main.cc" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
