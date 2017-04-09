@@ -8,10 +8,7 @@
       <UniqueIdentifier>{2f0effde-7fe1-4f92-9000-78a34702be54}</UniqueIdentifier>
     </Filter>
     <Filter Include="lualib-src">
-      <UniqueIdentifier>{f115274a-2a5a-4622-a877-05296bb554c3}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="lualib-src\sproto">
-      <UniqueIdentifier>{3ce42121-5789-4331-a602-ec584a040091}</UniqueIdentifier>
+      <UniqueIdentifier>{f64a8ff5-f26d-43ba-96c4-b3a6be4862d3}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -92,12 +89,6 @@
     </ClInclude>
     <ClInclude Include="lualib-src\lua-seri.h">
       <Filter>lualib-src</Filter>
-    </ClInclude>
-    <ClInclude Include="lualib-src\sproto\msvcint.h">
-      <Filter>lualib-src\sproto</Filter>
-    </ClInclude>
-    <ClInclude Include="lualib-src\sproto\sproto.h">
-      <Filter>lualib-src\sproto</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -211,12 +202,6 @@
     </ClCompile>
     <ClCompile Include="lualib-src\lua-stm.c">
       <Filter>lualib-src</Filter>
-    </ClCompile>
-    <ClCompile Include="lualib-src\sproto\lsproto.c">
-      <Filter>lualib-src\sproto</Filter>
-    </ClCompile>
-    <ClCompile Include="lualib-src\sproto\sproto.c">
-      <Filter>lualib-src\sproto</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

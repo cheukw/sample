@@ -104,7 +104,7 @@
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>3rd/lua;../include;../include/x86_64-linux-gnu;skynet-src</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>3rd/lua;../include;../include/x86_64-linux-gnu</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -149,8 +149,6 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="lualib-src\lua-seri.h" />
-    <ClInclude Include="lualib-src\sproto\msvcint.h" />
-    <ClInclude Include="lualib-src\sproto\sproto.h" />
     <ClInclude Include="service-src\databuffer.h" />
     <ClInclude Include="service-src\hashid.h" />
     <ClInclude Include="skynet-src\atomic.h" />
@@ -195,8 +193,6 @@
     <ClCompile Include="lualib-src\lua-skynet.c" />
     <ClCompile Include="lualib-src\lua-socket.c" />
     <ClCompile Include="lualib-src\lua-stm.c" />
-    <ClCompile Include="lualib-src\sproto\lsproto.c" />
-    <ClCompile Include="lualib-src\sproto\sproto.c" />
     <ClCompile Include="service-src\service_gate.c" />
     <ClCompile Include="service-src\service_harbor.c" />
     <ClCompile Include="service-src\service_logger.c" />
