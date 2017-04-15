@@ -1,0 +1,1332 @@
+<!DOCTYPE html>
+<!-- saved from url=(0038)http://coolshell.cn/articles/7829.html -->
+<html lang="zh-CN"><!--<![endif]--><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><script type="text/javascript" async="" src="./28个Unix_Linux的命令行神器 _ _ 酷 壳 - CoolShell_files/ga.js.下载"></script><script src="./28个Unix_Linux的命令行神器 _ _ 酷 壳 - CoolShell_files/shares.php" charset="utf-8"></script>
+
+<meta name="viewport" content="width=device-width">
+
+<link rel="profile" href="http://gmpg.org/xfn/11">
+<link rel="pingback" href="http://coolshell.cn/xmlrpc.php">
+
+<title>28个Unix/Linux的命令行神器 | | 酷 壳 - CoolShell</title>
+
+<!-- All in One SEO Pack 2.3.12.1 by Michael Torbert of Semper Fi Web Design[339,395] -->
+<meta name="keywords" content="cli,game,linux,performance,rsync,unix,vim,杂项资源,编程工具">
+
+<link rel="canonical" href="http://coolshell.cn/articles/7829.html">
+<meta property="og:title" content="28个Unix/Linux的命令行神器 | | 酷 壳 - CoolShell">
+<meta property="og:type" content="article">
+<meta property="og:url" content="http://coolshell.cn/articles/7829.html">
+<meta property="og:image" content="http://coolshell.cn//wp-content/plugins/all-in-one-seo-pack/images/default-user-image.png">
+<meta property="og:site_name" content="酷 壳 - CoolShell">
+<meta property="og:description" content="下面是Kristóf Kovács收集的28个Unix/Linux下的28个命令行下的工具（原文链接），有一些是大家熟悉的，有一些是非常有用的，有一些是不为人知的。这些工具都非常不错，希望每个人都知道。本篇文章还在Hacker News上被讨论，你可以过去看看。我以作者的原文中加入了官网链接和一些说明。  dstat &amp; sar iostat, vmstat, ifstat 三合一的工具，用来查看系统性能（我在《性能调优攻略》中提到过那三个xxstat工具）。 官方网站：http://dag.wieers.com/rpm/packages/dstat/ 你可以这样使用：    slurm  查看网络流量的一个工具 官方网站：  Simple Linux Utility for Resource Management      vim &amp; emacs 真正程序员的代码编辑器。     screen, dtach, tmux, byobu 你是不是经常需要 SSH 或者 telent 远程登录到 Linux 服务器？你是不是经常为一些长时间运行的任务而头疼，比如系统备份、ftp 传输等等。通常情况下我们都是为每一个这样的任务开一个远程终端窗口，因为他们执行的时间太长了。必须等待它执行完毕，在此期间可不能关掉窗口或者断开连接，否则这个任务就会被杀掉，一切半途而废了。 Screen是一个可以在多个进程之间多路复用一个物理终端的窗口管理器。Screen中有会话的概念，用户可以在一个screen会话中创建多个screen窗口，在每一个screen窗口中就像操作一个真实的telnet/SSH连接窗口那样。请参看IBM DeveloperWorks的这篇文章《使用 screen 管理你的远程会话》  dtach 是用来模拟screen的detach的功能的小工具，其可以让你随意地attach到各种会话上 。下图为dtach+dvtm的样子。  tmux是一个优秀的终端复用软件，类似GNU">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="28个Unix/Linux的命令行神器 | | 酷 壳 - CoolShell">
+<meta name="twitter:description" content="下面是Kristóf Kovács收集的28个Unix/Linux下的28个命令行下的工具（原文链接），有一些是大家熟悉的，有一些是非常有用的，有一些是不为人知的。这些工具都非常不错，希望每个人都知道。本篇文章还在Hacker News上被讨论，你可以过去看看。我以作者的原文中加入了官网链接和一些说明。  dstat &amp; sar iostat, vmstat, ifstat 三合一的工具，用来查看系统性能（我在《性能调优攻略》中提到过那三个xxstat工具）。 官方网站：http://dag.wieers.com/rpm/packages/dstat/ 你可以这样使用：    slurm  查看网络流量的一个工具 官方网站：  Simple Linux Utility for Resource Management      vim &amp; emacs 真正程序员的代码编辑器。     screen, dtach, tmux, byobu 你是不是经常需要 SSH 或者 telent 远程登录到 Linux 服务器？你是不是经常为一些长时间运行的任务而头疼，比如系统备份、ftp 传输等等。通常情况下我们都是为每一个这样的任务开一个远程终端窗口，因为他们执行的时间太长了。必须等待它执行完毕，在此期间可不能关掉窗口或者断开连接，否则这个任务就会被杀掉，一切半途而废了。 Screen是一个可以在多个进程之间多路复用一个物理终端的窗口管理器。Screen中有会话的概念，用户可以在一个screen会话中创建多个screen窗口，在每一个screen窗口中就像操作一个真实的telnet/SSH连接窗口那样。请参看IBM DeveloperWorks的这篇文章《使用 screen 管理你的远程会话》  dtach 是用来模拟screen的detach的功能的小工具，其可以让你随意地attach到各种会话上 。下图为dtach+dvtm的样子。  tmux是一个优秀的终端复用软件，类似GNU">
+<meta name="twitter:image" content="http://coolshell.cn//wp-content/plugins/all-in-one-seo-pack/images/default-user-image.png">
+<!-- /all in one seo pack -->
+<link rel="dns-prefetch" href="http://fonts.googleapis.com/">
+<link rel="dns-prefetch" href="http://s.w.org/">
+<link rel="alternate" type="application/rss+xml" title="酷 壳 - CoolShell » Feed" href="http://coolshell.cn/feed">
+<link rel="alternate" type="application/rss+xml" title="酷 壳 - CoolShell » 评论Feed" href="http://coolshell.cn/comments/feed">
+<link rel="alternate" type="application/rss+xml" title="酷 壳 - CoolShell » 28个Unix/Linux的命令行神器评论Feed" href="http://coolshell.cn/articles/7829.html/feed">
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/2.2.1\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/2.2.1\/svg\/","svgExt":".svg","source":{"concatemoji":"http:\/\/coolshell.cn\/wp-includes\/js\/wp-emoji-release.min.js?ver=4.7.3"}};
+			!function(a,b,c){function d(a){var b,c,d,e,f=String.fromCharCode;if(!k||!k.fillText)return!1;switch(k.clearRect(0,0,j.width,j.height),k.textBaseline="top",k.font="600 32px Arial",a){case"flag":return k.fillText(f(55356,56826,55356,56819),0,0),!(j.toDataURL().length<3e3)&&(k.clearRect(0,0,j.width,j.height),k.fillText(f(55356,57331,65039,8205,55356,57096),0,0),b=j.toDataURL(),k.clearRect(0,0,j.width,j.height),k.fillText(f(55356,57331,55356,57096),0,0),c=j.toDataURL(),b!==c);case"emoji4":return k.fillText(f(55357,56425,55356,57341,8205,55357,56507),0,0),d=j.toDataURL(),k.clearRect(0,0,j.width,j.height),k.fillText(f(55357,56425,55356,57341,55357,56507),0,0),e=j.toDataURL(),d!==e}return!1}function e(a){var c=b.createElement("script");c.src=a,c.defer=c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var f,g,h,i,j=b.createElement("canvas"),k=j.getContext&&j.getContext("2d");for(i=Array("flag","emoji4"),c.supports={everything:!0,everythingExceptFlag:!0},h=0;h<i.length;h++)c.supports[i[h]]=d(i[h]),c.supports.everything=c.supports.everything&&c.supports[i[h]],"flag"!==i[h]&&(c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&c.supports[i[h]]);c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&!c.supports.flag,c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.everything||(g=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",g,!1),a.addEventListener("load",g,!1)):(a.attachEvent("onload",g),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),f=c.source||{},f.concatemoji?e(f.concatemoji):f.wpemoji&&f.twemoji&&(e(f.twemoji),e(f.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script><script src="./28个Unix_Linux的命令行神器 _ _ 酷 壳 - CoolShell_files/wp-emoji-release.min.js.下载" type="text/javascript" defer=""></script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+<link rel="stylesheet" id="wp-postratings-css" href="./28个Unix_Linux的命令行神器 _ _ 酷 壳 - CoolShell_files/postratings-css.css" type="text/css" media="all">
+<link rel="stylesheet" id="wp-pagenavi-css" href="./28个Unix_Linux的命令行神器 _ _ 酷 壳 - CoolShell_files/pagenavi-css.css" type="text/css" media="all">
+<link rel="stylesheet" id="bootstrap-css" href="./28个Unix_Linux的命令行神器 _ _ 酷 壳 - CoolShell_files/bootstrap.css" type="text/css" media="all">
+<link rel="stylesheet" id="nisarg-style-css" href="./28个Unix_Linux的命令行神器 _ _ 酷 壳 - CoolShell_files/style.css" type="text/css" media="all">
+<style id="nisarg-style-inline-css" type="text/css">
+	/* Color Scheme */
+
+	/* Accent Color */
+
+	a:active,
+	a:hover,
+	a:focus {
+	    color: #009688;
+	}
+
+	.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
+		color: #009688;
+	}
+
+	
+	.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
+		color: #009688;			
+	}
+
+	@media (min-width: 768px){
+		.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
+			border-top: 4px solid #009688;
+		}		
+	}
+
+	.dropdown-menu > .active > a, .dropdown-menu > .active > a:hover, .dropdown-menu > .active > a:focus {	    
+	    background-color: #009688;
+	}
+
+
+	.navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
+		color: #009688;
+	}
+
+	.navbar-default .navbar-nav > li > .dropdown-menu > li > a:hover,
+	.navbar-default .navbar-nav > li > .dropdown-menu > li > a:focus {
+		color: #fff;
+		background-color: #009688;
+	}
+
+	.navbar-default .navbar-nav .open .dropdown-menu > .active > a, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
+		background-color: #fff;
+		color: #009688;
+	}
+
+	@media (max-width: 767px) {
+		.navbar-default .navbar-nav .open .dropdown-menu > li > a:hover {
+			background-color: #009688;
+			color: #fff;
+		}
+	}
+
+	.sticky-post{
+	    background: #009688;
+	    color:white;
+	}
+	
+	.entry-title a:hover,
+	.entry-title a:focus{
+	    color: #009688;
+	}
+
+	.entry-header .entry-meta::after{
+	    background: #009688;
+	}
+
+	.fa {
+		color: #009688;
+	}
+
+	.btn-default{
+		border-bottom: 1px solid #009688;
+	}
+
+	.btn-default:hover, .btn-default:focus{
+	    border-bottom: 1px solid #009688;
+	    background-color: #009688;
+	}
+
+	.nav-previous:hover, .nav-next:hover{
+	    border: 1px solid #009688;
+	    background-color: #009688;
+	}
+
+	.next-post a:hover,.prev-post a:hover{
+	    color: #009688;
+	}
+
+	.posts-navigation .next-post a:hover .fa, .posts-navigation .prev-post a:hover .fa{
+	    color: #009688;
+	}
+
+
+	#secondary .widget-title::after{
+		background-color: #009688;
+	    content: "";
+	    position: absolute;
+	    width: 75px;
+	    display: block;
+	    height: 4px;    
+	    bottom: -15px;
+	}
+
+	#secondary .widget a:hover,
+	#secondary .widget a:focus{
+		color: #009688;
+	}
+
+	#secondary .widget_calendar tbody a {
+	    background-color: #009688;
+	    color: #fff;
+	    padding: 0.2em;
+	}
+
+	#secondary .widget_calendar tbody a:hover{
+	    background-color: #009688;
+	    color: #fff;
+	    padding: 0.2em;
+	}	
+
+</style>
+<link rel="stylesheet" id="font-awesome-css" href="./28个Unix_Linux的命令行神器 _ _ 酷 壳 - CoolShell_files/font-awesome.min.css" type="text/css" media="all">
+<link rel="stylesheet" id="nisarggooglefonts-css" href="./28个Unix_Linux的命令行神器 _ _ 酷 壳 - CoolShell_files/css" type="text/css" media="all">
+<script type="text/javascript" src="./28个Unix_Linux的命令行神器 _ _ 酷 壳 - CoolShell_files/jquery.js.下载"></script>
+<script type="text/javascript" src="./28个Unix_Linux的命令行神器 _ _ 酷 壳 - CoolShell_files/jquery-migrate.min.js.下载"></script>
+<!--[if lt IE 9]>
+<script type='text/javascript' src='http://coolshell.cn//wp-content/themes/MyNisarg/js/html5shiv.js?ver=3.7.3'></script>
+<![endif]-->
+<link rel="https://api.w.org/" href="http://coolshell.cn/wp-json/">
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://coolshell.cn/xmlrpc.php?rsd">
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://coolshell.cn//wp-includes/wlwmanifest.xml"> 
+<link rel="prev" title="少即是极多" href="http://coolshell.cn/articles/7771.html">
+<link rel="next" title="代码执行的效率" href="http://coolshell.cn/articles/7886.html">
+<meta name="generator" content="WordPress 4.7.3">
+<link rel="shortlink" href="http://coolshell.cn/?p=7829">
+<link rel="alternate" type="application/json+oembed" href="http://coolshell.cn/wp-json/oembed/1.0/embed?url=http%3A%2F%2Fcoolshell.cn%2Farticles%2F7829.html">
+<link rel="alternate" type="text/xml+oembed" href="http://coolshell.cn/wp-json/oembed/1.0/embed?url=http%3A%2F%2Fcoolshell.cn%2Farticles%2F7829.html&amp;format=xml">
+	<link href="./28个Unix_Linux的命令行神器 _ _ 酷 壳 - CoolShell_files/SyntaxHighlighter.css" type="text/css" rel="stylesheet">
+			<script type="text/javascript">
+            var _statcounter = _statcounter || [];
+            _statcounter.push({"tags": {"author": "陈皓"}});
+        </script>
+	   <script type="text/javascript">
+	window._wp_rp_static_base_url = 'https://wprp.zemanta.com/static/';
+	window._wp_rp_wp_ajax_url = "http://coolshell.cn/wp-admin/admin-ajax.php";
+	window._wp_rp_plugin_version = '3.6.3';
+	window._wp_rp_post_id = '7829';
+	window._wp_rp_num_rel_posts = '8';
+	window._wp_rp_thumbnails = false;
+	window._wp_rp_post_title = '28%E4%B8%AAUnix%2FLinux%E7%9A%84%E5%91%BD%E4%BB%A4%E8%A1%8C%E7%A5%9E%E5%99%A8';
+	window._wp_rp_post_tags = ['performance', 'game', 'vim', 'rsync', 'linux', 'cli', 'unix', '%E7%BC%96%E7%A8%8B%E5%B7%A5%E5%85%B7', '%E6%9D%82%E9%A1%B9%E8%B5%84%E6%BA%90', 'screenshot', 'div', 'input', 'ssh', 'backup', 'parallel', 'amp', 'ftp', 'a', 'alt', 'resourc', 'util', 'linux', 'screen', 'titl'];
+	window._wp_rp_promoted_content = false;
+</script>
+
+<style type="text/css">
+        .site-header { background: #1d2b2d; }
+</style>
+
+<script type="text/javascript" src="./28个Unix_Linux的命令行神器 _ _ 酷 壳 - CoolShell_files/si_captcha.js.下载"></script>
+<!-- begin SI CAPTCHA Anti-Spam - login/register form style -->
+<style type="text/css">
+.si_captcha_small { width:175px; height:45px; padding-top:10px; padding-bottom:10px; }
+.si_captcha_large { width:250px; height:60px; padding-top:10px; padding-bottom:10px; }
+img#si_image_com { border-style:none; margin:0; padding-right:5px; float:left; }
+img#si_image_reg { border-style:none; margin:0; padding-right:5px; float:left; }
+img#si_image_log { border-style:none; margin:0; padding-right:5px; float:left; }
+img#si_image_side_login { border-style:none; margin:0; padding-right:5px; float:left; }
+img#si_image_checkout { border-style:none; margin:0; padding-right:5px; float:left; }
+img#si_image_jetpack { border-style:none; margin:0; padding-right:5px; float:left; }
+img#si_image_bbpress_topic { border-style:none; margin:0; padding-right:5px; float:left; }
+.si_captcha_refresh { border-style:none; margin:0; vertical-align:bottom; }
+div#si_captcha_input { display:block; padding-top:15px; padding-bottom:5px; }
+label#si_captcha_code_label { margin:0; }
+input#si_captcha_code_input { width:65px; }
+p#si_captcha_code { clear: left; padding-top:10px; }
+.si-captcha-jetpack-error { color:#DC3232; }
+</style>
+<!-- end SI CAPTCHA Anti-Spam - login/register form style -->
+<link rel="stylesheet" type="text/css" href="./28个Unix_Linux的命令行神器 _ _ 酷 壳 - CoolShell_files/shCore.css"><link rel="stylesheet" type="text/css" href="./28个Unix_Linux的命令行神器 _ _ 酷 壳 - CoolShell_files/shThemeDefault.css"><style type="text/css" id="syntaxhighlighteranchor"></style>
+</head>
+ 
+<body class="post-template-default single single-post postid-7829 single-format-standard group-blog"><link href="./28个Unix_Linux的命令行神器 _ _ 酷 壳 - CoolShell_files/jiathis_counter.css" rel="stylesheet" type="text/css"><link href="./28个Unix_Linux的命令行神器 _ _ 酷 壳 - CoolShell_files/jiathis_share.css" rel="stylesheet" type="text/css"><iframe frameborder="0" style="position: absolute; display: none; opacity: 0;" src="./28个Unix_Linux的命令行神器 _ _ 酷 壳 - CoolShell_files/saved_resource.html"></iframe><div class="jiathis_style" style="position: absolute; z-index: 1000000000; display: none; top: 50%; left: 50%; overflow: auto;"></div><div class="jiathis_style" style="position: absolute; z-index: 1000000000; display: none; overflow: auto;"></div><iframe frameborder="0" src="./28个Unix_Linux的命令行神器 _ _ 酷 壳 - CoolShell_files/jiathis_utility.html" style="display: none;"></iframe>
+<div id="page" class="hfeed site">
+<header id="masthead" role="banner">
+  
+
+    <nav class="navbar navbar-default navbar-fixed-top navbar-left" role="navigation"> 
+      <!-- Brand and toggle get grouped for better mobile display --> 
+      <div class="container" id="navigation_menu">
+        <div class="navbar-header"> 
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse"> 
+            <span class="sr-only">Toggle navigation</span> 
+            <span class="icon-bar"></span> 
+            <span class="icon-bar"></span> 
+            <span class="icon-bar"></span> 
+          </button> 
+                    <a class="navbar-brand" href="http://coolshell.cn/"><div class="coolshell_logo"></div>酷 壳 – CoolShell</a>
+        </div> 
+        
+
+          <div class="collapse navbar-collapse navbar-ex1-collapse"><ul id="menu-coolshell" class="nav navbar-nav"><li id="menu-item-17405" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-17405"><a title="首页" href="http://coolshell.cn/">首页</a></li>
+<li id="menu-item-17406" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-17406"><a title="推荐文章" href="http://coolshell.cn/featured">推荐文章</a></li>
+<li id="menu-item-17407" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-17407"><a title="本站插件" href="http://coolshell.cn/plugins">本站插件</a></li>
+<li id="menu-item-17408" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-17408"><a title="留言小本" href="http://coolshell.cn/guestbook">留言小本</a></li>
+<li id="menu-item-17409" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-17409"><a title="关于酷壳" href="http://coolshell.cn/about">关于酷壳</a></li>
+<li id="menu-item-17410" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-17410"><a title="关于陈皓" href="http://coolshell.cn/haoel">关于陈皓</a></li>
+<li id="menu-item-17582" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-17582"><a title="RSS" href="http://coolshell.cn/feed">RSS</a></li>
+</ul></div>        
+      </div><!--#container-->
+    </nav>
+ 
+
+  <div id="cc_spacer" style="height: 50px;"></div><!-- used to clear fixed navigation by the themes js --> 
+  
+  <div class="site-header">
+<div class="pull-right">
+<a title="把这个链接拖到你的Chrome收藏夹工具栏中" href="javascript:(function(){function c(){var e=document.createElement(&quot;link&quot;);e.setAttribute(&quot;type&quot;,&quot;text/css&quot;);e.setAttribute(&quot;rel&quot;,&quot;stylesheet&quot;);e.setAttribute(&quot;href&quot;,f);e.setAttribute(&quot;class&quot;,l);document.body.appendChild(e)}function h(){var e=document.getElementsByClassName(l);for(var t=0;t&lt;e.length;t++){document.body.removeChild(e[t])}}function p(){var e=document.createElement(&quot;div&quot;);e.setAttribute(&quot;class&quot;,a);document.body.appendChild(e);setTimeout(function(){document.body.removeChild(e)},100)}function d(e){return{height:e.offsetHeight,width:e.offsetWidth}}function v(i){var s=d(i);return s.height&gt;e&amp;&amp;s.height&lt;n&amp;&amp;s.width&gt;t&amp;&amp;s.width&lt;r}function m(e){var t=e;var n=0;while(!!t){n+=t.offsetTop;t=t.offsetParent}return n}function g(){var e=document.documentElement;if(!!window.innerWidth){return window.innerHeight}else if(e&amp;&amp;!isNaN(e.clientHeight)){return e.clientHeight}return 0}function y(){if(window.pageYOffset){return window.pageYOffset}return Math.max(document.documentElement.scrollTop,document.body.scrollTop)}function E(e){var t=m(e);return t&gt;=w&amp;&amp;t&lt;=b+w}function S(){var e=document.createElement(&quot;audio&quot;);e.setAttribute(&quot;class&quot;,l);e.src=i;e.loop=false;e.addEventListener(&quot;canplay&quot;,function(){setTimeout(function(){x(k)},500);setTimeout(function(){N();p();for(var e=0;e&lt;O.length;e++){T(O[e])}},15500)},true);e.addEventListener(&quot;ended&quot;,function(){N();h()},true);e.innerHTML=&quot; &lt;p&gt;If you are reading this, it is because your browser does not support the audio element. We recommend that you get a new browser.&lt;/p&gt; &lt;p&gt;&quot;;document.body.appendChild(e);e.play()}function x(e){e.className+=&quot; &quot;+s+&quot; &quot;+o}function T(e){e.className+=&quot; &quot;+s+&quot; &quot;+u[Math.floor(Math.random()*u.length)]}function N(){var e=document.getElementsByClassName(s);var t=new RegExp(&quot;\\b&quot;+s+&quot;\\b&quot;);for(var n=0;n&lt;e.length;){e[n].className=e[n].className.replace(t,&quot;&quot;)}}var e=30;var t=30;var n=350;var r=350;var i=&quot;//s3.amazonaws.com/moovweb-marketing/playground/harlem-shake.mp3&quot;;var s=&quot;mw-harlem_shake_me&quot;;var o=&quot;im_first&quot;;var u=[&quot;im_drunk&quot;,&quot;im_baked&quot;,&quot;im_trippin&quot;,&quot;im_blown&quot;];var a=&quot;mw-strobe_light&quot;;var f=&quot;//s3.amazonaws.com/moovweb-marketing/playground/harlem-shake-style.css&quot;;var l=&quot;mw_added_css&quot;;var b=g();var w=y();var C=document.getElementsByTagName(&quot;*&quot;);var k=null;for(var L=0;L&lt;C.length;L++){var A=C[L];if(v(A)){if(E(A)){k=A;break}}}if(A===null){console.warn(&quot;Could not find a node of the right size. Please try a different page.&quot;);return}c();S();var O=[];for(var L=0;L&lt;C.length;L++){var A=C[L];if(v(A)){O.push(A)}}})()    ">High一下!</a>
+</div>
+      <div class="site-branding">   
+        <a class="home-link" href="http://coolshell.cn/" title="酷 壳 – CoolShell" rel="home">
+          <h1 class="site-title">酷 壳 – CoolShell</h1>
+          <h2 class="site-description">享受编程和技术所带来的快乐 – Coding Your Ambition</h2>
+        </a>
+      </div><!--.site-branding-->
+  </div><!--.site-header--> 
+</header>    
+
+<div class="container">
+<div class="row">
+<div class="col-md-9 nav-searchbox hidden-lg hidden-md visible-sm-* visible-xs-*">
+  <form role="search" method="get" class="search-form" action="http://coolshell.cn/">
+      <label>
+          <span class="screen-reader-text">Search for:</span>
+          <input type="search" class="search-field" placeholder="Search …" value="" name="s" title="Search for:">
+      </label>
+      <button type="submit" class="search-submit"><span class="screen-reader-text">Search</span></button>
+  </form>
+</div>
+</div>
+</div>
+
+<div id="content" class="site-content">
+    
+    
+    
+
+	<div class="container">
+        <div class="row">
+			<div id="primary" class="col-md-9 content-area">
+				<main id="main" role="main">
+
+				
+					
+<article id="post-7829" class="post-content post-7829 post type-post status-publish format-standard hentry category-misc category-tools tag-cli tag-game tag-linux tag-performance tag-rsync tag-unix tag-vim">
+
+	
+		
+	<header class="entry-header">	
+	
+		<span class="screen-reader-text">28个Unix/Linux的命令行神器</span>
+
+					<h1 class="entry-title">28个Unix/Linux的命令行神器</h1>
+		
+				<div class="entry-meta">
+			<h5 class="entry-date"><i class="fa fa-calendar-o"></i> <a href="http://coolshell.cn/articles/7829.html" title="08:10" rel="bookmark"><time class="entry-date" datetime="2012-07-11T08:10:11+00:00" pubdate="">2012年07月11日 </time></a><span class="byline"><span class="sep"></span><i class="fa fa-user"></i>
+<span class="author vcard"><a class="url fn n" href="http://coolshell.cn/articles/author/haoel" title="View all posts by 陈皓" rel="author">陈皓</a></span></span> <i class="fa fa-comments-o"></i><span class="screen-reader-text">评论 </span> <a href="http://coolshell.cn/articles/7829.html#comments" class="comments-link">114 条评论</a> <i class="fa fa-users" style="margin-left:10px;"></i> 161,109 人阅读</h5>
+		</div><!-- .entry-meta -->
+			</header><!-- .entry-header -->
+	
+			<div class="entry-content">
+
+				<p>下面是<a href="http://kkovacs.eu/" target="_blank">Kristóf Kovács</a>收集的28个Unix/Linux下的28个命令行下的工具（<a href="http://kkovacs.eu/cool-but-obscure-unix-tools" target="_blank">原文链接</a>），有一些是大家熟悉的，有一些是非常有用的，有一些是不为人知的。这些工具都非常不错，希望每个人都知道。本篇文章还在<a href="http://news.ycombinator.com/item?id=2567186" target="_blank">Hacker News上被讨论</a>，你可以过去看看。我以作者的原文中加入了官网链接和一些说明。</p>
+<div class="alpha grid_6">
+<h4>dstat &amp; sar</h4>
+<p>iostat, vmstat, ifstat 三合一的工具，用来查看系统性能（我在《<a title="性能调优攻略" href="http://coolshell.cn/articles/7490.html" target="_blank">性能调优攻略</a>》中提到过那三个xxstat工具）。</p>
+<p>官方网站：<a href="http://dag.wieers.com/rpm/packages/dstat/" target="_blank">http://dag.wieers.com/rpm/packages/dstat/</a></p>
+<p>你可以这样使用：</p>
+<div><div id="highlighter_458975" class="syntaxhighlighter coolshell_syntaxhighlighter bash"><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="gutter"><div class="line number1 index0 alt2">1</div></td><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="bash functions">alias</code> <code class="bash plain">dstat=</code><code class="bash string">'dstat -cdlmnpsy'</code></div></div></td></tr></tbody></table></div></div>
+<div class="align_right">
+<p><img class="aligncenter" title="" src="./28个Unix_Linux的命令行神器 _ _ 酷 壳 - CoolShell_files/dstat_screenshot.png" alt="dstat screenshot" width="400" height="326"></p>
+<h4 class="caption_text">slurm</h4>
+</div>
+<p>查看网络流量的一个工具</p>
+<p>官方网站：<em>&nbsp;&nbsp;<a href="https://computing.llnl.gov/linux/slurm/" target="_blank">Simple Linux Utility for Resource Management</a></em></p>
+<p><span id="more-7829"></span></p>
+<div class="align_right">
+<p><img class="aligncenter" title="" src="./28个Unix_Linux的命令行神器 _ _ 酷 壳 - CoolShell_files/slurm_screenshot.png" alt="slurm screenshot" width="400" height="326"></p>
+<p class="caption_text">
+</p></div>
+<h4>vim &amp; emacs</h4>
+<p>真正程序员的代码编辑器。</p>
+<div class="align_right">
+<p><img class="aligncenter" title="" src="./28个Unix_Linux的命令行神器 _ _ 酷 壳 - CoolShell_files/vim_screenshot.png" alt="vim screenshot" width="400" height="326"></p>
+<p class="caption_text">
+</p></div>
+<h4>screen, dtach, tmux, byobu</h4>
+<p>你是不是经常需要 SSH 或者 telent 远程登录到 Linux 服务器？你是不是经常为一些长时间运行的任务而头疼，比如系统备份、ftp 传输等等。通常情况下我们都是为每一个这样的任务开一个远程终端窗口，因为他们执行的时间太长了。必须等待它执行完毕，在此期间可不能关掉窗口或者断开连接，否则这个任务就会被杀掉，一切半途而废了。</p>
+<p><a href="http://www.gnu.org/software/screen/" target="_blank"><strong>Screen</strong></a>是一个可以在多个进程之间多路复用一个物理终端的窗口管理器。Screen中有会话的概念，用户可以在一个screen会话中创建多个screen窗口，在每一个screen窗口中就像操作一个真实的telnet/SSH连接窗口那样。请参看IBM DeveloperWorks的这篇文章《<a href="http://www.ibm.com/developerworks/cn/linux/l-cn-screen/" target="_blank">使用 screen 管理你的远程会话</a>》</p>
+<p><img class="aligncenter" title="" src="./28个Unix_Linux的命令行神器 _ _ 酷 壳 - CoolShell_files/gnu_screen_screenshot.png" alt="gnu screen screenshot" width="400" height="326"></p>
+<p><a href="http://dtach.sourceforge.net/" target="_blank"><strong>dtach</strong> </a>是用来模拟screen的detach的功能的小工具，其可以让你随意地attach到各种会话上 。下图为dtach+dvtm的样子。</p>
+<p><img class="aligncenter size-full wp-image-7861" title="dtach+dvtm" src="./28个Unix_Linux的命令行神器 _ _ 酷 壳 - CoolShell_files/dtach+dvtm.png" alt="" width="500" height="477" srcset="http://coolshell.cn//wp-content/uploads/2012/07/dtach+dvtm.png 500w, http://coolshell.cn//wp-content/uploads/2012/07/dtach+dvtm-300x286.png 300w" sizes="(max-width: 500px) 100vw, 500px"></p>
+<p><strong><a title="http://tmux.sourceforge.net/" href="http://tmux.sourceforge.net/" rel="nofollow">tmux</a></strong>是一个优秀的终端复用软件，类似<a title="http://www.gnu.org/software/screen/" href="http://www.gnu.org/software/screen/" rel="nofollow">GNU Screen</a>，但来自于OpenBSD，采用BSD授权。使用它最直观的好处就是，通过一个终端登录远程主机并运行tmux后，在其中可以开启多个控制台而无需再“浪费”多余的终端来连接这台远程主机；当然其功能远不止于此。与screen相比的优点：可以横向和纵向分割窗口，且窗格可以自由移动和调整大小。可在多个缓冲区进行复制和粘贴，支持跨窗口搜索；非正常断线后不需重新detach；…… &nbsp;有人说——<strong>与tmux相比，screen简直弱爆了</strong>。</p>
+<p><img class="aligncenter size-full wp-image-7860" title="tmux" src="./28个Unix_Linux的命令行神器 _ _ 酷 壳 - CoolShell_files/tmux3.png" alt="" width="650" height="404" srcset="http://coolshell.cn//wp-content/uploads/2012/07/tmux3.png 650w, http://coolshell.cn//wp-content/uploads/2012/07/tmux3-300x186.png 300w" sizes="(max-width: 650px) 100vw, 650px"></p>
+<div class="align_right">
+<p><a href="https://launchpad.net/byobu/" target="_blank"><strong>byobu</strong></a>是Ubuntu开发的，在Screen的基础上进行包装，使其更加易用的一个工具。最新的Byobu，已经是基于Tmux作为后端了。可通过“byobu-tmux”这个命令行前端来接受各种与tmux一模一样的参数来控制它。Byobu的细节做的非常好，效果图如下：<img class="aligncenter size-full wp-image-7864" title="byobu-tmux" src="./28个Unix_Linux的命令行神器 _ _ 酷 壳 - CoolShell_files/byobu-tmux.jpg" alt="" width="650" height="406" srcset="http://coolshell.cn//wp-content/uploads/2012/07/byobu-tmux.jpg 650w, http://coolshell.cn//wp-content/uploads/2012/07/byobu-tmux-300x187.jpg 300w" sizes="(max-width: 650px) 100vw, 650px"></p>
+<p class="caption_text">
+</p></div>
+<h4>multitail</h4>
+<p>MultiTail是个用来实现同时监控多个文档、类似tail命令的功能的软件。他和tail的区别就是他会在控制台中打开多个窗口，这样使同时监控多个日志文档成为可能。他还可以看log文件的统计，合并log文件，过滤log文件，分屏，……。</p>
+<p>官网：<a href="http://www.vanheusden.com/multitail/">http://www.vanheusden.com/multitail/</a></p>
+<div class="align_right">
+<p><img class="aligncenter" title="" src="./28个Unix_Linux的命令行神器 _ _ 酷 壳 - CoolShell_files/multitail_screenshot.png" alt="multitail screenshot" width="400" height="326"></p>
+<p class="caption_text">
+</p></div>
+<h4>tpp</h4>
+<p>终端下的PPT，要是在某某大会上用这个演示PPT，就太TMD的Geek了。</p>
+<p>官网：<a href="http://www.ngolde.de/tpp.html">http://www.ngolde.de/tpp.html</a></p>
+<div class="align_right">
+<p><img class="aligncenter" title="" src="./28个Unix_Linux的命令行神器 _ _ 酷 壳 - CoolShell_files/tpp_screenshot.png" alt="tpp screenshot" width="400" height="326"></p>
+<p class="caption_text">
+</p></div>
+<h4>xargs &amp; parallel</h4>
+<p>Executes tasks from input (even multithread).</p>
+<p>xargs 是一个比较古老的命令，有简单的并行功能，这个不说了。<span>对于</span><a href="http://www.gnu.org/software/parallel/"><span>GNU parallel</span></a><span>&nbsp;(&nbsp;</span><a href="http://savannah.gnu.org/projects/parallel"><span>online manpage</span></a><span><span>&nbsp;)来说，它不仅能够处理本机上多执行绪，还能分散至远端电脑协助处理。</span><span>而使用GNU parallel前，要先确定本机有安装GNU parallel / ssh / rsync，远端电脑也要安装ssh。</span></span></p>
+<div class="align_right">
+<p><img class="aligncenter" title="" src="./28个Unix_Linux的命令行神器 _ _ 酷 壳 - CoolShell_files/xargs_screenshot.png" alt="xargs screenshot" width="400" height="326"></p>
+<p class="caption_text">
+</p></div>
+<h4>duplicity &amp; rsyncrypto</h4>
+<p><a href="http://duplicity.nongnu.org/" target="_blank">Duplicity</a>是使用rsync算法加密的高效率备份软件，Duplicity支持目录加密生产和格式上传到远程或本地文件服务器。</p>
+<p><a href="http://rsyncrypto.lingnu.com/index.php/Home_Page" target="_blank">rsyncrypto</a>&nbsp;就是 rsync + encryption。对于rsync的算法可参看酷壳的<a title="rsync 的核心算法" href="http://coolshell.cn/articles/7425.html" target="_blank">rsync核心算法</a>。</p>
+<p>Encrypting backup tools.</p>
+<div class="align_right">
+<p><img class="aligncenter" title="" src="./28个Unix_Linux的命令行神器 _ _ 酷 壳 - CoolShell_files/duplicity_screenshot.png" alt="duplicity screenshot" width="400" height="326"></p>
+<p class="caption_text">
+</p></div>
+<h4>nethack &amp; slash’em</h4>
+<p><a href="http://www.nethack.org/" target="_blank">NetHack</a>（<a href="http://zh.wikipedia.org/zh/NetHack" target="_blank">Wiki</a>），20年历史的古老电脑游戏。没有声音，没有漂亮的界面，不过这个游戏真的很有意思。网上有个家伙说：<strong>如果你一生只做一件事情，那么玩NetHack</strong>。这句话很惹眼，但也让人觉得这个游戏很复杂不容易上手。其实，这个游戏很虽然很复杂，却容易上手。虽然玩通关很难，但上手很容易。NetHack上有许多复杂的规则，”the DevTeam thinks of everything”（开发团队想到了所有的事情)。各种各样的怪物，各种各样的武器….，有许多spoilers文件来说明其规则。除了每次开始随机生成的地图，每次玩游戏，你也都会碰到奇怪的事情: 因为喝了一种药水，变成了机器人;因为踢坏了商店的门被要求高价赔偿;你的狗为你偷来了商店的东西….. 这有点象人生，你不能完全了解这个世界，但你仍然可以选择自己的面对方式。</p>
+<p>网上有许多文章所这是最好的电脑游戏或最好的电脑游戏之一。也许是因为它开放的源代码让人赞赏，古老的历史让人宽容，复杂的规则让人敬畏。虽然它不是当前流行的游戏，但它比任何一个当前流行的游戏都更有可能再经受20年的考验。</p>
+<p><a href="http://www.slashem.org/" target="_blank">Slash’EM</a>&nbsp;也是一个基于NetHack的经典游戏。</p>
+<div class="align_right">
+<p><img class="aligncenter" title="" src="./28个Unix_Linux的命令行神器 _ _ 酷 壳 - CoolShell_files/nethack_screenshot.png" alt="nethack screenshot" width="400" height="326"></p>
+<p class="caption_text">
+</p></div>
+<h4>lftp</h4>
+<p>利用<a href="http://lftp.yar.ru/" target="_blank">lftp</a>命令行ftp工具进行网站数据的增量备份，镜像，就像使用rsync一样。</p>
+<div class="align_right">
+<p><img class="aligncenter" title="" src="./28个Unix_Linux的命令行神器 _ _ 酷 壳 - CoolShell_files/lftp_screenshot.png" alt="lftp screenshot" width="400" height="326"></p>
+<p class="caption_text">
+</p></div>
+<h4>ack</h4>
+<p><a href="http://betterthangrep.com/"><span>ack</span></a><span>是一个perl脚本，是grep的一个可选替换品。其可以对匹配字符有高亮显示。是为程序员专门设计的，默认递归搜索，省提供多种文件类型供选。</span></p>
+<div class="align_right">
+<p><img class="aligncenter" title="" src="./28个Unix_Linux的命令行神器 _ _ 酷 壳 - CoolShell_files/ack_screenshot.png" alt="ack screenshot" width="400" height="326"></p>
+<p class="caption_text">
+</p></div>
+<h4>calcurse &amp; remind + wyrd</h4>
+<p><a href="http://calcurse.org/" target="_blank">calcurse</a>是一个命令行下的日历和日程软件。<a href="http://www.roaringpenguin.com/products/remind" target="_blank">remind</a> + <a href="http://pessimization.com/software/wyrd/" target="_blank">wyrd</a>也很类似。关于日历，我不得不提一个<a title="Linux的cycle日历（你懂的）" href="http://coolshell.cn/articles/3489.html" target="_blank">Linux的Cycle日历</a>，也是一个神器，呵呵。</p>
+<div class="align_right">
+<p><img class="aligncenter" title="" src="./28个Unix_Linux的命令行神器 _ _ 酷 壳 - CoolShell_files/calcurse_screenshot.png" alt="calcurse screenshot" width="400" height="326"></p>
+<p class="caption_text">
+</p></div>
+<h4>newsbeuter &amp; rsstail</h4>
+<p><a href="http://newsbeuter.org/" target="_blank">newsbeuter&nbsp;</a>和 <a href="http://www.vanheusden.com/rsstail/" target="_blank">rsstail</a> 是命令行下RSS的阅读工具。</p>
+<div class="align_right">
+<p><img class="aligncenter" title="" src="./28个Unix_Linux的命令行神器 _ _ 酷 壳 - CoolShell_files/newsbeuter_screenshot.png" alt="newsbeuter screenshot" width="400" height="326"></p>
+<p class="caption_text">
+</p></div>
+<h4>powertop</h4>
+<p><a title="做个环保主义的程序员" href="http://coolshell.cn/articles/7186.html" target="_blank">做个环保的程序员</a>，看看自己的电脑里哪些程序费电。<a href="https://01.org/powertop/" target="_blank">PowerTOP</a>&nbsp;是一个让 Intel 平台的笔记本电脑节省电源的 Linux 工具。此工具由 Intel 公司发布。它可以帮助用户找出那些耗电量大的程序，通过修复或者关闭那些应用程序或进程，从而为用户节省电源。</p>
+<div class="align_right">
+<p><img class="aligncenter" title="" src="./28个Unix_Linux的命令行神器 _ _ 酷 壳 - CoolShell_files/powertop_screenshot.png" alt="powertop screenshot" width="400" height="326"></p>
+<p class="caption_text">
+</p></div>
+</div>
+<div class="omega grid_6">
+<h4>htop &amp; iotop</h4>
+<p><a href="http://htop.sourceforge.net/" target="_blank">htop</a>&nbsp;和 <a href="http://guichaz.free.fr/iotop/" target="_blank">iotop</a>&nbsp; 用来查看进程，内存和IO负载。</p>
+<div class="align_right">
+<p><img class="aligncenter" title="" src="./28个Unix_Linux的命令行神器 _ _ 酷 壳 - CoolShell_files/htop_screenshot.png" alt="htop screenshot" width="400" height="326"></p>
+</div>
+<h4>ttyrec &amp; ipbt</h4>
+<p><a href="http://0xcc.net/ttyrec/index.html.en" target="_blank">ttyrec</a>&nbsp;是一个 tty 控制台录制程序，其所录制的数据文件可以使用与之配套的 ttyplay 播放。不管是你在 tty 中的各种操作，还是在 tty 中耳熟能详的软件，都可进行录制。</p>
+<p><a href="http://www.chiark.greenend.org.uk/~sgtatham/ipbt/" target="_blank">ipbt</a>&nbsp;是一个用来回放 ttyrec 所录制的控制台输入过程的工具。</p>
+<p>与此类似的还有<a href="http://shelr.tv/" target="_blank">Shelr</a> 和&nbsp;<a href="http://sourceforge.net/projects/termrec/" target="_blank">termrec&nbsp;</a></p>
+<div class="align_right">
+<p><img class="aligncenter" title="" src="./28个Unix_Linux的命令行神器 _ _ 酷 壳 - CoolShell_files/ipbt_screenshot.png" alt="ipbt screenshot" width="400" height="326"></p>
+<p class="caption_text">
+</p></div>
+<h4>rsync</h4>
+<p>通过SSH进行文件同步的经典工具（<a title="rsync 的核心算法" href="http://coolshell.cn/articles/7425.html" target="_blank">核心算法</a>）</p>
+<div class="align_right">
+<p><img class="aligncenter" title="" src="./28个Unix_Linux的命令行神器 _ _ 酷 壳 - CoolShell_files/rsync_screenshot.png" alt="rsync screenshot" width="400" height="326"></p>
+<p class="caption_text">
+</p></div>
+<h4>mtr</h4>
+<p><a href="http://www.bitwizard.nl/mtr/" target="_blank">MTR</a> – traceroute 2.0，其是把 traceroute 和 ping 集成在一块的一个小工具 用于诊断网络。</p>
+<div class="align_right">
+<p><img class="aligncenter" title="" src="./28个Unix_Linux的命令行神器 _ _ 酷 壳 - CoolShell_files/mtr_screenshot.png" alt="mtr screenshot" width="400" height="326"></p>
+<p class="caption_text">
+</p></div>
+<h4>socat &amp; netpipes</h4>
+<p><a href="http://www.dest-unreach.org/socat/" target="_blank">socat</a>是一个多功能的网络工具，名字来由是” Socket CAT”，可以看作是netcat的N倍加强版。</p>
+<p><a href="http://web.purplefrog.com/~thoth/netpipes/" target="_blank">netpipes</a>&nbsp;和socat一样，主要是用来在命令行来进行socket操作的命令，这样你就可以在Shell脚本下行进socket网络通讯了。</p>
+<div class="align_right">
+<p><img class="aligncenter" title="" src="./28个Unix_Linux的命令行神器 _ _ 酷 壳 - CoolShell_files/socat_screenshot.png" alt="socat screenshot" width="400" height="326"></p>
+<p class="caption_text">
+</p></div>
+<h4>iftop &amp; iptraf</h4>
+<p><a href="http://www.ex-parrot.com/~pdw/iftop/" target="_blank">iftop</a>和<a href="http://iptraf.seul.org/" target="_blank">iptraf</a>可以用来查看当前网络链接的一些流量情况。</p>
+<div class="align_right">
+<p><img class="aligncenter" title="" src="./28个Unix_Linux的命令行神器 _ _ 酷 壳 - CoolShell_files/iftop_screenshot.png" alt="iftop screenshot" width="400" height="326"></p>
+<p><img class="aligncenter size-full wp-image-7867" title="iptraf-tcpudp" src="./28个Unix_Linux的命令行神器 _ _ 酷 壳 - CoolShell_files/iptraf-tcpudp.gif" alt="" width="562" height="354" srcset="http://coolshell.cn//wp-content/uploads/2012/07/iptraf-tcpudp.gif 562w, http://coolshell.cn//wp-content/uploads/2012/07/iptraf-tcpudp-300x188.gif 300w" sizes="(max-width: 562px) 100vw, 562px"></p>
+<p class="caption_text">
+</p></div>
+<h4>siege &amp; tsung</h4>
+<p><a href="http://www.joedog.org/siege-home/" target="_blank">Siege</a>是一个压力测试和评测工具，设计用于WEB开发这评估应用在压力下的承受能力：可以根据配置对一个WEB站点进行多用户的并发访问，记录每个用户所有请求过程的相应时间，并在一定数量的并发访问下重复进行。</p>
+<p><a href="http://tsung.erlang-projects.org/" target="_blank">Tsung</a> 是一个压力测试工具，可以测试包括HTTP, WebDAV,&nbsp;PostgreSQL,&nbsp;MySQL, LDAP, and XMPP/Jabber等服务器。针对 HTTP 测试，Tsung 支持 HTTP 1.0/1.1 ，包含一个代理模式的会话记录、支持 GET、POST 和 PUT 以及 DELETE 方法，支持 Cookie 和基本的 WWW 认证，同时还支持 SSL。</p>
+<p>参看：<a title="十个免费的Web压力测试工具" href="http://coolshell.cn/articles/2589.html" target="_blank">十个免费的Web压力测试工具</a></p>
+<div class="align_right">
+<p><img class="aligncenter" title="" src="./28个Unix_Linux的命令行神器 _ _ 酷 壳 - CoolShell_files/siege_screenshot.png" alt="siege screenshot" width="400" height="326"></p>
+<p class="caption_text">
+</p></div>
+<h4>ledger</h4>
+<p><a href="http://ledger-cli.org/" target="_blank">ledger</a>&nbsp;一个命令行下记帐的小工具。</p>
+<div class="align_right">
+<p><img class="aligncenter" title="" src="./28个Unix_Linux的命令行神器 _ _ 酷 壳 - CoolShell_files/ledger_screenshot.png" alt="ledger screenshot" width="400" height="326"></p>
+<p class="caption_text">
+</p></div>
+<h4>taskwarrior</h4>
+<p><a href="http://taskwarrior.org/projects/show/taskwarrior" target="_blank">TaskWarrior</a>&nbsp;是一个基于命令行的 TODO 列表管理工具。主要功能包括：标签、彩色表格输出、报表和图形、大量的命令、底层API、多用户文件锁等功能。</p>
+<div class="align_right">
+<p><img class="aligncenter" title="" src="./28个Unix_Linux的命令行神器 _ _ 酷 壳 - CoolShell_files/taskwarrior_screenshot.png" alt="taskwarrior screenshot" width="400" height="326"></p>
+<p>下图是TaskWarrior 2.0的界面：</p>
+<p><img class="aligncenter size-full wp-image-7868" title="TaskWarrior2.0" src="./28个Unix_Linux的命令行神器 _ _ 酷 壳 - CoolShell_files/TaskWarrior2.0.png" alt="" width="395" height="480" srcset="http://coolshell.cn//wp-content/uploads/2012/07/TaskWarrior2.0.png 395w, http://coolshell.cn//wp-content/uploads/2012/07/TaskWarrior2.0-246x300.png 246w" sizes="(max-width: 395px) 100vw, 395px"></p>
+<p class="caption_text">
+</p></div>
+<h4>curl</h4>
+<p><a href="http://curl.haxx.se/" target="_blank">cURL</a>是一个利用URL语法在命令行下工作的文件传输工具，1997年首次发行。它支持文件上传和下载，所以是综合传输工具，但按传统，习惯称cURL为下载工具。cURL还包含了用于程序开发的libcurl。cURL支援的通訊協定有FTP、FTPS、HTTP、HTTPS、TFTP、SFTP、Gopher、SCP、Telnet、DICT、FILE、LDAP、LDAPS、IMAP、POP3、SMTP和RTSP。</p>
+<div class="align_right">
+<p><img class="aligncenter" title="" src="./28个Unix_Linux的命令行神器 _ _ 酷 壳 - CoolShell_files/curl_screenshot.png" alt="curl screenshot" width="400" height="326"></p>
+<p class="caption_text">
+</p></div>
+<h4>rtorrent &amp; aria2</h4>
+<p><a href="http://libtorrent.rakshasa.no/" target="_blank">rTorrent</a> 是一个非常简洁、优秀、非常轻量的BT客户端. 它使用了 ncurses 库以 C++ 编写, 因此它完全基于文本并在终端中运行. 将 rTorrent 用在安装有 GNU Screen 和 Secure Shell 的低端系统上作为远程的 BT 客户端是非常理想的。</p>
+<p><a href="http://aria2.sourceforge.net/">aria2</a>&nbsp;是 Linux 下一个不错的高速下载工具。由于它具有分段下载引擎，所以支持从多个地址或者从一个地址的多个连接来下载同一个文件。这样自然就大大加快了文件的下载速度。aria2 也具有断点续传功能，这使你随时能够恢复已经中断的文件下载。除了支持一般的 http(s) 和 ftp 协议外，aria2 还支持 BitTorrent 协议。这意味着，你也可以使用 aria2 来下载 torrent 文件。</p>
+<div class="align_right">
+<p class="caption_text">&nbsp;<img class="aligncenter" title="" src="./28个Unix_Linux的命令行神器 _ _ 酷 壳 - CoolShell_files/rtorrent_screenshot.png" alt="rtorrent screenshot" width="400" height="326"></p>
+</div>
+<h4>ttytter &amp; earthquake</h4>
+<p><a href="http://www.floodgap.com/software/ttytter" target="_blank">TTYtter</a>&nbsp;是一个Perl写的命令行上发Twitter的工具，可以进行所有其他平台客户端能进行的事情，当然，支持中文。脚本控、CLI控、终端控、Perl控的最愛。</p>
+<p><a href="https://github.com/jugyo/earthquake" target="_blank">Earthquake</a>也是一个命令行上的Twitter客户端。</p>
+<div class="align_right">
+<p><img class="aligncenter" title="" src="./28个Unix_Linux的命令行神器 _ _ 酷 壳 - CoolShell_files/ttytter_screenshot.png" alt="ttytter screenshot" width="400" height="326"></p>
+<p><img class="aligncenter size-full wp-image-7870" title="earthquake" src="./28个Unix_Linux的命令行神器 _ _ 酷 壳 - CoolShell_files/earthquake.jpg" alt="" width="550" height="314" srcset="http://coolshell.cn//wp-content/uploads/2012/07/earthquake.jpg 550w, http://coolshell.cn//wp-content/uploads/2012/07/earthquake-300x171.jpg 300w" sizes="(max-width: 550px) 100vw, 550px"></p>
+<p class="caption_text">
+</p></div>
+<h4>vifm &amp; ranger</h4>
+<p><a href="http://vifm.sourceforge.net/" target="_blank">Vifm</a>&nbsp;基于ncurses的文件管理器，DOS风格，用键盘操作。</p>
+<p><img class="aligncenter" title="" src="./28个Unix_Linux的命令行神器 _ _ 酷 壳 - CoolShell_files/vifm_screenshot.png" alt="vifm screenshot" width="400" height="326"></p>
+<p><a href="http://savannah.nongnu.org/projects/ranger" target="_blank">Ranger</a>用 Python 完成，默认为使用 Vim 风格的按键绑定，比如 hjkl（上下左右），dd（剪切），yy（复制）等等。功能很全，扩展/可配置性也非常不错。类似MacOS X下Finder（文件管理器）的多列文件管理方式。支持多标签页。实时预览文本文件和目录。</p>
+<div class="align_right">
+<p class="caption_text"><img class="aligncenter size-full wp-image-7871" title="ranger" src="./28个Unix_Linux的命令行神器 _ _ 酷 壳 - CoolShell_files/ranger.png" alt="" width="668" height="340" srcset="http://coolshell.cn//wp-content/uploads/2012/07/ranger.png 668w, http://coolshell.cn//wp-content/uploads/2012/07/ranger-300x152.png 300w" sizes="(max-width: 668px) 100vw, 668px"></p>
+</div>
+<h4>cowsay &amp; sl</h4>
+<p><a href="http://www.nog.net/~tony/warez/cowsay.shtml" target="_blank">cowsay&nbsp;</a>&nbsp;不说了，如下所示，哈哈哈。还有xcowsay，你可以自己搜一搜。</p>
+<div class="align_right">
+<p><img class="aligncenter" title="" src="./28个Unix_Linux的命令行神器 _ _ 酷 壳 - CoolShell_files/cowsay_screenshot.png" alt="cowsay screenshot" width="400" height="326"></p>
+<p class="caption_text">&nbsp;sl是什么？ls？，呵呵，你会经常把ls 打成sl吗？如果是的话，这个东西可以让你娱乐一下，你会看到一辆火车呼啸而过~~，相当拉风。你可以使用sudo apt-get install sl 安装。</p>
+<p class="caption_text"><img class="aligncenter size-full wp-image-7872" title="sl" src="./28个Unix_Linux的命令行神器 _ _ 酷 壳 - CoolShell_files/sl.jpg" alt="" width="500" height="254" srcset="http://coolshell.cn//wp-content/uploads/2012/07/sl.jpg 500w, http://coolshell.cn//wp-content/uploads/2012/07/sl-300x152.jpg 300w" sizes="(max-width: 500px) 100vw, 500px"></p>
+<p class="caption_text">最后，再介绍一个命令中linuxlogo，你可以使用 sudo apt-get install linuxlogo来安装，然后，就可以使用linuxlogo -L<br>
+来看一下各种Linux的logo了</p>
+<p class="caption_text"><img class="aligncenter" title="linuxlogo" src="./28个Unix_Linux的命令行神器 _ _ 酷 壳 - CoolShell_files/linuxlogo.jpg" alt="" width="450" height="371"></p>
+<p class="caption_text">（全文完）</p>
+</div>
+</div>
+<p align="center"><a href="http://cn.udacity.com/dand/?utm_source=coolshell&amp;utm_medium=referral&amp;utm_campaign=newDAND" target="_blank"><img src="./28个Unix_Linux的命令行神器 _ _ 酷 壳 - CoolShell_files/uda_banner_170209.png"></a></p>
+<p align="center"><img src="./28个Unix_Linux的命令行神器 _ _ 酷 壳 - CoolShell_files/qrcode_for_gh_dd9d8c843f20_860-300x300.jpg"><br>关注CoolShell微信公众账号可以在手机端搜索文章</p>
+<div style="margin-top: 15px; font-size: 11px;color: #cc0000;">
+<p align="center"><strong>（转载本站文章请注明作者和出处 <a href="http://coolshell.cn/">酷 壳 – CoolShell</a> ，请勿用于任何商业用途）</strong></p></div>
+<div style="text-align:center;padding:0px;font-size: 14px;margin-bottom: 50px;">——=== <b>访问 <a href="http://coolshell.cn/404/" target="_blank">酷壳404页面</a> 寻找遗失儿童。</b> ===——</div>
+<div style="clear:both; margin-top:5px; margin-bottom:5px;"></div><div style="float:left"><!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+<a class="jiathis_button_tsina" title="分享到微博"><span class="jiathis_txt jtico jtico_tsina"></span></a>
+<a class="jiathis_button_tqq" title="分享到腾讯微博"><span class="jiathis_txt jtico jtico_tqq"></span></a>
+<a class="jiathis_button_tsohu"></a>
+<a class="jiathis_button_t163"></a>
+<a class="jiathis_button_douban" title="分享到豆瓣"><span class="jiathis_txt jtico jtico_douban"></span></a>
+<a class="jiathis_button_renren" title="分享到人人网"><span class="jiathis_txt jtico jtico_renren"></span></a>
+<a class="jiathis_button_zhuaxia"></a>
+<a class="jiathis_button_fanfou" title="分享到饭否"><span class="jiathis_txt jtico jtico_fanfou"></span></a>
+<a class="jiathis_button_twitter" title="分享到Twitter"><span class="jiathis_txt jtico jtico_twitter"></span></a>
+<a class="jiathis_button_fb" title="分享到Facebook"><span class="jiathis_txt jtico jtico_fb"></span></a>
+<a class="jiathis_button_gmail" title="分享到Gmail邮箱"><span class="jiathis_txt jtico jtico_gmail"></span></a>
+<a class="jiathis_button_linkedin" title="分享到领英"><span class="jiathis_txt jtico jtico_linkedin"></span></a>
+<a class="jiathis_button_friendfeed" title="分享到FriendFeed"><span class="jiathis_txt jtico jtico_friendfeed"></span></a>
+<a class="jiathis_button_digg" title="分享到Digg"><span class="jiathis_txt jtico jtico_digg"></span></a>
+<a href="http://www.jiathis.com/share?uid=1541368" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+<a class="jiathis_counter_style"><span class="jiathis_button_expanded jiathis_counter jiathis_bubble_style" id="jiathis_counter_89" title="累计分享286次">286</span></a>
+</div>
+<script type="text/javascript">
+var jiathis_config={
+	data_track_clickback:true,
+	summary:"",
+	hideMore:false
+}
+</script>
+<script type="text/javascript" src="./28个Unix_Linux的命令行神器 _ _ 酷 壳 - CoolShell_files/jia.js.下载" charset="utf-8"></script><script type="text/javascript" src="./28个Unix_Linux的命令行神器 _ _ 酷 壳 - CoolShell_files/plugin.client.js.下载" charset="utf-8"></script>
+<!-- JiaThis Button END --></div><div style="clear:both; margin-top:5px; margin-bottom:5px;"></div><div id="post-ratings-7829" class="post-ratings" itemscope="" itemtype="http://schema.org/Article" data-nonce="7954c56cd4"><img id="rating_7829_1" src="./28个Unix_Linux的命令行神器 _ _ 酷 壳 - CoolShell_files/rating_on.gif" alt="好烂啊" title="好烂啊" onmouseover="current_rating(7829, 1, &#39;好烂啊&#39;);" onmouseout="ratings_off(4.6, 5, 0);" onclick="rate_post();" onkeypress="rate_post();" style="cursor: pointer; border: 0px;"><img id="rating_7829_2" src="./28个Unix_Linux的命令行神器 _ _ 酷 壳 - CoolShell_files/rating_on.gif" alt="有点差" title="有点差" onmouseover="current_rating(7829, 2, &#39;有点差&#39;);" onmouseout="ratings_off(4.6, 5, 0);" onclick="rate_post();" onkeypress="rate_post();" style="cursor: pointer; border: 0px;"><img id="rating_7829_3" src="./28个Unix_Linux的命令行神器 _ _ 酷 壳 - CoolShell_files/rating_on.gif" alt="凑合看看" title="凑合看看" onmouseover="current_rating(7829, 3, &#39;凑合看看&#39;);" onmouseout="ratings_off(4.6, 5, 0);" onclick="rate_post();" onkeypress="rate_post();" style="cursor: pointer; border: 0px;"><img id="rating_7829_4" src="./28个Unix_Linux的命令行神器 _ _ 酷 壳 - CoolShell_files/rating_on.gif" alt="还不错" title="还不错" onmouseover="current_rating(7829, 4, &#39;还不错&#39;);" onmouseout="ratings_off(4.6, 5, 0);" onclick="rate_post();" onkeypress="rate_post();" style="cursor: pointer; border: 0px;"><img id="rating_7829_5" src="./28个Unix_Linux的命令行神器 _ _ 酷 壳 - CoolShell_files/rating_half.gif" alt="很精彩" title="很精彩" onmouseover="current_rating(7829, 5, &#39;很精彩&#39;);" onmouseout="ratings_off(4.6, 5, 0);" onclick="rate_post();" onkeypress="rate_post();" style="cursor: pointer; border: 0px;"> (<strong>20</strong> 人打了分，平均分： <strong>4.60</strong> )<br><span class="post-ratings-text" id="ratings_7829_text"></span><meta itemprop="headline" content="28个Unix/Linux的命令行神器"><meta itemprop="description" content="下面是Kristóf Kovács收集的28个Unix/Linux下的28个命令行下的工具（原文链接），有一些是大家熟悉的，有一些是非常有用的，有一些是不为人知的。这些工具都非常不错，希望每个人都知道。本篇文章还在Hacker News上被讨论，你可以过去看看。我以作者的原文中加入了官网链接和一些说明。
+
+dstat &amp; sar
+iostat, vmstat, ifstat 三合一的工具，用..."><meta itemprop="datePublished" content="2012-07-11T08:10:11+00:00"><meta itemprop="dateModified" content="2012-07-11T11:03:37+00:00"><meta itemprop="url" content="http://coolshell.cn/articles/7829.html"><meta itemprop="author" content="陈皓"><meta itemprop="mainEntityOfPage" content="http://coolshell.cn/articles/7829.html"><div style="display: none;" itemprop="publisher" itemscope="" itemtype="https://schema.org/Organization"><meta itemprop="name" content="酷 壳 - CoolShell"><div itemprop="logo" itemscope="" itemtype="https://schema.org/ImageObject"><meta itemprop="url" content=""></div></div><div style="display: none;" itemprop="aggregateRating" itemscope="" itemtype="http://schema.org/AggregateRating"><meta itemprop="bestRating" content="5"><meta itemprop="worstRating" content="1"><meta itemprop="ratingValue" content="4.6"><meta itemprop="ratingCount" content="20"></div></div><div id="post-ratings-7829-loading" class="post-ratings-loading">
+            <img src="./28个Unix_Linux的命令行神器 _ _ 酷 壳 - CoolShell_files/loading.gif" width="16" height="16" class="post-ratings-image">Loading...</div>
+							</div><!-- .entry-content -->
+
+	<footer class="entry-footer">
+		<hr><div class="row"><div class="col-md-6 cattegories"><span class="cat-links"><i class="fa fa-folder-open"></i>
+		 <a href="http://coolshell.cn/category/misc" rel="category tag">杂项资源</a>, <a href="http://coolshell.cn/category/tools" rel="category tag">编程工具</a></span></div><div class="col-md-6 tags"><span class="tags-links"><i class="fa fa-tags"></i> <a href="http://coolshell.cn/tag/cli" rel="tag">CLI</a>, <a href="http://coolshell.cn/tag/game" rel="tag">Game</a>, <a href="http://coolshell.cn/tag/linux" rel="tag">Linux</a>, <a href="http://coolshell.cn/tag/performance" rel="tag">Performance</a>, <a href="http://coolshell.cn/tag/rsync" rel="tag">rsync</a>, <a href="http://coolshell.cn/tag/unix" rel="tag">Unix</a>, <a href="http://coolshell.cn/tag/vim" rel="tag">vim</a></span></div></div>	</footer><!-- .entry-footer -->
+</article><!-- #post-## -->
+    <!-- related posts START -->
+    <div id="related_posts">
+<div class="wp_rp_wrap  wp_rp_plain" id="wp_rp_first"><div class="wp_rp_content"><h3 class="related_post_title">相关文章</h3><ul class="related_post wp_rp"><li data-position="0" data-poid="in-8883" data-post-type="none"><small class="wp_rp_publish_date">2013年01月09日</small> <a href="http://coolshell.cn/articles/8883.html" class="wp_rp_title">应该知道的Linux技巧</a></li><li data-position="1" data-poid="in-5224" data-post-type="none"><small class="wp_rp_publish_date">2011年09月20日</small> <a href="http://coolshell.cn/articles/5224.html" class="wp_rp_title">一些文章和各种资源</a></li><li data-position="2" data-poid="in-7425" data-post-type="none"><small class="wp_rp_publish_date">2012年05月17日</small> <a href="http://coolshell.cn/articles/7425.html" class="wp_rp_title">rsync 的核心算法</a></li><li data-position="3" data-poid="in-1256" data-post-type="none"><small class="wp_rp_publish_date">2009年08月14日</small> <a href="http://coolshell.cn/articles/1256.html" class="wp_rp_title">你用Linux命令行吗？</a></li><li data-position="4" data-poid="in-9070" data-post-type="none"><small class="wp_rp_publish_date">2013年02月17日</small> <a href="http://coolshell.cn/articles/9070.html" class="wp_rp_title">AWK 简明教程</a></li><li data-position="5" data-poid="in-8619" data-post-type="none"><small class="wp_rp_publish_date">2012年11月23日</small> <a href="http://coolshell.cn/articles/8619.html" class="wp_rp_title">你可能不知道的Shell</a></li><li data-position="6" data-poid="in-9104" data-post-type="none"><small class="wp_rp_publish_date">2013年02月20日</small> <a href="http://coolshell.cn/articles/9104.html" class="wp_rp_title">sed 简明教程</a></li><li data-position="7" data-poid="in-3013" data-post-type="none"><small class="wp_rp_publish_date">2010年09月28日</small> <a href="http://coolshell.cn/articles/3013.html" class="wp_rp_title">一些非常有意思的杂项资源</a></li></ul></div></div>
+</div><div class="fixed"></div>    <!-- related posts END -->
+				</main><!-- #main -->				
+
+				<div class="post-navigation">				
+						<nav class="navigation" role="navigation">
+		<h2 class="screen-reader-text">Post navigation</h2>
+		<div class="nav-links">
+			<div class="row">
+			<!-- Get Next Post -->
+			
+						<div class="col-md-6 next-post">
+			<a class="" href="http://coolshell.cn/articles/7886.html"><span class="next-prev-text"><i class="fa fa-angle-left"></i>
+  上一篇</span><br>代码执行的效率</a>
+			</div>
+						
+			<!-- Get Previous Post -->
+			
+							<div class="col-md-6 prev-post">
+				<a class="" href="http://coolshell.cn/articles/7771.html"><span class="next-prev-text">下一篇 <i class="fa fa-angle-right"></i>
+</span><br>少即是极多</a>
+				</div>
+						
+			</div>
+		</div><!-- .nav-links -->
+	</nav><!-- .navigation-->
+					</div>
+
+				<div class="post-comments">
+					
+<div id="comments" class="comments-area">
+
+			<h2 class="comments-title">
+			《<span>28个Unix/Linux的命令行神器</span>》的相关评论		</h2>
+
+		<ol class="comment-list">
+					<li id="comment-1635975" class="comment even thread-even depth-1">
+			<article id="div-comment-1635975" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt="" src="./28个Unix_Linux的命令行神器 _ _ 酷 壳 - CoolShell_files/d539157209b97db872d4de3575571f90" srcset="http://1.gravatar.com/avatar/d539157209b97db872d4de3575571f90?s=100&amp;d=mm&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50">						<b class="fn">wanoer</b><span class="says">说道：</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="http://coolshell.cn/articles/7829.html/comment-page-3#comment-1635975">
+							<time datetime="2014-12-26T23:55:45+00:00">
+								2014年12月26日 23:55							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>最后那个。<br>
+还真是无聊啊~</p>
+				</div><!-- .comment-content -->
+
+				<div class="reply"><a rel="nofollow" class="comment-reply-link" href="http://coolshell.cn/articles/7829.html?replytocom=1635975#respond" onclick="return addComment.moveForm( &quot;div-comment-1635975&quot;, &quot;1635975&quot;, &quot;respond&quot;, &quot;7829&quot; )" aria-label="回复给wanoer">回复</a></div>			</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-1636415" class="comment odd alt thread-odd thread-alt depth-1">
+			<article id="div-comment-1636415" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt="" src="./28个Unix_Linux的命令行神器 _ _ 酷 壳 - CoolShell_files/68e841a01f6ad8a37dec32dee93f6bde" srcset="http://0.gravatar.com/avatar/68e841a01f6ad8a37dec32dee93f6bde?s=100&amp;d=mm&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50">						<b class="fn">wzq</b><span class="says">说道：</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="http://coolshell.cn/articles/7829.html/comment-page-3#comment-1636415">
+							<time datetime="2014-12-27T21:31:28+00:00">
+								2014年12月27日 21:31							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>呼啸而过的火车 ～～</p>
+				</div><!-- .comment-content -->
+
+				<div class="reply"><a rel="nofollow" class="comment-reply-link" href="http://coolshell.cn/articles/7829.html?replytocom=1636415#respond" onclick="return addComment.moveForm( &quot;div-comment-1636415&quot;, &quot;1636415&quot;, &quot;respond&quot;, &quot;7829&quot; )" aria-label="回复给wzq">回复</a></div>			</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-1641265" class="comment even thread-even depth-1">
+			<article id="div-comment-1641265" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt="" src="./28个Unix_Linux的命令行神器 _ _ 酷 壳 - CoolShell_files/f667ebdaa42fb750c00f06281e664e7d" srcset="http://0.gravatar.com/avatar/f667ebdaa42fb750c00f06281e664e7d?s=100&amp;d=mm&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50">						<b class="fn">momognu</b><span class="says">说道：</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="http://coolshell.cn/articles/7829.html/comment-page-3#comment-1641265">
+							<time datetime="2015-01-06T16:17:04+00:00">
+								2015年01月06日 16:17							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>linuxlogo挺多人用的</p>
+				</div><!-- .comment-content -->
+
+				<div class="reply"><a rel="nofollow" class="comment-reply-link" href="http://coolshell.cn/articles/7829.html?replytocom=1641265#respond" onclick="return addComment.moveForm( &quot;div-comment-1641265&quot;, &quot;1641265&quot;, &quot;respond&quot;, &quot;7829&quot; )" aria-label="回复给momognu">回复</a></div>			</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-1650309" class="comment odd alt thread-odd thread-alt depth-1">
+			<article id="div-comment-1650309" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt="" src="./28个Unix_Linux的命令行神器 _ _ 酷 壳 - CoolShell_files/de5be69d9b9baf9221728e66202c8e36" srcset="http://1.gravatar.com/avatar/de5be69d9b9baf9221728e66202c8e36?s=100&amp;d=mm&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50">						<b class="fn"><a href="http://www.dcfans.com.cn/" rel="external nofollow" class="url">单车</a></b><span class="says">说道：</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="http://coolshell.cn/articles/7829.html/comment-page-3#comment-1650309">
+							<time datetime="2015-01-26T15:17:58+00:00">
+								2015年01月26日 15:17							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>很有用   值得收藏  <a href="http://www.dcfans.com.cn/" rel="nofollow">单车</a></p>
+				</div><!-- .comment-content -->
+
+				<div class="reply"><a rel="nofollow" class="comment-reply-link" href="http://coolshell.cn/articles/7829.html?replytocom=1650309#respond" onclick="return addComment.moveForm( &quot;div-comment-1650309&quot;, &quot;1650309&quot;, &quot;respond&quot;, &quot;7829&quot; )" aria-label="回复给单车">回复</a></div>			</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-1710485" class="pingback even thread-even depth-1">
+			<div class="comment-body">
+				Pingback： <a href="http://www.iteaer.com/?p=426" rel="external nofollow" class="url">vfork 挂掉的一个问题 | IT茶人---茗香燕归来</a> 			</div>
+</li><!-- #comment-## -->
+		<li id="comment-1743276" class="pingback odd alt thread-odd thread-alt depth-1">
+			<div class="comment-body">
+				Pingback： <a href="http://dengkai.me/?p=47" rel="external nofollow" class="url">Linux学习~待续 | 一切皆有可能</a> 			</div>
+</li><!-- #comment-## -->
+		<li id="comment-1789402" class="pingback even thread-even depth-1">
+			<div class="comment-body">
+				Pingback： <a href="http://arvon.top/?p=16" rel="external nofollow" class="url">Tmux 使用简记 |</a> 			</div>
+</li><!-- #comment-## -->
+		<li id="comment-1815691" class="comment odd alt thread-odd thread-alt depth-1">
+			<article id="div-comment-1815691" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt="" src="./28个Unix_Linux的命令行神器 _ _ 酷 壳 - CoolShell_files/cd300c2f72d48650c2882f070c0f02c1" srcset="http://0.gravatar.com/avatar/cd300c2f72d48650c2882f070c0f02c1?s=100&amp;d=mm&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50">						<b class="fn">wxy</b><span class="says">说道：</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="http://coolshell.cn/articles/7829.html/comment-page-3#comment-1815691">
+							<time datetime="2016-03-30T11:19:17+00:00">
+								2016年03月30日 11:19							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>很多命令都么有用过…….</p>
+				</div><!-- .comment-content -->
+
+				<div class="reply"><a rel="nofollow" class="comment-reply-link" href="http://coolshell.cn/articles/7829.html?replytocom=1815691#respond" onclick="return addComment.moveForm( &quot;div-comment-1815691&quot;, &quot;1815691&quot;, &quot;respond&quot;, &quot;7829&quot; )" aria-label="回复给wxy">回复</a></div>			</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-1823747" class="pingback even thread-even depth-1">
+			<div class="comment-body">
+				Pingback： <a href="http://www.chy520.com/shell/37.html" rel="external nofollow" class="url">应该知道的Linux技巧-老邪博客</a> 			</div>
+</li><!-- #comment-## -->
+		<li id="comment-1889907" class="comment odd alt thread-odd thread-alt depth-1">
+			<article id="div-comment-1889907" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt="" src="./28个Unix_Linux的命令行神器 _ _ 酷 壳 - CoolShell_files/9a753cf7c0b846fb8a689caf5b85c5f1" srcset="http://0.gravatar.com/avatar/9a753cf7c0b846fb8a689caf5b85c5f1?s=100&amp;d=mm&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50">						<b class="fn">totola147</b><span class="says">说道：</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="http://coolshell.cn/articles/7829.html/comment-page-3#comment-1889907">
+							<time datetime="2016-10-03T03:45:15+00:00">
+								2016年10月03日 03:45							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>其实补刀不好的，但是我还是补个刀顺便引出我的困惑<br>
+“multitail和tail的区别就是他会在控制台中打开多个窗口” tail 也可以同时开多个窗口监控多个文件的，我是偶然知道的</p>
+<p>tail -f file1  -f file2 -f file3 …….</p>
+<p>引出的问题就是关于linux上的一些指令太多太多，每个工具都有很多个参数，代表着不同的场景下的不同用法，有时候我们就是因为不知道，就寻求了更加复杂的方式；目前我没有找到一个bash的比较全的书，能够让我对bash的用法能够掌握的比较全面，以及一些基本的命令，比如说我最近才发现的”nc” 是我寻求了很久，但是偶然才遇到的；很多时候觉得一些晦涩的写法不够优雅，觉得应该有更简单更直接的方法，但是就是不知道会是什么   比如说一直想知道 vim打开文件后 tty会开一个缓冲的空间，而当vim退出后，tty又会回到之前的内容；vim是如何实现的；如果我想实现这样的功能，应该从哪些方面下手，我找过一些资料但都无果，望指点</p>
+				</div><!-- .comment-content -->
+
+				<div class="reply"><a rel="nofollow" class="comment-reply-link" href="http://coolshell.cn/articles/7829.html?replytocom=1889907#respond" onclick="return addComment.moveForm( &quot;div-comment-1889907&quot;, &quot;1889907&quot;, &quot;respond&quot;, &quot;7829&quot; )" aria-label="回复给totola147">回复</a></div>			</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-1907722" class="comment even thread-even depth-1">
+			<article id="div-comment-1907722" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt="" src="./28个Unix_Linux的命令行神器 _ _ 酷 壳 - CoolShell_files/c20269d6470ded49a535b19044f76b93" srcset="http://0.gravatar.com/avatar/c20269d6470ded49a535b19044f76b93?s=100&amp;d=mm&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50">						<b class="fn">bbsang</b><span class="says">说道：</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="http://coolshell.cn/articles/7829.html/comment-page-3#comment-1907722">
+							<time datetime="2016-12-19T18:54:27+00:00">
+								2016年12月19日 18:54							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p><a href="http://coolshell.cn/articles/7829.html#comment-1889907" rel="nofollow">@totola147 </a> </p>
+<p>ncurses实现的</p>
+				</div><!-- .comment-content -->
+
+				<div class="reply"><a rel="nofollow" class="comment-reply-link" href="http://coolshell.cn/articles/7829.html?replytocom=1907722#respond" onclick="return addComment.moveForm( &quot;div-comment-1907722&quot;, &quot;1907722&quot;, &quot;respond&quot;, &quot;7829&quot; )" aria-label="回复给bbsang">回复</a></div>			</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-1913513" class="pingback odd alt thread-odd thread-alt depth-1">
+			<div class="comment-body">
+				Pingback： <a href="http://www.codingblog.cn/blog/2537.html" rel="external nofollow" class="url">Linux下服务器端开发流程及相关工具介绍(C++) – CodingBlog</a> 			</div>
+</li><!-- #comment-## -->
+		<li id="comment-1913543" class="pingback even thread-even depth-1">
+			<div class="comment-body">
+				Pingback： <a href="http://www.tiangr.com/ying-gai-zhi-dao-de-linux-ji-qiao.html" rel="external nofollow" class="url">应该知道的Linux技巧 | 甜果儿</a> 			</div>
+</li><!-- #comment-## -->
+		</ol><!-- .comment-list -->
+
+				<nav class="navigation comment-navigation" role="navigation">
+		<h2 class="screen-reader-text">Comment navigation</h2>
+		<div class="nav-links">
+			                                <div id="commentnavi">
+                        <span class="pages"><i class="fa fa-comments"></i> 评论分页</span>
+                        <div id="commentpager">
+                            <a class="prev page-numbers" href="http://coolshell.cn/articles/7829.html/comment-page-2#comments">« 上一页</a>
+<a class="page-numbers" href="http://coolshell.cn/articles/7829.html/comment-page-1#comments">1</a>
+<a class="page-numbers" href="http://coolshell.cn/articles/7829.html/comment-page-2#comments">2</a>
+<span class="page-numbers current">3</span>                            <span id="cp_post_id">7829</span>
+                        </div>
+                        <div class="fixed"></div>
+                    </div>
+            		</div><!-- .nav-links -->
+		</nav><!-- .comment-navigation -->
+		
+		
+	
+		<div id="respond" class="comment-respond">
+		<h3 id="reply-title" class="comment-reply-title">发表评论 <small><a rel="nofollow" id="cancel-comment-reply-link" href="http://coolshell.cn/articles/7829.html#respond" style="display:none;">取消回复</a></small></h3>			<form action="http://coolshell.cn/wp-comments-post.php" method="post" id="commentform" class="comment-form" novalidate="">
+				<p class="comment-notes"><span id="email-notes">电子邮件地址不会被公开。</span> 必填项已用<span class="required">*</span>标注</p><p class="comment-form-comment"><label for="comment">评论</label> <textarea id="comment" name="comment" cols="45" rows="8" maxlength="65525" aria-required="true" required="required"></textarea></p><p class="comment-form-author"><label for="author">姓名 <span class="required">*</span></label> <input id="author" name="author" type="text" value="" size="30" maxlength="245" aria-required="true" required="required"></p>
+<p class="comment-form-email"><label for="email">电子邮件 <span class="required">*</span></label> <input id="email" name="email" type="email" value="" size="30" maxlength="100" aria-describedby="email-notes" aria-required="true" required="required"></p>
+<p class="comment-form-url"><label for="url">站点</label> <input id="url" name="url" type="url" value="" size="30" maxlength="200"></p>
+
+
+<div class="si_captcha_small"><img id="si_image_com" src="./28个Unix_Linux的命令行神器 _ _ 酷 壳 - CoolShell_files/securimage_show.php" width="132" height="45" alt="CAPTCHA" title="CAPTCHA">
+    <input id="si_code_com" name="si_code_com" type="hidden" value="666eIvTq2PPRGwTm">
+    <div id="si_refresh_com">
+<a href="http://coolshell.cn/articles/7829.html#" rel="nofollow" title="Refresh" onclick="si_captcha_refresh(&#39;si_image_com&#39;,&#39;com&#39;,&#39;/wp-content/plugins/si-captcha-for-wordpress/captcha&#39;,&#39;http://coolshell.cn/wp-content/plugins/si-captcha-for-wordpress/captcha/securimage_show.php?si_sm_captcha=1&amp;si_form_id=com&amp;prefix=&#39;); return false;">
+      <img class="si_captcha_refresh" src="./28个Unix_Linux的命令行神器 _ _ 酷 壳 - CoolShell_files/refresh.png" width="22" height="20" alt="Refresh" onclick="this.blur();"></a>
+  </div>
+  </div>
+
+<p id="si_captcha_code">
+<input id="si_captcha_code" name="si_captcha_code" type="text">
+<label for="si_captcha_code">验证码</label><span class="required"> *</span>
+</p>
+
+<p class="form-submit"><input name="submit" type="submit" id="submit" class="submit" value="发表评论"> <input type="hidden" name="comment_post_ID" value="7829" id="comment_post_ID">
+<input type="hidden" name="comment_parent" id="comment_parent" value="0">
+</p><p style="display: none;"><input type="hidden" id="akismet_comment_nonce" name="akismet_comment_nonce" value="aa7ff52aa0"></p><p style="display: none;"></p>			<input type="hidden" id="ak_js" name="ak_js" value="1491960197597"></form>
+			</div><!-- #respond -->
+	
+</div><!-- #comments -->
+				</div>			
+
+				
+				
+			</div><!-- #primary -->
+
+			<div id="secondary" class="col-md-3 hidden-sm hidden-xs sidebar widget-area" role="complementary">
+        <aside id="search-2" class="widget widget_search">
+<form role="search" method="get" class="search-form" action="http://coolshell.cn/">
+	<label>
+		<span class="screen-reader-text">Search for:</span>
+		<input type="search" class="search-field" placeholder="Search …" value="" name="s" title="Search for:">
+	</label>
+	<button type="submit" class="search-submit"><span class="screen-reader-text">Search</span></button>
+</form>
+</aside><aside id="text-400151745" class="widget widget_text"><h4 class="widget-title">广告</h4>			<div class="textwidget"><p align="center"><a href="http://cn.udacity.com/dand/?utm_source=coolshell&amp;utm_medium=referral&amp;utm_campaign=newDAND" target="_blank"> <img src="./28个Unix_Linux的命令行神器 _ _ 酷 壳 - CoolShell_files/uda_adv-e1486956034933.jpg"> </a><br>
+优达学城微信公众号</p></div>
+		</aside><aside id="text-400151744" class="widget widget_text"><h4 class="widget-title">本站公告</h4>			<div class="textwidget"><p align="center"><img src="./28个Unix_Linux的命令行神器 _ _ 酷 壳 - CoolShell_files/qrcode_for_gh_dd9d8c843f20_860-300x300.jpg" height="200" weight="200" alt="微信公众号" title="微信公众号"></p>
+
+<iframe width="100%" height="120" class="share_self" frameborder="0" scrolling="no" src="./28个Unix_Linux的命令行神器 _ _ 酷 壳 - CoolShell_files/index.html"></iframe>
+
+<p align="center" style="background-color: #777;padding: 5px;color: white;font-weight: bold;border: solid 1px black;text-shadow: 0px 0px 3px black;"> <a href="http://coolshell.cn/404/?customize_changeset_uuid=82c8122e-7014-4d19-bdc5-b272d2a3bab0&amp;customize_theme=inove&amp;customize_messenger_channel=preview-0" target="_self" style="color: #FFE249;">酷壳404页面</a> <br>寻找遗失儿童！</p>
+
+
+
+<!--<p>酷壳建议大家多使用RSS访问阅读（本站已经是全文输出，推荐使用cloud.feedly.com 或 digg.com）。有相关事宜欢迎电邮：haoel(at)hotmail.com。最后，感谢大家对酷壳的支持和体谅！</p>--></div>
+		</aside>		<aside id="recent-posts-2" class="widget widget_recent_entries">		<h4 class="widget-title">最新文章</h4>		<ul>
+					<li>
+				<a href="http://coolshell.cn/articles/17737.html">AWS 的 S3 故障回顾和思考</a>
+						</li>
+					<li>
+				<a href="http://coolshell.cn/articles/17680.html">从Gitlab误删除数据库想到的</a>
+						</li>
+					<li>
+				<a href="http://coolshell.cn/articles/17634.html">Chrome开发者工具的小技巧</a>
+						</li>
+					<li>
+				<a href="http://coolshell.cn/articles/17607.html">从 MongoDB “赎金事件” 看安全问题</a>
+						</li>
+					<li>
+				<a href="http://coolshell.cn/articles/17583.html">技术人员的发展之路</a>
+						</li>
+					<li>
+				<a href="http://coolshell.cn/articles/17524.html">如何读懂并写出装逼的函数式代码</a>
+						</li>
+					<li>
+				<a href="http://coolshell.cn/articles/17497.html">什么是工程师文化？</a>
+						</li>
+					<li>
+				<a href="http://coolshell.cn/articles/17459.html">关于高可用的系统</a>
+						</li>
+					<li>
+				<a href="http://coolshell.cn/articles/17446.html">这多年来我一直在钻研的技术</a>
+						</li>
+					<li>
+				<a href="http://coolshell.cn/articles/17416.html">缓存更新的套路</a>
+						</li>
+					<li>
+				<a href="http://coolshell.cn/articles/17391.html">为什么我不在微信公众号上写文章</a>
+						</li>
+					<li>
+				<a href="http://coolshell.cn/articles/17381.html">性能测试应该怎么做？</a>
+						</li>
+					<li>
+				<a href="http://coolshell.cn/articles/17295.html">让我们来谈谈分工</a>
+						</li>
+					<li>
+				<a href="http://coolshell.cn/articles/17225.html">Cuckoo Filter：设计与实现</a>
+						</li>
+					<li>
+				<a href="http://coolshell.cn/articles/17200.html">Docker基础技术：DeviceMapper</a>
+						</li>
+					<li>
+				<a href="http://coolshell.cn/articles/17061.html">Docker基础技术：AUFS</a>
+						</li>
+					<li>
+				<a href="http://coolshell.cn/articles/17049.html">Docker基础技术：Linux CGroup</a>
+						</li>
+					<li>
+				<a href="http://coolshell.cn/articles/17010.html">Docker基础技术：Linux Namespace（上）</a>
+						</li>
+					<li>
+				<a href="http://coolshell.cn/articles/17029.html">Docker基础技术：Linux Namespace（下）</a>
+						</li>
+					<li>
+				<a href="http://coolshell.cn/articles/17066.html">关于移动端的钓鱼式攻击</a>
+						</li>
+					<li>
+				<a href="http://coolshell.cn/articles/16910.html">Linus：为何对象引用计数必须是原子的</a>
+						</li>
+					<li>
+				<a href="http://coolshell.cn/articles/12225.html">DHH 谈混合移动应用开发</a>
+						</li>
+					<li>
+				<a href="http://coolshell.cn/articles/12206.html">HTML6 展望</a>
+						</li>
+					<li>
+				<a href="http://coolshell.cn/articles/12136.html">Google Inbox如何跨平台重用代码？</a>
+						</li>
+					<li>
+				<a href="http://coolshell.cn/articles/12103.html">vfork 挂掉的一个问题</a>
+						</li>
+					<li>
+				<a href="http://coolshell.cn/articles/12052.html">Leetcode 编程训练</a>
+						</li>
+					<li>
+				<a href="http://coolshell.cn/articles/12012.html">State Threads 回调终结者</a>
+						</li>
+					<li>
+				<a href="http://coolshell.cn/articles/11973.html">bash代码注入的安全漏洞</a>
+						</li>
+					<li>
+				<a href="http://coolshell.cn/articles/11928.html">互联网之子 – Aaron Swartz</a>
+						</li>
+					<li>
+				<a href="http://coolshell.cn/articles/11847.html">谜题的答案和活动的心得体会</a>
+						</li>
+				</ul>
+		</aside>		<aside id="views-4" class="widget widget_views"><h4 class="widget-title">全站热门</h4><ul>
+<li><a href="http://coolshell.cn/articles/4990.html" title="程序员技术练级攻略 - 747,514 人阅读">程序员技术练级攻略</a></li><li><a href="http://coolshell.cn/articles/5426.html" title="简明 Vim 练级攻略 - 703,817 人阅读">简明 Vim 练级攻略</a></li><li><a href="http://coolshell.cn/articles/7186.html" title="做个环保主义的程序员 - 265,573 人阅读">做个环保主义的程序员</a></li><li><a href="http://coolshell.cn/articles/9070.html" title="AWK 简明教程 - 232,446 人阅读">AWK 简明教程</a></li><li><a href="http://coolshell.cn/articles/4102.html" title="如何学好C语言 - 230,189 人阅读">如何学好C语言</a></li><li><a href="http://coolshell.cn/articles/11564.html" title="TCP 的那些事儿（上） - 207,684 人阅读">TCP 的那些事儿（上）</a></li><li><a href="http://coolshell.cn/articles/8883.html" title="应该知道的Linux技巧 - 188,066 人阅读">应该知道的Linux技巧</a></li><li><a href="http://coolshell.cn/articles/2250.html" title="“21天教你学会C++” - 178,617 人阅读">“21天教你学会C++”</a></li><li><a href="http://coolshell.cn/articles/10688.html" title="编程能力与编程年龄 - 175,878 人阅读">编程能力与编程年龄</a></li><li><a href="http://coolshell.cn/articles/9104.html" title="sed 简明教程 - 174,149 人阅读">sed 简明教程</a></li><li><a href="http://coolshell.cn/articles/914.html" title="6个变态的C语言Hello World程序 - 172,253 人阅读">6个变态的C语言Hello World程序</a></li><li><a href="http://coolshell.cn/articles/6470.html" title="由12306.cn谈谈网站性能技术 - 165,550 人阅读">由12306.cn谈谈网站性能技术</a></li><li><a href="http://coolshell.cn/articles/7829.html" title="28个Unix/Linux的命令行神器 - 161,109 人阅读">28个Unix/Linux的命令行神器</a></li><li><a href="http://coolshell.cn/articles/9308.html" title="“作环保的程序员，从不用百度开始” - 160,798 人阅读">“作环保的程序员，从不用百度开始”</a></li><li><a href="http://coolshell.cn/articles/10590.html" title="二维码的生成细节和原理 - 148,269 人阅读">二维码的生成细节和原理</a></li><li><a href="http://coolshell.cn/articles/1870.html" title="我是怎么招聘程序员的 - 146,010 人阅读">我是怎么招聘程序员的</a></li><li><a href="http://coolshell.cn/articles/7490.html" title="性能调优攻略 - 142,054 人阅读">性能调优攻略</a></li><li><a href="http://coolshell.cn/articles/1846.html" title="MySQL性能优化的最佳20+条经验 - 138,388 人阅读">MySQL性能优化的最佳20+条经验</a></li><li><a href="http://coolshell.cn/articles/10739.html" title="Lua简明教程 - 137,625 人阅读">Lua简明教程</a></li><li><a href="http://coolshell.cn/articles/6043.html" title="Web开发中需要了解的东西 - 130,183 人阅读">Web开发中需要了解的东西</a></li><li><a href="http://coolshell.cn/articles/2287.html" title="C++ 程序员自信心曲线图 - 127,635 人阅读">C++ 程序员自信心曲线图</a></li><li><a href="http://coolshell.cn/articles/11312.html" title="无插件Vim编程技巧 - 124,894 人阅读">无插件Vim编程技巧</a></li><li><a href="http://coolshell.cn/articles/4119.html" title="如何学好C++语言 - 124,825 人阅读">如何学好C++语言</a></li><li><a href="http://coolshell.cn/articles/3549.html" title="Android将允许纯C/C++开发应用 - 122,158 人阅读">Android将允许纯C/C++开发应用</a></li><li><a href="http://coolshell.cn/articles/4758.html" title="如何写出无法维护的代码 - 120,446 人阅读">如何写出无法维护的代码</a></li><li><a href="http://coolshell.cn/articles/10910.html" title="分布式系统的事务处理 - 118,576 人阅读">分布式系统的事务处理</a></li><li><a href="http://coolshell.cn/articles/10217.html" title="加班与效率 - 112,382 人阅读">加班与效率</a></li><li><a href="http://coolshell.cn/articles/355.html" title="20本最好的Linux免费书籍 - 111,914 人阅读">20本最好的Linux免费书籍</a></li><li><a href="http://coolshell.cn/articles/3008.html" title="Windows编程革命简史 - 110,839 人阅读">Windows编程革命简史</a></li><li><a href="http://coolshell.cn/articles/1391.html" title="编程真难啊 - 110,547 人阅读">编程真难啊</a></li></ul>
+</aside><aside id="categories-367921423" class="widget widget_categories"><h4 class="widget-title">分类目录</h4>		<ul>
+	<li class="cat-item cat-item-189"><a href="http://coolshell.cn/category/proglanguage/dotnet">.NET编程</a> (3)
+</li>
+	<li class="cat-item cat-item-8"><a href="http://coolshell.cn/category/proglanguage/ajaxdev">Ajax开发</a> (9)
+</li>
+	<li class="cat-item cat-item-5"><a href="http://coolshell.cn/category/proglanguage/cplusplus">C/C++语言</a> (71)
+</li>
+	<li class="cat-item cat-item-186"><a href="http://coolshell.cn/category/proglanguage/erlang">Erlang</a> (1)
+</li>
+	<li class="cat-item cat-item-4"><a href="http://coolshell.cn/category/proglanguage/javadev">Java语言</a> (32)
+</li>
+	<li class="cat-item cat-item-11"><a href="http://coolshell.cn/category/proglanguage/phpdev">PHP脚本</a> (11)
+</li>
+	<li class="cat-item cat-item-33"><a href="http://coolshell.cn/category/proglanguage/pythondev">Python</a> (23)
+</li>
+	<li class="cat-item cat-item-100"><a href="http://coolshell.cn/category/proglanguage/rubydev">Ruby</a> (5)
+</li>
+	<li class="cat-item cat-item-20"><a href="http://coolshell.cn/category/operatingsystem/unixlinux">Unix/Linux</a> (75)
+</li>
+	<li class="cat-item cat-item-7"><a href="http://coolshell.cn/category/proglanguage/webdev">Web开发</a> (104)
+</li>
+	<li class="cat-item cat-item-19"><a href="http://coolshell.cn/category/operatingsystem/mswindows">Windows</a> (12)
+</li>
+	<li class="cat-item cat-item-195"><a href="http://coolshell.cn/category/itnews">业界新闻</a> (27)
+</li>
+	<li class="cat-item cat-item-509"><a href="http://coolshell.cn/category/%e4%bc%81%e4%b8%9a%e5%ba%94%e7%94%a8">企业应用</a> (2)
+</li>
+	<li class="cat-item cat-item-9"><a href="http://coolshell.cn/category/technews">技术新闻</a> (35)
+</li>
+	<li class="cat-item cat-item-550"><a href="http://coolshell.cn/category/%e6%8a%80%e6%9c%af%e7%ae%a1%e7%90%86">技术管理</a> (15)
+</li>
+	<li class="cat-item cat-item-12"><a href="http://coolshell.cn/category/techarticle">技术读物</a> (117)
+</li>
+	<li class="cat-item cat-item-18"><a href="http://coolshell.cn/category/operatingsystem">操作系统</a> (49)
+</li>
+	<li class="cat-item cat-item-105"><a href="http://coolshell.cn/category/datebase">数据库</a> (11)
+</li>
+	<li class="cat-item cat-item-10"><a href="http://coolshell.cn/category/misc">杂项资源</a> (273)
+</li>
+	<li class="cat-item cat-item-15"><a href="http://coolshell.cn/category/process">流程方法</a> (48)
+</li>
+	<li class="cat-item cat-item-23"><a href="http://coolshell.cn/category/progdesign">程序设计</a> (90)
+</li>
+	<li class="cat-item cat-item-602"><a href="http://coolshell.cn/category/%e7%b3%bb%e7%bb%9f%e6%9e%b6%e6%9e%84">系统架构</a> (10)
+</li>
+	<li class="cat-item cat-item-1"><a href="http://coolshell.cn/category/tools">编程工具</a> (66)
+</li>
+	<li class="cat-item cat-item-3"><a href="http://coolshell.cn/category/proglanguage">编程语言</a> (175)
+</li>
+	<li class="cat-item cat-item-6"><a href="http://coolshell.cn/category/netsecurity">网络安全</a> (28)
+</li>
+	<li class="cat-item cat-item-39"><a href="http://coolshell.cn/category/career">职场生涯</a> (35)
+</li>
+	<li class="cat-item cat-item-271"><a href="http://coolshell.cn/category/funny">趣味问题</a> (19)
+</li>
+	<li class="cat-item cat-item-52"><a href="http://coolshell.cn/category/story">轶事趣闻</a> (147)
+</li>
+		</ul>
+</aside><aside id="archives-3" class="widget widget_archive"><h4 class="widget-title">文章归档</h4>		<ul>
+			<li><a href="http://coolshell.cn/articles/date/2017/03">2017年三月</a>&nbsp;(1)</li>
+	<li><a href="http://coolshell.cn/articles/date/2017/02">2017年二月</a>&nbsp;(1)</li>
+	<li><a href="http://coolshell.cn/articles/date/2017/01">2017年一月</a>&nbsp;(2)</li>
+	<li><a href="http://coolshell.cn/articles/date/2016/12">2016年十二月</a>&nbsp;(1)</li>
+	<li><a href="http://coolshell.cn/articles/date/2016/10">2016年十月</a>&nbsp;(1)</li>
+	<li><a href="http://coolshell.cn/articles/date/2016/09">2016年九月</a>&nbsp;(1)</li>
+	<li><a href="http://coolshell.cn/articles/date/2016/08">2016年八月</a>&nbsp;(2)</li>
+	<li><a href="http://coolshell.cn/articles/date/2016/07">2016年七月</a>&nbsp;(3)</li>
+	<li><a href="http://coolshell.cn/articles/date/2015/12">2015年十二月</a>&nbsp;(1)</li>
+	<li><a href="http://coolshell.cn/articles/date/2015/09">2015年九月</a>&nbsp;(1)</li>
+	<li><a href="http://coolshell.cn/articles/date/2015/08">2015年八月</a>&nbsp;(2)</li>
+	<li><a href="http://coolshell.cn/articles/date/2015/04">2015年四月</a>&nbsp;(4)</li>
+	<li><a href="http://coolshell.cn/articles/date/2014/12">2014年十二月</a>&nbsp;(3)</li>
+	<li><a href="http://coolshell.cn/articles/date/2014/11">2014年十一月</a>&nbsp;(2)</li>
+	<li><a href="http://coolshell.cn/articles/date/2014/10">2014年十月</a>&nbsp;(2)</li>
+	<li><a href="http://coolshell.cn/articles/date/2014/09">2014年九月</a>&nbsp;(2)</li>
+	<li><a href="http://coolshell.cn/articles/date/2014/08">2014年八月</a>&nbsp;(2)</li>
+	<li><a href="http://coolshell.cn/articles/date/2014/06">2014年六月</a>&nbsp;(1)</li>
+	<li><a href="http://coolshell.cn/articles/date/2014/05">2014年五月</a>&nbsp;(4)</li>
+	<li><a href="http://coolshell.cn/articles/date/2014/04">2014年四月</a>&nbsp;(4)</li>
+	<li><a href="http://coolshell.cn/articles/date/2014/03">2014年三月</a>&nbsp;(5)</li>
+	<li><a href="http://coolshell.cn/articles/date/2014/02">2014年二月</a>&nbsp;(3)</li>
+	<li><a href="http://coolshell.cn/articles/date/2014/01">2014年一月</a>&nbsp;(2)</li>
+	<li><a href="http://coolshell.cn/articles/date/2013/12">2013年十二月</a>&nbsp;(3)</li>
+	<li><a href="http://coolshell.cn/articles/date/2013/11">2013年十一月</a>&nbsp;(1)</li>
+	<li><a href="http://coolshell.cn/articles/date/2013/10">2013年十月</a>&nbsp;(6)</li>
+	<li><a href="http://coolshell.cn/articles/date/2013/08">2013年八月</a>&nbsp;(1)</li>
+	<li><a href="http://coolshell.cn/articles/date/2013/07">2013年七月</a>&nbsp;(8)</li>
+	<li><a href="http://coolshell.cn/articles/date/2013/06">2013年六月</a>&nbsp;(2)</li>
+	<li><a href="http://coolshell.cn/articles/date/2013/05">2013年五月</a>&nbsp;(3)</li>
+	<li><a href="http://coolshell.cn/articles/date/2013/04">2013年四月</a>&nbsp;(3)</li>
+	<li><a href="http://coolshell.cn/articles/date/2013/03">2013年三月</a>&nbsp;(3)</li>
+	<li><a href="http://coolshell.cn/articles/date/2013/02">2013年二月</a>&nbsp;(5)</li>
+	<li><a href="http://coolshell.cn/articles/date/2013/01">2013年一月</a>&nbsp;(1)</li>
+	<li><a href="http://coolshell.cn/articles/date/2012/12">2012年十二月</a>&nbsp;(4)</li>
+	<li><a href="http://coolshell.cn/articles/date/2012/11">2012年十一月</a>&nbsp;(4)</li>
+	<li><a href="http://coolshell.cn/articles/date/2012/10">2012年十月</a>&nbsp;(3)</li>
+	<li><a href="http://coolshell.cn/articles/date/2012/09">2012年九月</a>&nbsp;(4)</li>
+	<li><a href="http://coolshell.cn/articles/date/2012/08">2012年八月</a>&nbsp;(8)</li>
+	<li><a href="http://coolshell.cn/articles/date/2012/07">2012年七月</a>&nbsp;(4)</li>
+	<li><a href="http://coolshell.cn/articles/date/2012/06">2012年六月</a>&nbsp;(7)</li>
+	<li><a href="http://coolshell.cn/articles/date/2012/05">2012年五月</a>&nbsp;(6)</li>
+	<li><a href="http://coolshell.cn/articles/date/2012/04">2012年四月</a>&nbsp;(6)</li>
+	<li><a href="http://coolshell.cn/articles/date/2012/03">2012年三月</a>&nbsp;(6)</li>
+	<li><a href="http://coolshell.cn/articles/date/2012/02">2012年二月</a>&nbsp;(3)</li>
+	<li><a href="http://coolshell.cn/articles/date/2012/01">2012年一月</a>&nbsp;(6)</li>
+	<li><a href="http://coolshell.cn/articles/date/2011/12">2011年十二月</a>&nbsp;(5)</li>
+	<li><a href="http://coolshell.cn/articles/date/2011/11">2011年十一月</a>&nbsp;(9)</li>
+	<li><a href="http://coolshell.cn/articles/date/2011/10">2011年十月</a>&nbsp;(6)</li>
+	<li><a href="http://coolshell.cn/articles/date/2011/09">2011年九月</a>&nbsp;(5)</li>
+	<li><a href="http://coolshell.cn/articles/date/2011/08">2011年八月</a>&nbsp;(14)</li>
+	<li><a href="http://coolshell.cn/articles/date/2011/07">2011年七月</a>&nbsp;(6)</li>
+	<li><a href="http://coolshell.cn/articles/date/2011/06">2011年六月</a>&nbsp;(12)</li>
+	<li><a href="http://coolshell.cn/articles/date/2011/05">2011年五月</a>&nbsp;(5)</li>
+	<li><a href="http://coolshell.cn/articles/date/2011/04">2011年四月</a>&nbsp;(18)</li>
+	<li><a href="http://coolshell.cn/articles/date/2011/03">2011年三月</a>&nbsp;(16)</li>
+	<li><a href="http://coolshell.cn/articles/date/2011/02">2011年二月</a>&nbsp;(16)</li>
+	<li><a href="http://coolshell.cn/articles/date/2011/01">2011年一月</a>&nbsp;(18)</li>
+	<li><a href="http://coolshell.cn/articles/date/2010/12">2010年十二月</a>&nbsp;(11)</li>
+	<li><a href="http://coolshell.cn/articles/date/2010/11">2010年十一月</a>&nbsp;(11)</li>
+	<li><a href="http://coolshell.cn/articles/date/2010/10">2010年十月</a>&nbsp;(19)</li>
+	<li><a href="http://coolshell.cn/articles/date/2010/09">2010年九月</a>&nbsp;(15)</li>
+	<li><a href="http://coolshell.cn/articles/date/2010/08">2010年八月</a>&nbsp;(10)</li>
+	<li><a href="http://coolshell.cn/articles/date/2010/07">2010年七月</a>&nbsp;(20)</li>
+	<li><a href="http://coolshell.cn/articles/date/2010/06">2010年六月</a>&nbsp;(9)</li>
+	<li><a href="http://coolshell.cn/articles/date/2010/05">2010年五月</a>&nbsp;(13)</li>
+	<li><a href="http://coolshell.cn/articles/date/2010/04">2010年四月</a>&nbsp;(12)</li>
+	<li><a href="http://coolshell.cn/articles/date/2010/03">2010年三月</a>&nbsp;(11)</li>
+	<li><a href="http://coolshell.cn/articles/date/2010/02">2010年二月</a>&nbsp;(7)</li>
+	<li><a href="http://coolshell.cn/articles/date/2010/01">2010年一月</a>&nbsp;(9)</li>
+	<li><a href="http://coolshell.cn/articles/date/2009/12">2009年十二月</a>&nbsp;(22)</li>
+	<li><a href="http://coolshell.cn/articles/date/2009/11">2009年十一月</a>&nbsp;(27)</li>
+	<li><a href="http://coolshell.cn/articles/date/2009/10">2009年十月</a>&nbsp;(17)</li>
+	<li><a href="http://coolshell.cn/articles/date/2009/09">2009年九月</a>&nbsp;(14)</li>
+	<li><a href="http://coolshell.cn/articles/date/2009/08">2009年八月</a>&nbsp;(21)</li>
+	<li><a href="http://coolshell.cn/articles/date/2009/07">2009年七月</a>&nbsp;(18)</li>
+	<li><a href="http://coolshell.cn/articles/date/2009/06">2009年六月</a>&nbsp;(19)</li>
+	<li><a href="http://coolshell.cn/articles/date/2009/05">2009年五月</a>&nbsp;(27)</li>
+	<li><a href="http://coolshell.cn/articles/date/2009/04">2009年四月</a>&nbsp;(53)</li>
+	<li><a href="http://coolshell.cn/articles/date/2009/03">2009年三月</a>&nbsp;(43)</li>
+	<li><a href="http://coolshell.cn/articles/date/2008/10">2008年十月</a>&nbsp;(1)</li>
+	<li><a href="http://coolshell.cn/articles/date/2007/12">2007年十二月</a>&nbsp;(1)</li>
+	<li><a href="http://coolshell.cn/articles/date/2006/11">2006年十一月</a>&nbsp;(1)</li>
+	<li><a href="http://coolshell.cn/articles/date/2004/06">2004年六月</a>&nbsp;(1)</li>
+		</ul>
+		</aside><aside id="tag_cloud-2" class="widget widget_tag_cloud"><h4 class="widget-title">标签</h4><div class="tagcloud"><a href="http://coolshell.cn/tag/agile" class="tag-link-17 tag-link-position-1" title="15个话题" style="font-size: 11.783783783784pt;">agile</a>
+<a href="http://coolshell.cn/tag/ajax" class="tag-link-34 tag-link-position-2" title="11个话题" style="font-size: 10.27027027027pt;">AJAX</a>
+<a href="http://coolshell.cn/tag/algorithm" class="tag-link-76 tag-link-position-3" title="26个话题" style="font-size: 14.684684684685pt;">Algorithm</a>
+<a href="http://coolshell.cn/tag/android" class="tag-link-145 tag-link-position-4" title="11个话题" style="font-size: 10.27027027027pt;">Android</a>
+<a href="http://coolshell.cn/tag/bash" class="tag-link-190 tag-link-position-5" title="9个话题" style="font-size: 9.2612612612613pt;">Bash</a>
+<a href="http://coolshell.cn/tag/c" class="tag-link-59 tag-link-position-6" title="90个话题" style="font-size: 21.369369369369pt;">C++</a>
+<a href="http://coolshell.cn/tag/coding" class="tag-link-135 tag-link-position-7" title="25个话题" style="font-size: 14.432432432432pt;">Coding</a>
+<a href="http://coolshell.cn/tag/css" class="tag-link-96 tag-link-position-8" title="22个话题" style="font-size: 13.801801801802pt;">CSS</a>
+<a href="http://coolshell.cn/tag/database" class="tag-link-109 tag-link-position-9" title="7个话题" style="font-size: 8pt;">Database</a>
+<a href="http://coolshell.cn/tag/design" class="tag-link-71 tag-link-position-10" title="22个话题" style="font-size: 13.801801801802pt;">Design</a>
+<a href="http://coolshell.cn/tag/design-pattern" class="tag-link-25 tag-link-position-11" title="9个话题" style="font-size: 9.2612612612613pt;">design pattern</a>
+<a href="http://coolshell.cn/tag/ebook" class="tag-link-101 tag-link-position-12" title="15个话题" style="font-size: 11.783783783784pt;">ebook</a>
+<a href="http://coolshell.cn/tag/flash" class="tag-link-98 tag-link-position-13" title="7个话题" style="font-size: 8pt;">Flash</a>
+<a href="http://coolshell.cn/tag/game" class="tag-link-125 tag-link-position-14" title="9个话题" style="font-size: 9.2612612612613pt;">Game</a>
+<a href="http://coolshell.cn/tag/go" class="tag-link-238 tag-link-position-15" title="9个话题" style="font-size: 9.2612612612613pt;">Go</a>
+<a href="http://coolshell.cn/tag/google" class="tag-link-32 tag-link-position-16" title="32个话题" style="font-size: 15.81981981982pt;">Google</a>
+<a href="http://coolshell.cn/tag/html" class="tag-link-38 tag-link-position-17" title="34个话题" style="font-size: 16.072072072072pt;">HTML</a>
+<a href="http://coolshell.cn/tag/ie" class="tag-link-175 tag-link-position-18" title="10个话题" style="font-size: 9.7657657657658pt;">IE</a>
+<a href="http://coolshell.cn/tag/java" class="tag-link-13 tag-link-position-19" title="48个话题" style="font-size: 17.963963963964pt;">Java</a>
+<a href="http://coolshell.cn/tag/javascript" class="tag-link-114 tag-link-position-20" title="53个话题" style="font-size: 18.468468468468pt;">Javascript</a>
+<a href="http://coolshell.cn/tag/jquery" class="tag-link-191 tag-link-position-21" title="11个话题" style="font-size: 10.27027027027pt;">jQuery</a>
+<a href="http://coolshell.cn/tag/linux" class="tag-link-37 tag-link-position-22" title="66个话题" style="font-size: 19.72972972973pt;">Linux</a>
+<a href="http://coolshell.cn/tag/mysql" class="tag-link-106 tag-link-position-23" title="7个话题" style="font-size: 8pt;">MySQL</a>
+<a href="http://coolshell.cn/tag/oop" class="tag-link-245 tag-link-position-24" title="8个话题" style="font-size: 8.6306306306306pt;">OOP</a>
+<a href="http://coolshell.cn/tag/password" class="tag-link-319 tag-link-position-25" title="8个话题" style="font-size: 8.6306306306306pt;">password</a>
+<a href="http://coolshell.cn/tag/performance" class="tag-link-120 tag-link-position-26" title="16个话题" style="font-size: 12.162162162162pt;">Performance</a>
+<a href="http://coolshell.cn/tag/php" class="tag-link-35 tag-link-position-27" title="25个话题" style="font-size: 14.432432432432pt;">PHP</a>
+<a href="http://coolshell.cn/tag/programmer" class="tag-link-70 tag-link-position-28" title="100个话题" style="font-size: 21.873873873874pt;">Programmer</a>
+<a href="http://coolshell.cn/tag/programming" class="tag-link-499 tag-link-position-29" title="8个话题" style="font-size: 8.6306306306306pt;">Programming</a>
+<a href="http://coolshell.cn/tag/programming-language" class="tag-link-115 tag-link-position-30" title="12个话题" style="font-size: 10.648648648649pt;">programming language</a>
+<a href="http://coolshell.cn/tag/puzzle" class="tag-link-514 tag-link-position-31" title="11个话题" style="font-size: 10.27027027027pt;">Puzzle</a>
+<a href="http://coolshell.cn/tag/pythondev" class="tag-link-791 tag-link-position-32" title="29个话题" style="font-size: 15.315315315315pt;">Python</a>
+<a href="http://coolshell.cn/tag/ruby" class="tag-link-69 tag-link-position-33" title="10个话题" style="font-size: 9.7657657657658pt;">Ruby</a>
+<a href="http://coolshell.cn/tag/sql" class="tag-link-131 tag-link-position-34" title="10个话题" style="font-size: 9.7657657657658pt;">SQL</a>
+<a href="http://coolshell.cn/tag/tdd" class="tag-link-485 tag-link-position-35" title="8个话题" style="font-size: 8.6306306306306pt;">TDD</a>
+<a href="http://coolshell.cn/tag/ui" class="tag-link-47 tag-link-position-36" title="12个话题" style="font-size: 10.648648648649pt;">UI</a>
+<a href="http://coolshell.cn/tag/unix" class="tag-link-21 tag-link-position-37" title="33个话题" style="font-size: 15.945945945946pt;">Unix</a>
+<a href="http://coolshell.cn/tag/vim" class="tag-link-50 tag-link-position-38" title="19个话题" style="font-size: 13.045045045045pt;">vim</a>
+<a href="http://coolshell.cn/tag/web" class="tag-link-30 tag-link-position-39" title="40个话题" style="font-size: 16.954954954955pt;">Web</a>
+<a href="http://coolshell.cn/tag/windows" class="tag-link-49 tag-link-position-40" title="17个话题" style="font-size: 12.540540540541pt;">Windows</a>
+<a href="http://coolshell.cn/tag/xml" class="tag-link-104 tag-link-position-41" title="8个话题" style="font-size: 8.6306306306306pt;">XML</a>
+<a href="http://coolshell.cn/tag/%e5%ae%89%e5%85%a8" class="tag-link-318 tag-link-position-42" title="20个话题" style="font-size: 13.297297297297pt;">安全</a>
+<a href="http://coolshell.cn/tag/%e7%a8%8b%e5%ba%8f%e5%91%98" class="tag-link-58 tag-link-position-43" title="101个话题" style="font-size: 22pt;">程序员</a>
+<a href="http://coolshell.cn/tag/%e7%ae%97%e6%b3%95" class="tag-link-77 tag-link-position-44" title="10个话题" style="font-size: 9.7657657657658pt;">算法</a>
+<a href="http://coolshell.cn/tag/interview" class="tag-link-164 tag-link-position-45" title="16个话题" style="font-size: 12.162162162162pt;">面试</a></div>
+</aside><aside id="get-recent-comments" class="widget widget_get_recent_comments"><h4 class="widget-title">最新评论</h4><div id="get_recent_comments_wrap"><ul>	<li><a href="http://coolshell.cn/articles/17583.html#comment-1913506" title="技术人员的发展之路, 2016年12月28日">Richard.Chou</a>: 这篇文章做技术的年轻人是该看看的. 做了7年技术,放弃40万年薪的工资辞职创业,赔的精光还欠一屁 股债.回来找工作,发现已是年轻人的天下,2个月只有3个...</li>
+	<li><a href="http://coolshell.cn/articles/11564.html#comment-1913505" title="TCP 的那些事儿（上）, 2014年05月28日">weyou</a>: 源端口可以与就连接一样的，用默认的随机源端口当然不一样，但是 可以指定成一样的。</li>
+	<li><a href="http://coolshell.cn/articles/11564.html#comment-1913503" title="TCP 的那些事儿（上）, 2014年05月28日">weyou</a>: 因为TCP是全双工的，可以单独关闭一方的传输。如果一方传输完 成了，而另一方也正好完成了，那被动端的FIN和ACK是可以放 在一起发送的，这样就相当于3次挥手了。但实际中这种情况...</li>
+	<li><a href="http://coolshell.cn/articles/11564.html#comment-1913502" title="TCP 的那些事儿（上）, 2014年05月28日">weyou</a>: 可以的，tcp和udp是分开的，两个应用一个用udp，一个用 tcp，是可以监听在同一个端口上的。 至于客户端的随机source ip是否会避开已经被其他协议侦听的端口，估计不同的平台有不同 的实现。理论上是可以的。</li>
+	<li><a href="http://coolshell.cn/articles/11564.html#comment-1913501" title="TCP 的那些事儿（上）, 2014年05月28日">weyou</a>: @WKPlus 包3丢掉了啊，为什么不是ack2？ ack本来就是“确认”的意思啊，确认收到2有什么不对的吗？ 难道因为ack number是下一个的seq number就可以说ack3？ 要是ack是“wait“，...</li>
+	<li><a href="http://coolshell.cn/articles/11564.html#comment-1913500" title="TCP 的那些事儿（上）, 2014年05月28日">weyou</a>: 没有重复，两个封包都是Seq=1, Ack=1</li>
+	<li><a href="http://coolshell.cn/articles/17737.html#comment-1913483" title="AWS 的 S3 故障回顾和思考, 2017年03月03日">Alf</a>: 然后，对比国内的公司对于这样的故障，基本上会是下面这样的画风 ： a）加上更多更为严格的变更和审批流程， b）使用限制更多的权限系统和审批系统 c）使用更多的人来干活（一个人干事，另一个人在旁边看）...</li>
+	<li><a href="http://coolshell.cn/articles/17583.html#comment-1913482" title="技术人员的发展之路, 2016年12月28日">repeatmp3</a>: 四十多岁软件工程师飘过… … 网址：http://www.repeatmp3.com ps:非广告，小得意一下</li>
+	<li><a href="http://coolshell.cn/articles/17634.html#comment-1913466" title="Chrome开发者工具的小技巧, 2017年01月19日">谢谢</a>: 有用 谢谢</li>
+	<li><a href="http://coolshell.cn/articles/17737.html#comment-1913434" title="AWS 的 S3 故障回顾和思考, 2017年03月03日">weibomiaopai</a>: 没用过AWS,一直用的是 Vultr 和 Linode</li>
+</ul></div></aside><aside id="text-2" class="widget widget_text"><h4 class="widget-title">友情链接</h4>			<div class="textwidget"><ul class="blogroll">
+<li><a href="http://blog.csdn.net/haoel" target="_blank" onclick="pageTracker._trackPageview(&#39;/outgoing/blog.csdn.net/haoel?referer=http://coolshell.cn&#39;);">陈皓的博客</a></li>
+
+<li><a href="http://ifeve.com/" target="_blank" title="促进并发编程的研究和推广" onclick="pageTracker._trackPageview(&#39;/outgoing/ifeve.com/?referer=http://coolshell.cn&#39;);">并发编程</a></li>
+
+
+<li><a href="http://www.raychase.net/" target="_blank" title="一个啰嗦的程序员" onclick="pageTracker._trackPageview(&#39;/outgoing/www.raychase.net/?referer=http://coolshell.cn&#39;);">四火的唠叨</a></li>
+
+
+
+<li><a href="http://www.hellogcc.org/" target="_blank" title="致力于讨论和学习GNU Toolchain方面的工作组" onclick="pageTracker._trackPageview(&#39;/outgoing/www.hellogcc.org//?referer=http://coolshell.cn/&#39;);">HelloGcc Working Group</a></li>
+
+<li><a href="http://pangee.cn/" target="_blank" title="一名在路上的程序员" onclick="pageTracker._trackPageview(&#39;/outgoing/http://blog.lvscar.info/?referer=http://coolshell.cn/&#39;);">吕毅的Blog</a></li>
+
+<li><a href="http://www.cnblogs.com/weidagang2046/" target="_blank" title="Just for Fun" onclick="pageTracker._trackPageview(&#39;/outgoing/http://www.cnblogs.com/weidagang2046/?referer=http://coolshell.cn/&#39;);">Todd Wei的Blog</a></li>
+
+<li><a href="http://www.cppfans.org/" target="_blank" title="记录我们点滴学习工作生活" onclick="pageTracker._trackPageview(&#39;/outgoing/http://www.cppfans.org/?referer=http://coolshell.cn/&#39;);">C++爱好者博客</a></li>
+
+<li><a href="http://www.mhtml5.com/" target="_blank" title="致力于HTML5在中国的发展与应用" onclick="pageTracker._trackPageview(&#39;/outgoing/http://www.mhtml5.com/?referer=http://coolshell.cn/&#39;);">HTML5研究小组</a></li>
+
+
+<li><a href="http://zhuwenhao.com/" target="_blank" title="朱文昊的中文博客－－专注技术，向往自由" onclick="pageTracker._trackPageview(&#39;/outgoing/http://zhuwenhao.com/?referer=http://coolshell.cn/&#39;);">朱文昊Albert Zhu</a></li>
+
+
+<li><a href="http://www.cguage.com/" target="_blank" title="某VC++软件开发爱好者" onclick="pageTracker._trackPageview(&#39;/outgoing/http://www.cguage.com/?referer=http://coolshell.cn/&#39;);">C瓜哥的博客</a></li>
+
+
+<li><a href="http://www.kaiyuanba.cn/" target="_blank" title="汇聚各种开源项目的中英文混合介绍并分类排列，致力于软件项目的开源事业" onclick="pageTracker._trackPageview(&#39;/outgoing/http://www.kaiyuanba.cn/?referer=http://coolshell.cn/&#39;);">开源吧</a></li>
+
+
+
+<li><a href="http://helloacm.com/" target="_blank" title="Smart Ideas, Smart Algorithms" onclick="pageTracker._trackPageview(&#39;/outgoing/http://HelloACM.com/?referer=http://coolshell.cn/&#39;);">ACMer</a></li>
+
+<li><a href="http://chenpeng.info/" target="_blank" title="优秀的开源软件让生活更简单" onclick="pageTracker._trackPageview(&#39;/outgoing/http://chenpeng.info/?referer=http://coolshell.cn/&#39;);">陈鹏个人博客</a></li>
+
+<li><a href="http://www.coderli.com/" target="_blank" title="一个普通的coder，coding为了生活，coding因为消遣:-) Just a coder" onclick="pageTracker._trackPageview(&#39;/outgoing/http://www.coderli.com/?referer=http://coolshell.cn/&#39;);">OneCoder</a></li>
+
+<li><a href="http://www.vimer.me/" target="_blank" title="Geek for Tech、Design、Product" onclick="pageTracker._trackPageview(&#39;/outgoing/http://www.vimer.me/?referer=http://coolshell.cn/&#39;);">More Than Vimer</a></li>
+
+<li><a href="http://www.yunweipai.com/" target="_blank" title="关注IT技术 | 分享 | 交流 | 记录" onclick="pageTracker._trackPageview(&#39;/outgoing/http://www.yunweipai.com/?referer=http://coolshell.cn/&#39;);">运维派 </a></li>
+
+<li><a href="http://www.ishuchao.com/" target="_blank" title="闲置纸质书的在线漂流平台" onclick="pageTracker._trackPageview(&#39;/outgoing/http://www.ishuchao.com/?referer=http://coolshell.cn/&#39;);">书巢</a></li></ul></div>
+		</aside><aside id="meta-3" class="widget widget_meta"><h4 class="widget-title">功能</h4>			<ul>
+			<li><a href="http://coolshell.cn/wp-login.php?action=register">注册</a></li>			<li><a href="http://coolshell.cn/wp-login.php">登录</a></li>
+			<li><a href="http://coolshell.cn/feed">文章<abbr title="Really Simple Syndication">RSS</abbr></a></li>
+			<li><a href="http://coolshell.cn/comments/feed">评论<abbr title="Really Simple Syndication">RSS</abbr></a></li>
+			<li><a href="https://cn.wordpress.org/" title="基于WordPress，一个优美、先进的个人信息发布平台。">WordPress.org</a></li>			</ul>
+			</aside><aside id="text-400151742" class="widget widget_text">			<div class="textwidget"><script src="./28个Unix_Linux的命令行神器 _ _ 酷 壳 - CoolShell_files/stat.php" language="JavaScript" charset="gb2312"></script><script src="./28个Unix_Linux的命令行神器 _ _ 酷 壳 - CoolShell_files/core.php" charset="utf-8" type="text/javascript"></script><a href="http://www.cnzz.com/stat/website.php?web_id=1785679" target="_blank" title="站长统计"><img border="0" hspace="0" vspace="0" src="./28个Unix_Linux的命令行神器 _ _ 酷 壳 - CoolShell_files/pic1.gif"></a>
+
+
+
+</div>
+		</aside></div><!-- #secondary .widget-area -->
+
+
+		</div> <!--.row-->            
+    </div><!--.container-->
+    <script type="text/javascript">
+	var _gaq = _gaq || [];
+	_gaq.push(['_setAccount', 'UA-7486123-1']);
+_gaq.push(['_trackPageview']);
+
+	(function() {
+		var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+		ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+		var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+	})();
+</script>
+
+	</div><!-- #content -->
+	
+	<footer id="colophon" class="site-footer" role="contentinfo">
+		<div class="row site-info">
+			CoolShell.cn © 2017 
+			<span class="sep"> | </span>
+			Powered by 			<a href="https://wordpress.org/">WordPress</a>
+			<span class="sep"> | </span>
+
+			Based on Theme: Nisarg by <a href="http://www.falgunidesai.com/" rel="designer">Falguni Desai</a>.
+		</div><!-- .site-info -->
+	</footer><!-- #colophon -->
+</div><!-- #page -->
+<script class="javascript" src="./28个Unix_Linux的命令行神器 _ _ 酷 壳 - CoolShell_files/shCore.js.下载"></script>
+<script class="javascript" src="./28个Unix_Linux的命令行神器 _ _ 酷 壳 - CoolShell_files/shBrushCSharp.js.下载"></script>
+<script class="javascript" src="./28个Unix_Linux的命令行神器 _ _ 酷 壳 - CoolShell_files/shBrushPhp.js.下载"></script>
+<script class="javascript" src="./28个Unix_Linux的命令行神器 _ _ 酷 壳 - CoolShell_files/shBrushJScript.js.下载"></script>
+<script class="javascript" src="./28个Unix_Linux的命令行神器 _ _ 酷 壳 - CoolShell_files/shBrushJava.js.下载"></script>
+<script class="javascript" src="./28个Unix_Linux的命令行神器 _ _ 酷 壳 - CoolShell_files/shBrushVb.js.下载"></script>
+<script class="javascript" src="./28个Unix_Linux的命令行神器 _ _ 酷 壳 - CoolShell_files/shBrushSql.js.下载"></script>
+<script class="javascript" src="./28个Unix_Linux的命令行神器 _ _ 酷 壳 - CoolShell_files/shBrushXml.js.下载"></script>
+<script class="javascript" src="./28个Unix_Linux的命令行神器 _ _ 酷 壳 - CoolShell_files/shBrushDelphi.js.下载"></script>
+<script class="javascript" src="./28个Unix_Linux的命令行神器 _ _ 酷 壳 - CoolShell_files/shBrushPython.js.下载"></script>
+<script class="javascript" src="./28个Unix_Linux的命令行神器 _ _ 酷 壳 - CoolShell_files/shBrushRuby.js.下载"></script>
+<script class="javascript" src="./28个Unix_Linux的命令行神器 _ _ 酷 壳 - CoolShell_files/shBrushCss.js.下载"></script>
+<script class="javascript" src="./28个Unix_Linux的命令行神器 _ _ 酷 壳 - CoolShell_files/shBrushCpp.js.下载"></script>
+<script class="javascript">
+dp.SyntaxHighlighter.ClipboardSwf = 'http://coolshell.cn//wp-content/plugins/google-syntax-highlighter/Scripts/clipboard.swf';
+dp.SyntaxHighlighter.HighlightAll('code');
+</script>
+    <!-- Start of StatCounter Code -->
+    <script>
+    <!-- 
+        var sc_project=8326668; 
+        var sc_security="cccb27f2"; 
+      var sc_invisible=1;
+        var scJsHost = (("https:" == document.location.protocol) ?
+        "https://secure." : "http://www.");
+    //-->
+document.write("<sc"+"ript src='" +scJsHost +"statcounter.com/counter/counter.js'></"+"script>");
+</script><script src="./28个Unix_Linux的命令行神器 _ _ 酷 壳 - CoolShell_files/counter.js.下载"></script>
+<noscript>&lt;div class="statcounter"&gt;&lt;a title="web analytics" href="https://statcounter.com/"&gt;&lt;img class="statcounter" src="https://c.statcounter.com/8326668/0/cccb27f2/1/" alt="web analytics" /&gt;&lt;/a&gt;&lt;/div&gt;</noscript>   
+    <!-- End of StatCounter Code -->
+<script type="text/javascript" src="./28个Unix_Linux的命令行神器 _ _ 酷 壳 - CoolShell_files/form.js.下载"></script>
+<script type="text/javascript" src="./28个Unix_Linux的命令行神器 _ _ 酷 壳 - CoolShell_files/shCore.js(1).下载"></script>
+<script type="text/javascript" src="./28个Unix_Linux的命令行神器 _ _ 酷 壳 - CoolShell_files/shBrushBash.js.下载"></script>
+<script type="text/javascript">
+	(function(){
+		var corecss = document.createElement('link');
+		var themecss = document.createElement('link');
+		var corecssurl = "http://coolshell.cn//wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/styles/shCore.css?ver=3.0.9b";
+		if ( corecss.setAttribute ) {
+				corecss.setAttribute( "rel", "stylesheet" );
+				corecss.setAttribute( "type", "text/css" );
+				corecss.setAttribute( "href", corecssurl );
+		} else {
+				corecss.rel = "stylesheet";
+				corecss.href = corecssurl;
+		}
+		document.getElementsByTagName("head")[0].insertBefore( corecss, document.getElementById("syntaxhighlighteranchor") );
+		var themecssurl = "http://coolshell.cn//wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/styles/shThemeDefault.css?ver=3.0.9b";
+		if ( themecss.setAttribute ) {
+				themecss.setAttribute( "rel", "stylesheet" );
+				themecss.setAttribute( "type", "text/css" );
+				themecss.setAttribute( "href", themecssurl );
+		} else {
+				themecss.rel = "stylesheet";
+				themecss.href = themecssurl;
+		}
+		//document.getElementById("syntaxhighlighteranchor").appendChild(themecss);
+		document.getElementsByTagName("head")[0].insertBefore( themecss, document.getElementById("syntaxhighlighteranchor") );
+	})();
+	SyntaxHighlighter.config.strings.expandSource = '+ expand source';
+	SyntaxHighlighter.config.strings.help = '帮助';
+	SyntaxHighlighter.config.strings.alert = 'SyntaxHighlighter\n\n';
+	SyntaxHighlighter.config.strings.noBrush = '无法找到Brush：';
+	SyntaxHighlighter.config.strings.brushNotHtmlScript = 'Brush不能设置 html-script选项';
+	SyntaxHighlighter.defaults['class-name'] = 'coolshell_syntaxhighlighter';
+	SyntaxHighlighter.defaults['pad-line-numbers'] = false;
+	SyntaxHighlighter.defaults['toolbar'] = false;
+	SyntaxHighlighter.defaults['wrap-lines'] = false;
+	SyntaxHighlighter.all();
+</script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var ratingsL10n = {"plugin_url":"http:\/\/coolshell.cn\/wp-content\/plugins\/wp-postratings","ajax_url":"http:\/\/coolshell.cn\/wp-admin\/admin-ajax.php","text_wait":"Please rate only 1 item at a time.","image":"stars_crystal","image_ext":"gif","max":"5","show_loading":"1","show_fading":"1","custom":"0"};
+var ratings_mouseover_image=new Image();ratings_mouseover_image.src="http://coolshell.cn//wp-content/plugins/wp-postratings/images/stars_crystal/rating_over.gif";;
+/* ]]> */
+</script>
+<script type="text/javascript" src="./28个Unix_Linux的命令行神器 _ _ 酷 壳 - CoolShell_files/postratings-js.js.下载"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var viewsCacheL10n = {"admin_ajax_url":"http:\/\/coolshell.cn\/wp-admin\/admin-ajax.php","post_id":"7829"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="./28个Unix_Linux的命令行神器 _ _ 酷 壳 - CoolShell_files/postviews-cache.js.下载"></script>
+<script type="text/javascript" src="./28个Unix_Linux的命令行神器 _ _ 酷 壳 - CoolShell_files/bootstrap.js.下载"></script>
+<script type="text/javascript" src="./28个Unix_Linux的命令行神器 _ _ 酷 壳 - CoolShell_files/skip-link-focus-fix.js.下载"></script>
+<script type="text/javascript" src="./28个Unix_Linux的命令行神器 _ _ 酷 壳 - CoolShell_files/nisarg.js.下载"></script>
+<script type="text/javascript" src="./28个Unix_Linux的命令行神器 _ _ 酷 壳 - CoolShell_files/comment-reply.min.js.下载"></script>
+<script type="text/javascript" src="./28个Unix_Linux的命令行神器 _ _ 酷 壳 - CoolShell_files/wp-embed.min.js.下载"></script>
+<script type="text/javascript" src="./28个Unix_Linux的命令行神器 _ _ 酷 壳 - CoolShell_files/si_captcha.js(1).下载"></script>
+
+
+
+<script type="text/javascript" charset="UTF-8" src="./28个Unix_Linux的命令行神器 _ _ 酷 壳 - CoolShell_files/anti-baidu-latest.min.js.下载"></script>
+
+<!-- Dynamic page generated in 0.421 seconds. -->
+<!-- Cached page generated by WP-Super-Cache on 2017-03-18 16:49:49 -->
+
+<!-- Compression = gzip --></body></html>
