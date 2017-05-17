@@ -54,7 +54,9 @@
 #include <port.h>
 #include <string.h>
 #include <errno.h>
-
+#include "ev.h"
+#include "ev_wrap.h"
+#include "ev_vars.h"
 inline_speed
 void
 port_associate_and_check (EV_P_ int fd, int ev)

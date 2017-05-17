@@ -1,0 +1,85 @@
+2017-04-18 17:00:40,139 INFO [default] My first info log using default logger
+2017-04-18 17:00:40,150 ERROR [default] error 2
+2017-04-18 17:09:17,496 INFO [default] My first info log using default logger
+
+2017-04-18 17:09:17,502 ERROR [default] error 2
+2017-04-18 17:09:24,876 INFO [default] My first info log using default logger
+2017-04-18 17:09:24,881 ERROR [default] error 2
+2017-04-18 17:22:12,934 INFO [default] My first info log using default logger
+2017-04-18 17:22:12,938 ERROR [default] error 2
+2017-04-18 17:22:12,939 TRACE [default] [int __cdecl main(void)] [g:\git-repos\sample\cpp\logger\elpp\main.cc:10] 
+2017-04-18 17:22:13,134 DEBUG [default] [1515@DESKTOP-4V8MTER] [int __cdecl main(void)] [g:\git-repos\sample\cpp\logger\elpp\main.cc:11] 
+2017-04-18 17:22:13,146 FATAL [default] 
+2017-04-18 17:22:13,149 WARNING [default] Aborting application. Reason: Fatal log at [g:\git-repos\sample\cpp\logger\elpp\main.cc:12]
+2017-04-18 17:22:39,015 INFO [default] My first info log using default logger
+2017-04-18 17:22:39,017 ERROR [default] error 2
+2017-04-18 17:22:39,018 TRACE [default] [int __cdecl main(void)] [g:\git-repos\sample\cpp\logger\elpp\main.cc:10] 
+2017-04-18 17:22:39,020 DEBUG [default] [1515@DESKTOP-4V8MTER] [int __cdecl main(void)] [g:\git-repos\sample\cpp\logger\elpp\main.cc:11] 
+2017-04-18 17:22:39,023 ERROR [default] 
+2017-04-18 17:22:39,024 WARNING [default] 
+2017-04-18 17:22:39,026 INFO [default] 
+2017-04-18 17:22:39,029 VERBOSE-0 [default] 
+2017-04-18 17:22:39,031 FATAL [default] 
+2017-04-18 17:22:39,032 WARNING [default] Aborting application. Reason: Fatal log at [g:\git-repos\sample\cpp\logger\elpp\main.cc:18]
+2017-04-18 17:23:02,303 INFO [default] My first info log using default logger
+2017-04-18 17:23:02,308 ERROR [default] error 2
+2017-04-18 17:23:02,311 TRACE [default] [int __cdecl main(void)] [g:\git-repos\sample\cpp\logger\elpp\main.cc:12] 
+2017-04-18 17:23:02,317 DEBUG [default] [1515@DESKTOP-4V8MTER] [int __cdecl main(void)] [g:\git-repos\sample\cpp\logger\elpp\main.cc:13] 
+2017-04-18 17:23:02,325 ERROR [default] 
+2017-04-18 17:23:02,326 WARNING [default] 
+2017-04-18 17:23:02,329 INFO [default] 
+2017-04-18 17:23:02,331 VERBOSE-0 [default] 
+2017-04-18 17:23:02,333 FATAL [default] 
+2017-04-18 17:37:29,968 INFO [default] My first info log using default logger
+2017-04-18 17:37:48,765 INFO [default] My first info log using default logger
+2017-04-18 17:37:48,772 INFO [default] Using el::Configurations class
+2017-04-18 17:37:48,781 INFO Using el::Configurations class
+2017-04-18 17:37:48,791 Using el::Configurations class
+2017-04-18 17:38:57,398 INFO [default] My first info log using default logger
+2017-04-18 17:38:57,406 INFO [default] Using el::Configurations class
+2017-04-18 17:38:57,416 [INFO] Using el::Configurations class
+2017-04-18 17:38:57,423 Using el::Configurations class
+2017-04-18 17:56:34,009 INFO [default] My first info log using default logger
+2017-04-18 17:56:34,012 DEBUG [default] [1515@DESKTOP-4V8MTER] [void __cdecl SetLogger(void)] [g:\git-repos\sample\cpp\logger\elpp\elpp.cc:25] Logger [testlog] is not registered yet!
+2017-04-18 17:56:34,026 DEBUG [default] [1515@DESKTOP-4V8MTER] [void __cdecl SetLogger(void)] [g:\git-repos\sample\cpp\logger\elpp\elpp.cc:28] Logger [testlog] is not registered yet!
+2017-04-18 17:57:21,192 INFO [default] My first info log using default logger
+2017-04-18 17:57:21,195 DEBUG [default] [1515@DESKTOP-4V8MTER] [void __cdecl SetLogger(void)] [g:\git-repos\sample\cpp\logger\elpp\elpp.cc:25] Logger [testlog] is not registered yet!
+2017-04-18 17:57:21,212 INFO [testlog] this is a new logger
+2017-04-18 18:00:05,879 INFO [default] My first info log using default logger
+2017-04-18 18:00:05,882 DEBUG [default] [1515@DESKTOP-4V8MTER] [void __cdecl SetLogger(void)] [g:\git-repos\sample\cpp\logger\elpp\elpp.cc:25] Logger [testlog] is not registered yet!
+2017-04-18 18:00:05,892 INFO [testlog] this is a new logger
+2017-04-18 18:01:45,732 INFO [default] My first info log using default logger
+2017-04-18 18:01:45,736 DEBUG [default] [1515@DESKTOP-4V8MTER] [void __cdecl SetLogger(void)] [g:\git-repos\sample\cpp\logger\elpp\elpp.cc:26] Logger [testlog] is not registered yet!
+2017-04-18 18:01:45,749 INFO [testlog] this is a new logger
+2017-04-18 18:01:45,754 INFO [default] [default, performance, testlog]
+2017-04-18 18:03:38,856 DEBUG [default] [1515@DESKTOP-4V8MTER] [void __cdecl SetLogger(void)] [g:\git-repos\sample\cpp\logger\elpp\elpp.cc:27] Logger [testlog] is not registered yet!
+2017-04-18 18:03:38,869 INFO [testlog] this is a new logger
+2017-04-18 18:03:38,873 INFO [default] [default, performance, testlog]
+2017-04-18 18:03:52,228 INFO [default] My first info log using default logger
+2017-04-18 18:03:52,230 DEBUG [default] [1515@DESKTOP-4V8MTER] [void __cdecl SetLogger(void)] [g:\git-repos\sample\cpp\logger\elpp\elpp.cc:27] Logger [testlog] is not registered yet!
+2017-04-18 18:03:52,242 INFO [testlog] this is a new logger
+2017-04-18 18:04:48,431 INFO [default] My first info log using default logger
+2017-04-18 18:04:48,439 DEBUG [default] [1515@DESKTOP-4V8MTER] [void __cdecl SetLogger(void)] [g:\git-repos\sample\cpp\logger\elpp\elpp.cc:27] Logger [testlog] is not registered yet!
+2017-04-18 18:04:48,465 INFO [testlog] this is a new logger
+2017-04-18 18:04:48,469 INFO [default] [default, performance, testlog]
+2017-04-19 14:42:47,340 INFO [default] My first info log using default logger
+2017-04-19 14:42:47,712 DEBUG [default] [1515@DESKTOP-4V8MTER] [void __cdecl SetLogger(void)] [g:\git-repos\sample\cpp\logger\elpp\elpp.cc:27] Logger [testlog] is not registered yet!
+2017-04-19 14:42:47,736 INFO [testlog] this is a new logger
+2017-04-19 14:42:47,740 INFO [default] [default, performance, testlog]
+2017-04-19 15:37:48,992 INFO [default] My first info log using default logger
+2017-04-19 15:37:48,995 DEBUG [default] [1515@DESKTOP-4V8MTER] [void __cdecl SetLogger(void)] [g:\git-repos\sample\cpp\logger\elpp\elpp.cc:27] Logger [testlog] is not registered yet!
+2017-04-19 15:37:49,003 INFO [testlog] this is a new logger
+2017-04-19 15:37:49,004 INFO [default] [default, performance, testlog]
+2017-04-19 15:37:49,005 INFO [default] not has network
+2017-04-19 15:38:16,879 INFO [default] My first info log using default logger
+2017-04-19 15:38:16,883 DEBUG [default] [1515@DESKTOP-4V8MTER] [void __cdecl SetLogger(void)] [g:\git-repos\sample\cpp\logger\elpp\elpp.cc:27] Logger [testlog] is not registered yet!
+2017-04-19 15:38:16,896 INFO [testlog] this is a new logger
+2017-04-19 15:38:16,897 INFO [default] [default, performance, testlog]
+2017-04-19 15:38:16,898 INFO [default] not has network
+2017-04-19 15:38:16,900 INFO [default] has ccc network
+2017-04-19 15:49:42,040 INFO [default] My first info log using default logger
+2017-04-19 15:49:42,042 DEBUG [default] [1515@DESKTOP-4V8MTER] [void __cdecl SetLogger(void)] [g:\git-repos\sample\cpp\logger\elpp\elpp.cc:29] Logger [testlog] is not registered yet!
+2017-04-19 15:49:42,050 INFO [testlog] this is a new logger
+2017-04-19 15:49:42,051 INFO [default] [default, network, performance, testlog]
+2017-04-19 15:49:42,052 INFO [default] has network
+2017-04-19 15:49:42,053 INFO [default] has ccc network

@@ -64,7 +64,9 @@
  */
 
 #include <sys/epoll.h>
-
+#include "ev.h"
+#include "ev_wrap.h"
+#include "ev_vars.h"
 #define EV_EMASK_EPERM 0x80
 
 static void

@@ -66,7 +66,9 @@
 #endif
 
 #include <string.h>
-
+#include "ev.h"
+#include "ev_wrap.h"
+#include "ev_vars.h"
 static void
 select_modify (EV_P_ int fd, int oev, int nev)
 {

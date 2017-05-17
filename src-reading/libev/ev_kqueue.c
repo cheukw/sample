@@ -42,7 +42,9 @@
 #include <sys/event.h>
 #include <string.h>
 #include <errno.h>
-
+#include "ev.h"
+#include "ev_wrap.h"
+#include "ev_vars.h"
 inline_speed
 void
 kqueue_change (EV_P_ int fd, int filter, int flags, int fflags)

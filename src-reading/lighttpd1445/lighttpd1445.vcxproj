@@ -1,0 +1,305 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{F03F1191-DB71-40BF-8875-586E3FB0646B}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>lighttpd1445</RootNamespace>
+    <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="src\array.c" />
+    <ClCompile Include="src\base64.c" />
+    <ClCompile Include="src\buffer.c" />
+    <ClCompile Include="src\chunk.c" />
+    <ClCompile Include="src\configfile-glue.c" />
+    <ClCompile Include="src\configfile.c" />
+    <ClCompile Include="src\configparser.c" />
+    <ClCompile Include="src\connections-glue.c" />
+    <ClCompile Include="src\connections.c" />
+    <ClCompile Include="src\crc32.c" />
+    <ClCompile Include="src\data_array.c" />
+    <ClCompile Include="src\data_config.c" />
+    <ClCompile Include="src\data_fastcgi.c" />
+    <ClCompile Include="src\data_integer.c" />
+    <ClCompile Include="src\data_string.c" />
+    <ClCompile Include="src\etag.c" />
+    <ClCompile Include="src\fdevent.c" />
+    <ClCompile Include="src\fdevent_freebsd_kqueue.c" />
+    <ClCompile Include="src\fdevent_libev.c" />
+    <ClCompile Include="src\fdevent_linux_sysepoll.c" />
+    <ClCompile Include="src\fdevent_poll.c" />
+    <ClCompile Include="src\fdevent_select.c" />
+    <ClCompile Include="src\fdevent_solaris_devpoll.c" />
+    <ClCompile Include="src\fdevent_solaris_port.c" />
+    <ClCompile Include="src\http-header-glue.c" />
+    <ClCompile Include="src\http_auth.c" />
+    <ClCompile Include="src\http_chunk.c" />
+    <ClCompile Include="src\inet_ntop_cache.c" />
+    <ClCompile Include="src\joblist.c" />
+    <ClCompile Include="src\keyvalue.c" />
+    <ClCompile Include="src\lemon.c" />
+    <ClCompile Include="src\lempar.c" />
+    <ClCompile Include="src\lighttpd-angel.c" />
+    <ClCompile Include="src\log.c" />
+    <ClCompile Include="src\md5.c" />
+    <ClCompile Include="src\mod_access.c" />
+    <ClCompile Include="src\mod_accesslog.c" />
+    <ClCompile Include="src\mod_alias.c" />
+    <ClCompile Include="src\mod_auth.c" />
+    <ClCompile Include="src\mod_authn_file.c" />
+    <ClCompile Include="src\mod_authn_gssapi.c" />
+    <ClCompile Include="src\mod_authn_ldap.c" />
+    <ClCompile Include="src\mod_authn_mysql.c" />
+    <ClCompile Include="src\mod_cgi.c" />
+    <ClCompile Include="src\mod_cml.c" />
+    <ClCompile Include="src\mod_cml_funcs.c" />
+    <ClCompile Include="src\mod_cml_lua.c" />
+    <ClCompile Include="src\mod_compress.c" />
+    <ClCompile Include="src\mod_deflate.c" />
+    <ClCompile Include="src\mod_dirlisting.c" />
+    <ClCompile Include="src\mod_evasive.c" />
+    <ClCompile Include="src\mod_evhost.c" />
+    <ClCompile Include="src\mod_expire.c" />
+    <ClCompile Include="src\mod_extforward.c" />
+    <ClCompile Include="src\mod_fastcgi.c" />
+    <ClCompile Include="src\mod_flv_streaming.c" />
+    <ClCompile Include="src\mod_geoip.c" />
+    <ClCompile Include="src\mod_indexfile.c" />
+    <ClCompile Include="src\mod_magnet.c" />
+    <ClCompile Include="src\mod_magnet_cache.c" />
+    <ClCompile Include="src\mod_mysql_vhost.c" />
+    <ClCompile Include="src\mod_proxy.c" />
+    <ClCompile Include="src\mod_redirect.c" />
+    <ClCompile Include="src\mod_rewrite.c" />
+    <ClCompile Include="src\mod_rrdtool.c" />
+    <ClCompile Include="src\mod_scgi.c" />
+    <ClCompile Include="src\mod_secdownload.c" />
+    <ClCompile Include="src\mod_setenv.c" />
+    <ClCompile Include="src\mod_simple_vhost.c" />
+    <ClCompile Include="src\mod_skeleton.c" />
+    <ClCompile Include="src\mod_ssi.c" />
+    <ClCompile Include="src\mod_ssi_expr.c" />
+    <ClCompile Include="src\mod_ssi_exprparser.c" />
+    <ClCompile Include="src\mod_staticfile.c" />
+    <ClCompile Include="src\mod_status.c" />
+    <ClCompile Include="src\mod_trigger_b4_dl.c" />
+    <ClCompile Include="src\mod_uploadprogress.c" />
+    <ClCompile Include="src\mod_userdir.c" />
+    <ClCompile Include="src\mod_usertrack.c" />
+    <ClCompile Include="src\mod_webdav.c" />
+    <ClCompile Include="src\network.c" />
+    <ClCompile Include="src\network_darwin_sendfile.c" />
+    <ClCompile Include="src\network_freebsd_sendfile.c" />
+    <ClCompile Include="src\network_linux_sendfile.c" />
+    <ClCompile Include="src\network_openssl.c" />
+    <ClCompile Include="src\network_solaris_sendfilev.c" />
+    <ClCompile Include="src\network_write.c" />
+    <ClCompile Include="src\network_writev.c" />
+    <ClCompile Include="src\network_write_mmap.c" />
+    <ClCompile Include="src\network_write_no_mmap.c" />
+    <ClCompile Include="src\plugin.c" />
+    <ClCompile Include="src\proc_open.c" />
+    <ClCompile Include="src\rand.c" />
+    <ClCompile Include="src\request.c" />
+    <ClCompile Include="src\response.c" />
+    <ClCompile Include="src\safe_memclear.c" />
+    <ClCompile Include="src\server.c" />
+    <ClCompile Include="src\splaytree.c" />
+    <ClCompile Include="src\status_counter.c" />
+    <ClCompile Include="src\stat_cache.c" />
+    <ClCompile Include="src\stream.c" />
+    <ClCompile Include="src\test_base64.c" />
+    <ClCompile Include="src\test_buffer.c" />
+    <ClCompile Include="src\test_configfile.c" />
+    <ClCompile Include="src\vector.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\array.h" />
+    <ClInclude Include="src\base.h" />
+    <ClInclude Include="src\base64.h" />
+    <ClInclude Include="src\buffer.h" />
+    <ClInclude Include="src\chunk.h" />
+    <ClInclude Include="src\configfile.h" />
+    <ClInclude Include="src\configparser.h" />
+    <ClInclude Include="src\connections.h" />
+    <ClInclude Include="src\crc32.h" />
+    <ClInclude Include="src\etag.h" />
+    <ClInclude Include="src\fastcgi.h" />
+    <ClInclude Include="src\fdevent.h" />
+    <ClInclude Include="src\first.h" />
+    <ClInclude Include="src\http_auth.h" />
+    <ClInclude Include="src\http_chunk.h" />
+    <ClInclude Include="src\inet_ntop_cache.h" />
+    <ClInclude Include="src\joblist.h" />
+    <ClInclude Include="src\keyvalue.h" />
+    <ClInclude Include="src\log.h" />
+    <ClInclude Include="src\md5.h" />
+    <ClInclude Include="src\mod_cml.h" />
+    <ClInclude Include="src\mod_cml_funcs.h" />
+    <ClInclude Include="src\mod_magnet_cache.h" />
+    <ClInclude Include="src\mod_ssi.h" />
+    <ClInclude Include="src\mod_ssi_expr.h" />
+    <ClInclude Include="src\mod_ssi_exprparser.h" />
+    <ClInclude Include="src\network.h" />
+    <ClInclude Include="src\network_backends.h" />
+    <ClInclude Include="src\plugin.h" />
+    <ClInclude Include="src\proc_open.h" />
+    <ClInclude Include="src\rand.h" />
+    <ClInclude Include="src\request.h" />
+    <ClInclude Include="src\response.h" />
+    <ClInclude Include="src\safe_memclear.h" />
+    <ClInclude Include="src\server.h" />
+    <ClInclude Include="src\settings.h" />
+    <ClInclude Include="src\splaytree.h" />
+    <ClInclude Include="src\status_counter.h" />
+    <ClInclude Include="src\stat_cache.h" />
+    <ClInclude Include="src\stream.h" />
+    <ClInclude Include="src\sys-endian.h" />
+    <ClInclude Include="src\sys-mmap.h" />
+    <ClInclude Include="src\sys-socket.h" />
+    <ClInclude Include="src\vector.h" />
+    <ClInclude Include="src\version.h" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

@@ -38,7 +38,9 @@
  */
 
 #include <poll.h>
-
+#include "ev.h"
+#include "ev_wrap.h"
+#include "ev_vars.h"
 inline_size
 void
 pollidx_init (int *base, int count)

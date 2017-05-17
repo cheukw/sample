@@ -17,6 +17,10 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "muduo-cpp11", "muduo-cpp11\
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "nginx", "nginx\nginx.vcxproj", "{3BB85B09-2031-4D15-9A46-CD4F43BE73A9}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "lua522", "lua522\lua522.vcxproj", "{EB41DAD2-49C4-4103-9535-EC5E29C5000D}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "lighttpd1445", "lighttpd1445\lighttpd1445.vcxproj", "{F03F1191-DB71-40BF-8875-586E3FB0646B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -81,6 +85,22 @@ Global
 		{3BB85B09-2031-4D15-9A46-CD4F43BE73A9}.Release|x64.Build.0 = Release|x64
 		{3BB85B09-2031-4D15-9A46-CD4F43BE73A9}.Release|x86.ActiveCfg = Release|Win32
 		{3BB85B09-2031-4D15-9A46-CD4F43BE73A9}.Release|x86.Build.0 = Release|Win32
+		{EB41DAD2-49C4-4103-9535-EC5E29C5000D}.Debug|x64.ActiveCfg = Debug|x64
+		{EB41DAD2-49C4-4103-9535-EC5E29C5000D}.Debug|x64.Build.0 = Debug|x64
+		{EB41DAD2-49C4-4103-9535-EC5E29C5000D}.Debug|x86.ActiveCfg = Debug|Win32
+		{EB41DAD2-49C4-4103-9535-EC5E29C5000D}.Debug|x86.Build.0 = Debug|Win32
+		{EB41DAD2-49C4-4103-9535-EC5E29C5000D}.Release|x64.ActiveCfg = Release|x64
+		{EB41DAD2-49C4-4103-9535-EC5E29C5000D}.Release|x64.Build.0 = Release|x64
+		{EB41DAD2-49C4-4103-9535-EC5E29C5000D}.Release|x86.ActiveCfg = Release|Win32
+		{EB41DAD2-49C4-4103-9535-EC5E29C5000D}.Release|x86.Build.0 = Release|Win32
+		{F03F1191-DB71-40BF-8875-586E3FB0646B}.Debug|x64.ActiveCfg = Debug|x64
+		{F03F1191-DB71-40BF-8875-586E3FB0646B}.Debug|x64.Build.0 = Debug|x64
+		{F03F1191-DB71-40BF-8875-586E3FB0646B}.Debug|x86.ActiveCfg = Debug|Win32
+		{F03F1191-DB71-40BF-8875-586E3FB0646B}.Debug|x86.Build.0 = Debug|Win32
+		{F03F1191-DB71-40BF-8875-586E3FB0646B}.Release|x64.ActiveCfg = Release|x64
+		{F03F1191-DB71-40BF-8875-586E3FB0646B}.Release|x64.Build.0 = Release|x64
+		{F03F1191-DB71-40BF-8875-586E3FB0646B}.Release|x86.ActiveCfg = Release|Win32
+		{F03F1191-DB71-40BF-8875-586E3FB0646B}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
