@@ -890,7 +890,7 @@ static void addlenmod (char *form, const char *lenmod) {
 
 
 static int str_format (lua_State *L) {
-  int top = lua_gettop(L);
+  int top = lua_gettop(L); // 参数的个数
   int arg = 1;
   size_t sfl;
   const char *strfrmt = luaL_checklstring(L, arg, &sfl);
@@ -904,7 +904,8 @@ static int str_format (lua_State *L) {
       luaL_addchar(&b, *strfrmt++);  /* %% */
     else { /* format item */
       char form[MAX_FORMAT];  /* to store the format (`%...') */
-      char *buff = luaL_prepbuffsize(&b, MAX_ITEM);  /* to put formatted item */
+	  // 返回一段大小为sz的空间地址，如果b大小不足重新分配内存
+      char *buff = luaL_prepbuffsize(&b, MAX_ITEM);  /* to put formatted item */ 
       int nb = 0;  /* number of bytes in added item */
       if (++arg > top)
         luaL_argerror(L, arg, "no value");

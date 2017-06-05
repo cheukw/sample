@@ -66,7 +66,7 @@ int keyspaceEventsStringToFlags(char *classes) {
  * be released with sdsfree(). */
 sds keyspaceEventsFlagsToString(int flags) {
     sds res;
-
+	 
     res = sdsempty();
     if ((flags & NOTIFY_ALL) == NOTIFY_ALL) {
         res = sdscatlen(res,"A",1);

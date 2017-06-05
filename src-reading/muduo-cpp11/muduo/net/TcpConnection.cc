@@ -148,30 +148,30 @@ void TcpConnection::sendInLoop(const void* data, size_t len)
     return;
   }
   // if no thing in output queue, try writing directly
-  if (!channel_->isWriting() && outputBuffer_.readableBytes() == 0)
-  {
-    nwrote = sockets::write(channel_->fd(), data, len);
-    if (nwrote >= 0)
-    {
-      remaining = len - nwrote;
-      if (remaining == 0 && writeCompleteCallback_)
-      {
-        loop_->queueInLoop(std::bind(writeCompleteCallback_, shared_from_this()));
-      }
-    }
-    else // nwrote < 0
-    {
-      nwrote = 0;
-      if (errno != EWOULDBLOCK)
-      {
-        LOG_SYSERR << "TcpConnection::sendInLoop";
-        if (errno == EPIPE || errno == ECONNRESET) // FIXME: any others?
-        {
-          faultError = true;
-        }
-      }
-    }
-  }
+	if (!channel_->isWriting() && outputBuffer_.readableBytes() == 0)
+	{
+		nwrote = sockets::write(channel_->fd(), data, len);
+		if (nwrote >= 0)
+		{
+			remaining = len - nwrote;
+			if (remaining == 0 && writeCompleteCallback_)
+			{
+				loop_->queueInLoop(std::bind(writeCompleteCallback_, shared_from_this()));
+			}
+		}
+		else // nwrote < 0
+		{
+			nwrote = 0;
+			if (errno != EWOULDBLOCK)
+			{
+				LOG_SYSERR << "TcpConnection::sendInLoop";
+				if (errno == EPIPE || errno == ECONNRESET) // FIXME: any others?
+				{
+					faultError = true;
+				}
+			}
+		}
+	}
 
   assert(remaining <= len);
   if (!faultError && remaining > 0)

@@ -237,7 +237,11 @@ struct event_base
  *
  * In more depth:
  *
- 
+ * An event may be "pending" (one whose condition we are watching),
+ * "active" (one whose condition has triggered and whose callback is about
+ * to run), neither, or both.  Events come into existence via
+ * event_assign() or event_new(), and are then neither active nor pending.
+ *
  * To make an event pending, pass it to event_add().  When doing so, you
  * can also set a timeout for the event.
  *

@@ -315,7 +315,7 @@ win32_dispatch(struct event_base *base, struct timeval *tv)
 	}
 
 	EVBASE_RELEASE_LOCK(base, th_base_lock);
-
+	 
 	res = select(fd_count,
 		     (struct fd_set*)win32op->readset_out,
 		     (struct fd_set*)win32op->writeset_out,
@@ -372,7 +372,7 @@ win32_dealloc(struct event_base *base)
 	if (win32op->readset_in)
 		mm_free(win32op->readset_in);
 	if (win32op->writeset_in)
-		mm_free(win32op->writeset_in);
+		mm_free(win32op->wr iteset_in);
 	if (win32op->readset_out)
 		mm_free(win32op->readset_out);
 	if (win32op->writeset_out)
