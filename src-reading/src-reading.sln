@@ -23,6 +23,10 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "lighttpd1445", "lighttpd144
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "libevent", "libevent\libevent.vcxproj", "{2B0C7D61-1A68-4F8A-B2FD-9A92013E96E0}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "libuv", "libuv-v1.12.0\libuv.vcxproj", "{33066374-88CB-CB8D-15DA-61032886329A}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "aoi", "aoi\aoi.vcxproj", "{2E2601E3-BF28-4B9C-8438-A65484FC5971}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -111,6 +115,20 @@ Global
 		{2B0C7D61-1A68-4F8A-B2FD-9A92013E96E0}.Release|x64.Build.0 = Release|x64
 		{2B0C7D61-1A68-4F8A-B2FD-9A92013E96E0}.Release|x86.ActiveCfg = Release|Win32
 		{2B0C7D61-1A68-4F8A-B2FD-9A92013E96E0}.Release|x86.Build.0 = Release|Win32
+		{33066374-88CB-CB8D-15DA-61032886329A}.Debug|x64.ActiveCfg = Debug|Win32
+		{33066374-88CB-CB8D-15DA-61032886329A}.Debug|x86.ActiveCfg = Debug|Win32
+		{33066374-88CB-CB8D-15DA-61032886329A}.Debug|x86.Build.0 = Debug|Win32
+		{33066374-88CB-CB8D-15DA-61032886329A}.Release|x64.ActiveCfg = Release|Win32
+		{33066374-88CB-CB8D-15DA-61032886329A}.Release|x86.ActiveCfg = Release|Win32
+		{33066374-88CB-CB8D-15DA-61032886329A}.Release|x86.Build.0 = Release|Win32
+		{2E2601E3-BF28-4B9C-8438-A65484FC5971}.Debug|x64.ActiveCfg = Debug|x64
+		{2E2601E3-BF28-4B9C-8438-A65484FC5971}.Debug|x64.Build.0 = Debug|x64
+		{2E2601E3-BF28-4B9C-8438-A65484FC5971}.Debug|x86.ActiveCfg = Debug|Win32
+		{2E2601E3-BF28-4B9C-8438-A65484FC5971}.Debug|x86.Build.0 = Debug|Win32
+		{2E2601E3-BF28-4B9C-8438-A65484FC5971}.Release|x64.ActiveCfg = Release|x64
+		{2E2601E3-BF28-4B9C-8438-A65484FC5971}.Release|x64.Build.0 = Release|x64
+		{2E2601E3-BF28-4B9C-8438-A65484FC5971}.Release|x86.ActiveCfg = Release|Win32
+		{2E2601E3-BF28-4B9C-8438-A65484FC5971}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

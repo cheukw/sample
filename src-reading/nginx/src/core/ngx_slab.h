@@ -45,7 +45,7 @@ typedef struct {
     void             *data;
     void             *addr;
 } ngx_slab_pool_t;
-
+ 
 
 void ngx_slab_init(ngx_slab_pool_t *pool);
 void *ngx_slab_alloc(ngx_slab_pool_t *pool, size_t size);
